@@ -1,9 +1,9 @@
 import type { NextPage } from "next";
-import Navbar from "../components/header";
-import Menu from "../components/menu";
-import EstructuraOrganizacional from "../components/estructura-organizacional";
-import CardAccesoRapido from "../components/CardAccesoRapido";
-import Footer from "../components/footer";
+import Navbar from "../components/Navbar/header";
+import Menu from "../components/Menu/menu";
+import EstructuraOrganizacional from "../components/Contenido/Organizacion/estructura-organizacional";
+import CardAccesoRapido from "../components/Cards/AccesoRapido/CardAccesoRapido";
+import Footer from "../components/Footer/footer";
 import styles from "./index.module.css";
 
 const OSPLanding: NextPage = () => {

@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import { memo } from "react";
-import BotonCard from "./BotonCard";
+import BotonCard from "../Botones/BotonCard/BotonCard";
 import styles from "./CardRequisitos.module.css";
 
 export type CardRequisitosType = {

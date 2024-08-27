@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import { memo } from "react";
-import CardDelegacion from "./CardDelegacion";
+import CardDelegacion from "../../Cards/CardDelegacion/CardDelegacion";
 import styles from "./DelegacionContainer.module.css";
 
 export type DelegacionContainerType = {
@@ -37,7 +37,7 @@ const DelegacionContainer: NextPage<DelegacionContainerType> = memo(
                   República del Líbano 511(s) antes de España (Ex Coloso)
                 </p>
                 <p className={styles.repblicaDelLbano}>&nbsp;</p>
-                <p className={styles.repblicaDelLbano}>Tel. 4 97-2202 </p>
+                <p className={styles.repblicaDelLbano}>Tel. 4 97-2202</p>
                 <p className={styles.horario0730A}>Horario: 07:30 a 13:30</p>
               </div>
               <div className={styles.botonPrincipalWrapper}>
@@ -74,7 +74,7 @@ const DelegacionContainer: NextPage<DelegacionContainerType> = memo(
                   República del Líbano 511(s) antes de España (Ex Coloso)
                 </p>
                 <p className={styles.repblicaDelLbano}>&nbsp;</p>
-                <p className={styles.repblicaDelLbano}>Tel. 4 97-2202 </p>
+                <p className={styles.repblicaDelLbano}>Tel. 4 97-2202</p>
                 <p className={styles.horario0730A}>Horario: 07:30 a 13:30</p>
               </div>
               <div className={styles.botonPrincipalWrapper}>
@@ -111,7 +111,7 @@ const DelegacionContainer: NextPage<DelegacionContainerType> = memo(
                   República del Líbano 511(s) antes de España (Ex Coloso)
                 </p>
                 <p className={styles.repblicaDelLbano}>&nbsp;</p>
-                <p className={styles.repblicaDelLbano}>Tel. 4 97-2202 </p>
+                <p className={styles.repblicaDelLbano}>Tel. 4 97-2202</p>
                 <p className={styles.horario0730A}>Horario: 07:30 a 13:30</p>
               </div>
               <div className={styles.botonPrincipalWrapper}>
@@ -148,7 +148,7 @@ const DelegacionContainer: NextPage<DelegacionContainerType> = memo(
                   República del Líbano 511(s) antes de España (Ex Coloso)
                 </p>
                 <p className={styles.repblicaDelLbano}>&nbsp;</p>
-                <p className={styles.repblicaDelLbano}>Tel. 4 97-2202 </p>
+                <p className={styles.repblicaDelLbano}>Tel. 4 97-2202</p>
                 <p className={styles.horario0730A}>Horario: 07:30 a 13:30</p>
               </div>
               <div className={styles.botonPrincipalWrapper}>
@@ -185,7 +185,7 @@ const DelegacionContainer: NextPage<DelegacionContainerType> = memo(
                   República del Líbano 511(s) antes de España (Ex Coloso)
                 </p>
                 <p className={styles.repblicaDelLbano}>&nbsp;</p>
-                <p className={styles.repblicaDelLbano}>Tel. 4 97-2202 </p>
+                <p className={styles.repblicaDelLbano}>Tel. 4 97-2202</p>
                 <p className={styles.horario0730A}>Horario: 07:30 a 13:30</p>
               </div>
               <div className={styles.botonPrincipalWrapper}>
@@ -222,7 +222,7 @@ const DelegacionContainer: NextPage<DelegacionContainerType> = memo(
                   República del Líbano 511(s) antes de España (Ex Coloso)
                 </p>
                 <p className={styles.repblicaDelLbano}>&nbsp;</p>
-                <p className={styles.repblicaDelLbano}>Tel. 4 97-2202 </p>
+                <p className={styles.repblicaDelLbano}>Tel. 4 97-2202</p>
                 <p className={styles.horario0730A}>Horario: 07:30 a 13:30</p>
               </div>
               <div className={styles.botonPrincipalWrapper}>
@@ -259,7 +259,7 @@ const DelegacionContainer: NextPage<DelegacionContainerType> = memo(
                   República del Líbano 511(s) antes de España (Ex Coloso)
                 </p>
                 <p className={styles.repblicaDelLbano}>&nbsp;</p>
-                <p className={styles.repblicaDelLbano}>Tel. 4 97-2202 </p>
+                <p className={styles.repblicaDelLbano}>Tel. 4 97-2202</p>
                 <p className={styles.horario0730A}>Horario: 07:30 a 13:30</p>
               </div>
               <div className={styles.botonPrincipalWrapper}>
@@ -296,7 +296,7 @@ const DelegacionContainer: NextPage<DelegacionContainerType> = memo(
                   República del Líbano 511(s) antes de España (Ex Coloso)
                 </p>
                 <p className={styles.repblicaDelLbano}>&nbsp;</p>
-                <p className={styles.repblicaDelLbano}>Tel. 4 97-2202 </p>
+                <p className={styles.repblicaDelLbano}>Tel. 4 97-2202</p>
                 <p className={styles.horario0730A}>Horario: 07:30 a 13:30</p>
               </div>
               <div className={styles.botonPrincipalWrapper}>
@@ -333,7 +333,7 @@ const DelegacionContainer: NextPage<DelegacionContainerType> = memo(
                   República del Líbano 511(s) antes de España (Ex Coloso)
                 </p>
                 <p className={styles.repblicaDelLbano}>&nbsp;</p>
-                <p className={styles.repblicaDelLbano}>Tel. 4 97-2202 </p>
+                <p className={styles.repblicaDelLbano}>Tel. 4 97-2202</p>
                 <p className={styles.horario0730A}>Horario: 07:30 a 13:30</p>
               </div>
               <div className={styles.botonPrincipalWrapper}>
@@ -370,7 +370,7 @@ const DelegacionContainer: NextPage<DelegacionContainerType> = memo(
                   República del Líbano 511(s) antes de España (Ex Coloso)
                 </p>
                 <p className={styles.repblicaDelLbano}>&nbsp;</p>
-                <p className={styles.repblicaDelLbano}>Tel. 4 97-2202 </p>
+                <p className={styles.repblicaDelLbano}>Tel. 4 97-2202</p>
                 <p className={styles.horario0730A}>Horario: 07:30 a 13:30</p>
               </div>
               <div className={styles.botonPrincipalWrapper}>
@@ -407,7 +407,7 @@ const DelegacionContainer: NextPage<DelegacionContainerType> = memo(
                   República del Líbano 511(s) antes de España (Ex Coloso)
                 </p>
                 <p className={styles.repblicaDelLbano}>&nbsp;</p>
-                <p className={styles.repblicaDelLbano}>Tel. 4 97-2202 </p>
+                <p className={styles.repblicaDelLbano}>Tel. 4 97-2202</p>
                 <p className={styles.horario0730A}>Horario: 07:30 a 13:30</p>
               </div>
               <div className={styles.botonPrincipalWrapper}>

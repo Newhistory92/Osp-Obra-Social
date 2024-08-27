@@ -1,9 +1,9 @@
 import type { NextPage } from "next";
 import { memo, useMemo, type CSSProperties } from "react";
-import Facebook from "./facebook";
-import X from "./x";
-import Instagram from "./instagram";
-import Youtube from "./youtube";
+import Facebook from "../RedesSociales/Facebook/facebook";
+import X from "../RedesSociales/Tiwtter/x";
+import Instagram from "../RedesSociales/Instagram/instagram";
+import Youtube from "../RedesSociales/Youtube/youtube";
 import styles from "./footer.module.css";
 
 export type FooterType = {

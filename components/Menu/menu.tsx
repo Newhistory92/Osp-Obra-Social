@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
 import { memo } from "react";
-import RedSocial from "./RedSocial";
-import BotonServicio from "./boton-servicio";
-import CardContacto from "./CardContacto";
+import RedSocial from "../RedesSociales/RedSocial";
+import BotonServicio from "../Botones/BotonServicios/boton-servicio";
+import CardContacto from "../Cards/Contactos/CardContacto";
 import styles from "./menu.module.css";
 
 export type MenuType = {
