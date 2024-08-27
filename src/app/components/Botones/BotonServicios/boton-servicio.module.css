@@ -18,6 +18,11 @@
   align-items: center;
   justify-content: center;
   padding: var(--padding-4xs) var(--padding-3xs);
+  cursor: pointer;
+}
+
+.infoWrapper:hover{
+  border: 4px solid var(--osp);
 }
 .misDocumentos {
   align-self: stretch;

@@ -7,6 +7,8 @@ export type BotonCardType = {
   mostrarIcono?: boolean;
   fondo?: string;
   consultaDeExpediente?: string;
+  onClick: (value: string) => void;
+  value: string; 
 
   /** Style props */
   consultaDeExpedienteTextDecoration?: CSSProperties["textDecoration"];
@@ -19,6 +21,8 @@ const BotonCard: NextPage<BotonCardType> = memo(
     fondo,
     consultaDeExpediente,
     consultaDeExpedienteTextDecoration,
+    onClick,
+    value
   }) => {
     const consultaDeExpedienteStyle: CSSProperties = useMemo(() => {
       return {
@@ -39,6 +43,7 @@ const BotonCard: NextPage<BotonCardType> = memo(
         <div
           className={styles.consultaDeExpediente}
           style={consultaDeExpedienteStyle}
+          onClick={() => onClick(value)}
         >
           {consultaDeExpediente}
         </div>

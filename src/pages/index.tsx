@@ -1,10 +1,11 @@
 import type { NextPage } from "next";
-import Navbar from "../components/Navbar/header";
-import Menu from "../components/Menu/menu";
-import EstructuraOrganizacional from "../components/Contenido/Organizacion/estructura-organizacional";
-import CardAccesoRapido from "../components/Cards/AccesoRapido/CardAccesoRapido";
-import Footer from "../components/Footer/footer";
+import Navbar from "../app/components/Navbar/header";
+import Menu from "../app/components/Menu/menu";
+import EstructuraOrganizacional from "../app/components/Contenido/Organizacion/estructura-organizacional";
+import CardAccesoRapido from "../app/components/Cards/AccesoRapido/CardAccesoRapido";
+import Footer from "../app/components/Footer/footer";
 import styles from "./index.module.css";
+import Carrusel from "@/app/components/Carrusel/Carrusel";
 
 const OSPLanding: NextPage = () => {
   return (
@@ -17,16 +18,14 @@ const OSPLanding: NextPage = () => {
         alt=""
         src="/texturas-osp-5@2x.png"
       />
+      
       <Menu />
+      
       <section className={styles.rectangleParent}>
         <div className={styles.frameChild} />
         <div className={styles.frameParent}>
-          <img className={styles.frameIcon} alt="" src="/frame-1.svg" />
-          <img
-            className={styles.frameItem}
-            alt=""
-            src="/group-1000007305.svg"
-          />
+         <Carrusel/>
+          
         </div>
       </section>
       <div className={styles.loremIpsumDolorSitAmetConParent}>

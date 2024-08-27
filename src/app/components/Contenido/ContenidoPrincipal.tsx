@@ -4,22 +4,23 @@ import styles from "./ContenidoPrincipal.module.css";
 
 export type ContenidoPrincipalType = {
   className?: string;
+  value: string;
 };
 
 const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
-  ({ className = "" }) => {
+  ({ className = "" ,value}) => {
     return (
       <section className={[styles.frameParent, className].join(" ")}>
         <div className={styles.frameWrapper}>
           <div className={styles.contentParent}>
             <div className={styles.content}>
               <div className={styles.container}>
-                <h1 className={styles.nutricin}>Nutrición</h1>
+                <h1 className={styles.nutricin}>{value}</h1>
               </div>
             </div>
             <div className={styles.container1}>
               <div className={styles.enElRea}>
-                En el área de Nutrición puede recibir asesoramiento en los
+                En el área de {value} puede recibir asesoramiento en los
                 siguientes servicios
               </div>
             </div>
@@ -60,3 +61,4 @@ const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
 );
 
 export default ContenidoPrincipal;
+
