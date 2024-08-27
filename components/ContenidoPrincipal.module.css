@@ -1,0 +1,144 @@
+.nutricin {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+}
+.container,
+.content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.content {
+  width: 456.8px;
+  justify-content: center;
+  padding: 0 var(--padding-xl);
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.enElRea {
+  flex: 1;
+  position: relative;
+  font-weight: 500;
+  display: inline-block;
+  max-width: 100%;
+}
+.container1,
+.contentParent,
+.frameWrapper {
+  display: flex;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.container1 {
+  align-self: stretch;
+  flex-direction: row;
+  align-items: flex-start;
+  font-size: var(--body-1-size);
+  color: var(--gris-principal);
+}
+.contentParent,
+.frameWrapper {
+  flex-direction: column;
+}
+.contentParent {
+  align-self: stretch;
+  align-items: flex-end;
+  gap: var(--gap-11xl);
+}
+.frameWrapper {
+  width: 487px;
+  align-items: flex-start;
+  padding: var(--padding-56xl-5) 0 0;
+  box-sizing: border-box;
+}
+.frameChild {
+  height: 272px;
+  width: 0;
+  position: relative;
+  object-fit: contain;
+}
+.consultasYTratamientos {
+  margin-block-start: 0;
+  margin-block-end: 20px;
+}
+.informesYConsultasAl430430 {
+  margin: 0;
+  color: var(--osp);
+}
+.consultasYTratamientosContainer {
+  flex: 1;
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+}
+.bulletPoints,
+.container2,
+.frameParent {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.container2 {
+  align-self: stretch;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.bulletPoints,
+.frameParent {
+  box-sizing: border-box;
+}
+.bulletPoints {
+  width: 398px;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: var(--padding-9xs) 0 0;
+  text-align: left;
+  font-size: var(--body-1-size);
+  color: var(--gris-principal);
+}
+.frameParent {
+  align-self: stretch;
+  background-color: var(--blanco);
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  padding: var(--padding-31xl) var(--padding-357xl) var(--padding-31xl)
+    var(--padding-348xl);
+  gap: var(--gap-xl);
+  text-align: center;
+  font-size: var(--h11-size);
+  color: var(--osp);
+  font-family: var(--body-1);
+}
+@media screen and (max-width: 1050px) {
+  .nutricin {
+    font-size: var(--font-size-19xl);
+  }
+  .frameParent {
+    padding-left: var(--padding-164xl);
+    padding-right: var(--padding-169xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 750px) {
+  .frameParent {
+    padding-left: var(--padding-72xl);
+    padding-right: var(--padding-75xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .nutricin {
+    font-size: var(--font-size-10xl);
+  }
+  .frameParent {
+    padding-top: var(--padding-13xl);
+    padding-bottom: var(--padding-13xl);
+    box-sizing: border-box;
+  }
+}

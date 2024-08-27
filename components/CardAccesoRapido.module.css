@@ -1,0 +1,86 @@
+.cardVerticalChild {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  border-radius: 7.84px;
+  background-color: var(--gris-principal);
+}
+.expediente3Icon,
+.fondoIcon {
+  height: 9.4px;
+  width: 254.5px;
+  position: relative;
+  display: none;
+}
+.expediente3Icon {
+  height: 27.5px;
+  width: 27.5px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.direccinDelRegistro,
+.ingreseContenido {
+  height: 0;
+  position: relative;
+  display: none;
+  flex-shrink: 0;
+}
+.ingreseContenido {
+  width: 167.9px;
+  font-weight: 500;
+  align-items: center;
+  justify-content: center;
+}
+.direccinDelRegistro {
+  width: 141.2px;
+  font-size: var(--font-size-3xs);
+}
+.cardVertical {
+  align-self: stretch;
+  flex: 1;
+  box-shadow: 0 0 3.14px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-5xs-1);
+}
+.expedienteBlancoIcon {
+  width: 73.2px;
+  height: 71.9px;
+  position: absolute;
+  margin: 0 !important;
+  top: 28.1px;
+  left: 85.9px;
+  z-index: 1;
+}
+.cardColores,
+.inicio {
+  margin: 0 !important;
+  position: absolute;
+  display: flex;
+}
+.inicio {
+  width: 166.3px;
+  bottom: 22.7px;
+  left: 42.3px;
+  font-size: var(--font-size-base-7);
+  font-weight: 500;
+  color: var(--blanco);
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.cardColores {
+  height: 145.9px;
+  width: 254.5px;
+  top: 239.9px;
+  left: 578px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: center;
+  font-size: var(--body-10-size);
+  color: var(--color-black);
+  font-family: var(--body-1);
+}

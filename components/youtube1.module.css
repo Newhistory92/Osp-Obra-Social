@@ -1,0 +1,28 @@
+.youtubeChild {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--color-gainsboro);
+}
+.yputubeIcon {
+  position: absolute;
+  height: 67.04%;
+  width: 88.52%;
+  top: 17.04%;
+  right: 5.19%;
+  bottom: 15.93%;
+  left: 6.3%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  z-index: 1;
+}
+.youtube {
+  height: 27px;
+  width: 27px;
+  position: relative;
+}

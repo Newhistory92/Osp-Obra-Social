@@ -1,0 +1,187 @@
+.headerContainer {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 0 var(--padding-51xl);
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.texturasOsp5Icon {
+  width: 100%;
+  height: 348px;
+  position: absolute;
+  margin: 0 !important;
+  top: 90px;
+  right: 0;
+  left: 0;
+  max-width: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.delegaciones {
+  margin: 0;
+}
+.delegacionesDepartementales {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+}
+.delegacionesDepartementalesWrapper,
+.frameContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.delegacionesDepartementalesWrapper {
+  flex: 1;
+}
+.frameContainer {
+  align-self: stretch;
+  padding: 0 44px;
+  box-sizing: border-box;
+}
+.enElRea {
+  flex: 1;
+  position: relative;
+  font-weight: 500;
+  display: inline-block;
+  max-width: 100%;
+}
+.enElReaDeNutricinPuedeWrapper,
+.frameGroup,
+.frameWrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.enElReaDeNutricinPuedeWrapper {
+  align-self: stretch;
+  flex-direction: row;
+  font-size: var(--body-1-size);
+  color: var(--gris-principal);
+}
+.frameGroup,
+.frameWrapper {
+  flex-direction: column;
+}
+.frameGroup {
+  align-self: stretch;
+  gap: var(--gap-11xl);
+}
+.frameWrapper {
+  width: 487px;
+  padding: var(--padding-29xl) 0 0;
+  box-sizing: border-box;
+}
+.frameChild {
+  height: 272px;
+  width: 0;
+  position: relative;
+  object-fit: contain;
+}
+.consultasYTratamientos {
+  margin-block-start: 0;
+  margin-block-end: 20px;
+}
+.informesYConsultasAl430430 {
+  margin: 0;
+  color: var(--osp);
+}
+.consultasYTratamientosContainer {
+  flex: 1;
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+}
+.consultasYTratamientosNutriWrapper {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.frameDiv {
+  width: 398px;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: var(--padding-9xs) 0 0;
+  box-sizing: border-box;
+  max-width: 100%;
+  text-align: left;
+  font-size: var(--body-1-size);
+  color: var(--gris-principal);
+}
+.frameDiv,
+.frameParent,
+.ospServicios {
+  display: flex;
+  align-items: flex-start;
+}
+.frameParent {
+  align-self: stretch;
+  background-color: var(--blanco);
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  padding: var(--padding-31xl) var(--padding-357xl) var(--padding-31xl)
+    var(--padding-348xl);
+  box-sizing: border-box;
+  gap: var(--gap-xl);
+  max-width: 100%;
+  text-align: center;
+  font-size: var(--h11-size);
+  color: var(--osp);
+  font-family: var(--body-1);
+}
+.ospServicios {
+  width: 100%;
+  position: relative;
+  background-color: var(--gris-20);
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: flex-start;
+  line-height: normal;
+  letter-spacing: normal;
+}
+@media screen and (max-width: 1050px) {
+  .delegacionesDepartementales {
+    font-size: var(--font-size-19xl);
+  }
+  .frameParent {
+    padding-left: var(--padding-164xl);
+    padding-right: var(--padding-169xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 750px) {
+  .frameContainer,
+  .frameParent {
+    padding-left: var(--padding-3xl);
+    padding-right: var(--padding-3xl);
+    box-sizing: border-box;
+  }
+  .frameParent {
+    padding-left: var(--padding-72xl);
+    padding-right: var(--padding-75xl);
+  }
+}
+@media screen and (max-width: 450px) {
+  .delegacionesDepartementales {
+    font-size: var(--font-size-10xl);
+  }
+  .frameParent {
+    padding-top: var(--padding-13xl);
+    padding-bottom: var(--padding-13xl);
+    box-sizing: border-box;
+  }
+}

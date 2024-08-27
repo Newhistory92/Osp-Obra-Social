@@ -1,0 +1,218 @@
+.delegacionesEnLa {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 500;
+  font-family: inherit;
+}
+.frameChild,
+.frameItem {
+  width: 256px;
+  position: absolute;
+}
+.frameChild {
+  top: 11px;
+  left: 0;
+  border-radius: var(--br-3xs);
+  background-color: var(--blanco);
+  height: 285px;
+}
+.frameItem {
+  border: 0;
+  background-color: var(--gris-principal);
+  height: 85px;
+  outline: 0;
+  top: calc(50% - 148px);
+  left: calc(50% - 128px);
+  border-radius: var(--br-3xs) var(--br-3xs) 0 0;
+  z-index: 1;
+}
+.rectangleParent {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  margin: 0 !important;
+  top: -2px;
+  right: 0;
+  left: 0;
+}
+.delegacionesIcon {
+  height: 50px;
+  width: 50px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  z-index: 2;
+}
+.delegacionesWrapper {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 var(--padding-12xs) 0 0;
+}
+.sectorAgropecuario {
+  flex: 1;
+  position: relative;
+  font-weight: 500;
+}
+.sectorAgropecuarioWrapper {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-3xs);
+  z-index: 2;
+}
+.repblicaDelLbano {
+  margin: 0;
+  font-weight: 300;
+}
+.horario0730A {
+  margin: 0;
+  font-weight: 500;
+}
+.esUnSectorContainer {
+  height: 104.5px;
+  position: relative;
+  font-size: var(--body-10-size);
+  color: var(--gris-principal);
+  display: inline-block;
+  flex-shrink: 0;
+  z-index: 2;
+}
+.vectorIcon {
+  width: 5.7px;
+  height: 4.2px;
+  position: relative;
+}
+.ingresarCuenta {
+  height: 7.1px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-11xs-1) var(--padding-12xs);
+  box-sizing: border-box;
+  width: 7.1px;
+}
+.texto {
+  position: relative;
+  font-weight: 500;
+  white-space: pre-wrap;
+  display: inline-block;
+  min-width: 66px;
+}
+.botonPrincipal,
+.botonPrincipalWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.botonPrincipal {
+  box-shadow: 0 0 1.42px rgba(0, 0, 0, 0.25);
+  border-radius: 2.49px;
+  background-color: var(--gris-80);
+  padding: var(--padding-8xs-2) var(--padding-2xs) var(--padding-8xs-3);
+  gap: var(--gap-8xs-3);
+  z-index: 2;
+}
+.botonPrincipalWrapper {
+  padding: 0 var(--padding-44xl) 0 var(--padding-42xl);
+  text-align: left;
+  font-size: var(--font-size-3xs-9);
+  color: var(--blanco);
+}
+.cardAtp {
+  width: 256px;
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.25));
+  flex-direction: column;
+  padding: var(--padding-mini) var(--padding-2xl) var(--padding-base);
+  position: relative;
+  gap: var(--gap-mid);
+}
+.cardAtp,
+.delegationCards,
+.delegationsContainer,
+.delegationsTitle {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+.delegationCards {
+  align-self: stretch;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  padding: 0 var(--padding-11xs) 0 0;
+  gap: 42px 41px;
+  min-height: 1638px;
+  text-align: center;
+  font-size: var(--body-1-size);
+  color: var(--color-black);
+}
+.delegationsContainer,
+.delegationsTitle {
+  max-width: 100%;
+}
+.delegationsTitle {
+  flex: 1;
+  background-color: var(--blanco);
+  flex-direction: column;
+  padding: var(--padding-31xl) var(--padding-216xl);
+  gap: var(--gap-7xl);
+}
+.delegationsContainer {
+  align-self: stretch;
+  flex-direction: row;
+  padding: 0 0 var(--padding-760xl);
+  text-align: left;
+  font-size: var(--h2-size);
+  color: var(--gris-principal);
+  font-family: var(--body-1);
+}
+@media screen and (max-width: 1200px) {
+  .delegationsTitle {
+    padding-top: var(--padding-13xl);
+    padding-bottom: var(--padding-13xl);
+    box-sizing: border-box;
+  }
+  .delegationsContainer {
+    padding-bottom: var(--padding-310xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .delegationsTitle {
+    padding: var(--padding-2xl) var(--padding-98xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 750px) {
+  .delegationCards {
+    gap: var(--gap-xl);
+  }
+  .delegationsTitle {
+    padding-left: var(--padding-39xl);
+    padding-right: var(--padding-39xl);
+    box-sizing: border-box;
+  }
+  .delegationsContainer {
+    padding-bottom: var(--padding-195xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .delegacionesEnLa {
+    font-size: var(--body-1-size);
+  }
+  .delegationsTitle {
+    padding-top: var(--padding-xl);
+    padding-bottom: var(--padding-xl);
+    box-sizing: border-box;
+  }
+}
