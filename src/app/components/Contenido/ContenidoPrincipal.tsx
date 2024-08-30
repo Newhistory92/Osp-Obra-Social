@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import { memo } from "react";
 import styles from "./ContenidoPrincipal.module.css";
-
+import Requisitos from "@/app/components/Cards/Requisitos/componentsRequisitos";
 export type ContenidoPrincipalType = {
   className?: string;
   value: string;
@@ -54,6 +54,7 @@ const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
               </p>
             </div>
           </div>
+          <Requisitos/>
         </div>
       </section>
     );

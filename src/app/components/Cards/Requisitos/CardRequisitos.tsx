@@ -5,12 +5,12 @@ import styles from "./CardRequisitos.module.css";
 
 export type CardRequisitosType = {
   className?: string;
-  onValueChange: (value: string) => void; // Añadimos un prop para manejar el valor seleccionado
+  onValueChange: (value: string) => void;
 };
 
 const CardRequisitos: NextPage<CardRequisitosType> = memo(({ className = "", onValueChange }) => {
   const handleBotonCardClick = (value: string) => {
-    onValueChange(value); // Enviamos el valor seleccionado al componente padre
+    onValueChange(value); 
   };
 
   return (
