@@ -1,3 +1,5 @@
+// componente hecho con el plugin
+
 // import type { NextPage } from "next";
 // import { memo } from "react";
 // import Accordion1 from "./acordionderequisitos/AcordionRequisito";
@@ -69,6 +71,9 @@
 // );
 
 // export default Requisitos;
+
+
+//modificar estilos
 import type { NextPage } from "next";
 import { memo } from "react";
 import React, { useState } from 'react';
@@ -86,9 +91,9 @@ const Requisitos: NextPage<RequisitosType> = memo(
     
     return (
       <div >
-          <Accordion  activeIndex={0}>
-              <AccordionTab header="02 - Cambio de situación de revista">
-                  <p className="m-0">
+          <Accordion className={styles.accordionContainer}  activeIndex={0}>
+              <AccordionTab className={styles.requisitosDeAfiliacionesParent} header="02 - Cambio de situación de revista">
+                  <p className={styles.requisitosDeAfiliaciones}>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                       Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
                       commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
@@ -96,7 +101,7 @@ const Requisitos: NextPage<RequisitosType> = memo(
                   </p>
               </AccordionTab>
               <AccordionTab header="05 - Hijos mayores de 21 años con discapacidad">
-                  <p className="m-0">
+                  <p className={styles.requisitosDeAfiliaciones}>
                       Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa 
                       quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas 
                       sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. 
@@ -104,7 +109,7 @@ const Requisitos: NextPage<RequisitosType> = memo(
                   </p>
               </AccordionTab>
               <AccordionTab header="04 - Menores de 21 años">
-                  <p className="m-0">
+                  <p className={styles.requisitosDeAfiliaciones}>
                       At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti
                       quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt 
                       mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. 

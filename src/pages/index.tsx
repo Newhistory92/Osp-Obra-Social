@@ -28,7 +28,7 @@ const OSPLanding: NextPage = () => {
           
         </div>
       </section>
-      <div className={styles.loremIpsumDolorSitAmetConParent}>
+      {/* <div className={styles.loremIpsumDolorSitAmetConParent}>
         <div className={styles.loremIpsumDolor}>
           Lorem ipsum dolor sit amet consectetur. Aliquam amet eu tellus pretium
           sed. Cras nibh turpis dictumst dictum. Eleifend mattis ut ac nullam
@@ -38,7 +38,7 @@ const OSPLanding: NextPage = () => {
           <div className={styles.quickAccessBackground} />
           <h1 className={styles.accesoRpidos}>{`Acceso Rápidos `}</h1>
         </div>
-      </div>
+      </div> */}
       <section className={styles.contentBottomContainerParent}>
         <EstructuraOrganizacional />
         <div className={styles.cardX5Color}>
