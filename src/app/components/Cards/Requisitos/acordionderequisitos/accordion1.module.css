@@ -1,0 +1,54 @@
+.documentacinRequerida {
+  margin-block-start: 0;
+  margin-block-end: 20px;
+  font-weight: 500;
+}
+.fichaDeAfiliacin {
+  font-weight: 300;
+}
+.fotocopiaDeDecretoDeDesign {
+  margin-bottom: 5px;
+}
+.fichaDeAfiliacinDelTitula {
+  margin: 0;
+  font-size: inherit;
+  padding-left: var(--padding-2xl);
+}
+.siAlMomento {
+  margin-block-start: 0;
+  margin-block-end: 20px;
+  font-weight: 300;
+}
+.unaVezReunida {
+  margin: 0;
+  font-weight: 300;
+}
+.content {
+  align-self: stretch;
+  position: relative;
+}
+.accordion2,
+.accordionContent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.accordionContent {
+  padding: var(--padding-3xs) var(--padding-3xs) var(--padding-11xl);
+  gap: var(--gap-5xl);
+}
+.accordion2 {
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+  border-radius: var(--br-3xs);
+  background-color: var(--blanco);
+  border-bottom: 2px solid var(--gris-principal);
+  box-sizing: border-box;
+  mix-blend-mode: normal;
+  max-width: 100%;
+  text-align: left;
+  font-size: var(--body-1-size);
+  color: var(--gris-principal);
+  font-family: var(--body-1);
+}
