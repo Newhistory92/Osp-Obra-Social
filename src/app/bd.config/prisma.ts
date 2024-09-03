@@ -1,41 +1,41 @@
-import { PrismaClient } from '@prisma/client';
+// import { PrismaClient } from '@prisma/client';
 
-let prisma: PrismaClient;
+// let prisma: PrismaClient;
 
-if (process.env.NODE_ENV === "production") {
-  prisma = new PrismaClient();
-} else {
-  let globalWithPrisma = global as typeof globalThis & {
-    prisma: PrismaClient;
-  };
-  if (!globalWithPrisma.prisma) {
-    globalWithPrisma.prisma = new PrismaClient();
-  }
-  prisma = globalWithPrisma.prisma;
-}
+// if (process.env.NODE_ENV === "production") {
+//   prisma = new PrismaClient();
+// } else {
+//   let globalWithPrisma = global as typeof globalThis & {
+//     prisma: PrismaClient;
+//   };
+//   if (!globalWithPrisma.prisma) {
+//     globalWithPrisma.prisma = new PrismaClient();
+//   }
+//   prisma = globalWithPrisma.prisma;
+// }
 
-async function main() {
-  try {
-    await prisma.$connect();
-    console.log("Connected to the database.");
+// async function main() {
+//   try {
+//     await prisma.$connect();
+//     console.log("Connected to the database.");
 
-  } catch (error) {
-    console.error("Error connecting to the database:", error);
-    throw error; 
-  } finally {
-    await prisma.$disconnect();
-  }
-}
+//   } catch (error) {
+//     console.error("Error connecting to the database:", error);
+//     throw error; 
+//   } finally {
+//     await prisma.$disconnect();
+//   }
+// }
 
-main()
-  .then(async () => {
-    await prisma.$disconnect();
-  })
-  .catch(async (e) => {
-    console.error(e);
-    await prisma.$disconnect();
-    process.exit(1);
-  });
+// main()
+//   .then(async () => {
+//     await prisma.$disconnect();
+//   })
+//   .catch(async (e) => {
+//     console.error(e);
+//     await prisma.$disconnect();
+//     process.exit(1);
+//   });
 
 
 
@@ -51,4 +51,16 @@ main()
   //   }
   // }
   
-export default prisma;
+// export default prisma;
+
+import { PrismaClient } from "@prisma/client";
+
+const globalForPrisma = global as unknown as { prisma: PrismaClient };
+
+export const prisma =
+	globalForPrisma.prisma ||
+	new PrismaClient({
+		log: ["query"],
+	});
+
+if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;

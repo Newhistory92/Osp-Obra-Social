@@ -3,6 +3,7 @@ import Head from "next/head";
 import type { AppProps } from "next/app";
 import { Provider } from 'react-redux';
 import { store } from '@/app/redux/Store/store';
+import{ApolloWrapper} from "@/lib/apollo-wrapper"
 import "./global.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -16,7 +17,10 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
       </Head>
       <Provider store={store}>
+      <ApolloWrapper> 
       <Component {...pageProps} />
+      </ApolloWrapper>
+     
     </Provider>
     </Fragment>
   );
