@@ -74,29 +74,25 @@ export interface NavbarState {
     Nombre: string;
   }
 
-export interface Prestador  {
-  denuncias: string;
+  export interface Prestador  {
   id:string,
-  imageUrl: string;
-  name: string;
-  matricula?:string;
-  descripcion: string;
-  phone: string;
-  phoneOpc: string;
-  address: string;
-  especialidad:string,
-  especialidad2?:string,
-  especialidad3?:string,
-  tipo: string,
-  IdPrestador:number,
-  email:string,
-  checkedPhone:boolean,
-  createdAt?: string;
-  updatedAt?: string;
+  especialidad: string;
+  esp1_nom: string;
+  esp2_nom: string;
+  Nombre: string;
+  Matricula: string;
+  Telefono: string;
+  Domicilio: string;
+  Localidad: string;
+  Fidelizado:string;
+
   
 }
 
-
+export interface FetchOptions {
+  method?: string;
+  body?: any;
+}
 export interface DescriptionProps {
   initialDescription: string;
   onSave: (descripcion: string) => void;
