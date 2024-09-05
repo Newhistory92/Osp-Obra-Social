@@ -11,18 +11,26 @@ export type MenuType = {
   className?: string;
 };
 
+
 const Menu: NextPage<MenuType> = memo(({ className = "" }) => {
   const [mostrarContenido, setMostrarContenido] = useState(false);
   const [servicioSeleccionado, setServicioSeleccionado] = useState<string>("Servicios");
   const [contenidoSeleccionado, setContenidoSeleccionado] = useState<string>("");
 
+ console.log(contenidoSeleccionado)
+  const handlePublicacionesFiltradasChange = (publicaciones: any[]) => {
+    setContenidoSeleccionado(publicaciones);
+  };
+
+    
+
+
   const handleServicioClick = (servicio: string) => {
     setServicioSeleccionado(servicio);
-    setMostrarContenido(true); 
+    setMostrarContenido(true);
   };
-  const handleValueChange = (value: string) => {
-    setContenidoSeleccionado(value); 
-  };
+
+ 
   const handleCerrarClick = () => {
     setMostrarContenido(false); 
   };
@@ -64,29 +72,40 @@ const Menu: NextPage<MenuType> = memo(({ className = "" }) => {
           <div className={styles.botones}>
             <BotonServicio
               showIcono
-              text="Servicios"
-              info="/servicios-salud.svg"
-              onClick={() => handleServicioClick("Servicios")}
-            />
-            <BotonServicio
-              showIcono
               text="Afiliaciones"
               info="/afiliaciones.svg"
-              onClick={() => handleServicioClick("Afiliaciones")}
-            />
+              onClick={() => handleServicioClick("afiliaciones")}
+            /> 
+              <BotonServicio
+                showIcono
+                text="Prestadores"
+                info="/empleados-publicos.svg"
+                onClick={() => handleServicioClick("prestadores")}
+              />
+              <BotonServicio
+                showIcono
+                text="Coberturas"
+                info="/autorizaciones-farmacia1.svg"
+                onClick={() => handleServicioClick("Cobertura")}
+              />
             <BotonServicio
               showIcono
-              text="Prestadores"
-              info="/empleados-publicos.svg"
-              onClick={() => handleServicioClick("Prestadores")}
+              text="Servicios"
+              info="/servicios-salud.svg"
+              onClick={() => handleServicioClick("servicios")}
             />
-            <BotonServicio
-              showIcono
-              text="Medicamentos"
-              info="/medicamentos.svg"
-              onClick={() => handleServicioClick("Medicamentos")}
-            />
-            <BotonServicio showIcono text="Farmacia" info="/farmacia.svg"   onClick={() => handleServicioClick("Farmacia")} />
+             <BotonServicio
+                showIcono
+                text="Programas"
+                info="/medicamentos1.svg"
+                onClick={() => handleServicioClick("programas")}
+              />
+          
+            <BotonServicio 
+            showIcono text="Farmacia y Medicamento" 
+            info="/farmacia.svg"   
+            onClick={() => handleServicioClick("farmacia y medicamento")} />
+
             <div className={styles.botonServicio}>
               <div className={styles.pacientesCronicosWrapper}>
                 <img
@@ -106,21 +125,15 @@ const Menu: NextPage<MenuType> = memo(({ className = "" }) => {
               showIcono
               text="Formularios"
               info="/formularios-medicos.svg"
-              onClick={() => handleServicioClick("Formularios")}
+              onClick={() => handleServicioClick("formularios")}
             />
             <BotonServicio
               showIcono
               text="Institucional"
               info="/delegaciones.svg"
-              onClick={() => handleServicioClick("Institucional")}
+              onClick={() => handleServicioClick("institucional")}
             />
-            <BotonServicio
-              showIcono
-              text="Autorizaciones"
-              info="/autorizaciones-farmacia.svg"
-              onClick={() => handleServicioClick("Autorizaciones")}
-            />
-            <BotonServicio showIcono text="Consultas" info="/info@2x.png" />
+            
           </div>
           
         </div>
@@ -138,7 +151,10 @@ const Menu: NextPage<MenuType> = memo(({ className = "" }) => {
               <b className={styles.servicios}>{servicioSeleccionado}</b>
             </button>
           </div>
-            <CardRequisitos onValueChange={handleValueChange}/>
+          <CardRequisitos
+        servicioSeleccionado={servicioSeleccionado}
+        onPublicacionesFiltradasChange={handlePublicacionesFiltradasChange}
+      />
           <div className={styles.cabecerarequisito}>
           <ContenidoPrincipal value={contenidoSeleccionado}/>
           </div>

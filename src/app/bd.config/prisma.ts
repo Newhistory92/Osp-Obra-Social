@@ -14,6 +14,7 @@ if (process.env.NODE_ENV === "production") {
   prisma = globalWithPrisma.prisma;
 }
 
+export default prisma;
 // async function main() {
 //   try {
 //     await prisma.$connect();

@@ -62,15 +62,16 @@ const FilterEspecialidad: React.FC<FilterEspecialidadProps> = ({ prestadores, se
         />
       )}
       renderOption={(props, option) => {
+        const { key, ...restProps } = props; 
         const matches = match(option.nombre, searchQuery, { insideWords: true });
         const parts = parse(option.nombre, matches);
 
         return (
-          <li key={`${option.id}-${option.nombre}`} {...props}>
+          <li key={`${option.id}-${option.nombre}`} {...restProps}>
             <div>
               {parts.map((part, index) => (
                 <span
-                key={index}
+                  key={index}
                   style={{
                     fontWeight: part.highlight ? 700 : 400,
                   }}
