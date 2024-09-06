@@ -1,59 +1,67 @@
-.nutricin {
+
+.areaNavigation {
+  width: 242.6px;
+  gap: var(--gap-mini);
+}
+.reaAfiliaciones {
   margin: 0;
   position: relative;
   font-size: inherit;
   font-weight: 700;
   font-family: inherit;
+  text-transform: capitalize;
 }
-.container,
-.content {
+.reaAfiliacionesWrapper {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  justify-content: flex-start;
-}
-.content {
-  width: 456.8px;
-  justify-content: center;
-  padding: 0 var(--padding-xl);
+  justify-content: flex-end;
+  padding: 0 var(--padding-43xl);
   box-sizing: border-box;
   max-width: 100%;
+  flex-shrink: 0;
 }
-.enElRea {
-  flex: 1;
-  position: relative;
-  font-weight: 500;
-  display: inline-block;
-  max-width: 100%;
-}
-.container1,
-.contentParent,
-.frameWrapper {
-  display: flex;
-  justify-content: flex-start;
-  max-width: 100%;
-}
-.container1 {
+.paraPresentacinDe {
   align-self: stretch;
-  flex-direction: row;
-  align-items: flex-start;
+  position: relative;
   font-size: var(--body-1-size);
+  font-weight: 500;
   color: var(--gris-principal);
 }
-.contentParent,
-.frameWrapper {
-  flex-direction: column;
+.areaAction,
+.areaActionWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 100%;
 }
-.contentParent {
+.areaAction {
+  justify-content: center;
+  gap: var(--gap-56xl-6);
+}
+.areaActionWrapper {
+  justify-content: flex-end;
+  padding: 0 var(--padding-8xl);
+  box-sizing: border-box;
+}
+.areaDescription,
+.frameParent {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.frameParent {
   align-self: stretch;
   align-items: flex-end;
-  gap: var(--gap-11xl);
+  padding: 0 var(--padding-7xs) var(--padding-12xs-1);
+  gap: var(--gap-14xl-8);
 }
-.frameWrapper {
-  width: 487px;
+.areaDescription {
+  width: 541.5px;
   align-items: flex-start;
-  padding: var(--padding-56xl-5) 0 0;
-  box-sizing: border-box;
+  padding: var(--padding-7xl-4) 0 0;
 }
 .frameChild {
   height: 272px;
@@ -61,86 +69,141 @@
   position: relative;
   object-fit: contain;
 }
-.consultasYTratamientos {
+.losTrmitesQue {
   margin-block-start: 0;
   margin-block-end: 20px;
- 
 }
-
-.informesYConsultasAl430430 {
+.afiliacionesospgmailcom1 {
+  text-decoration: underline;
+}
+.afiliacionesospgmailcom {
   margin: 0;
   color: var(--osp);
 }
-.consultasYTratamientosContainer {
-  flex: 1;
+.losTrmitesQueContainer {
+  width: 530px;
   position: relative;
   display: inline-block;
-  max-width: 100%;
+  max-height: 238px;
+  word-break: break-word;
 }
-.bulletPoints,
-.container2,
-.frameParent {
+.losTrmitesQueSeRealizanPWrapper {
   display: flex;
-  align-items: flex-start;
-  max-width: 100%;
-}
-.container2 {
-  align-self: stretch;
-  flex-direction: row;
-  justify-content: flex-start;
-}
-.bulletPoints,
-.frameParent {
-  box-sizing: border-box;
-}
-.bulletPoints {
-  width: 398px;
   flex-direction: column;
+  align-items: flex-start;
   justify-content: flex-start;
-  padding: var(--padding-9xs) 0 0;
+  padding: var(--padding-mid) 0 0;
+  box-sizing: border-box;
+  max-width: 100%;
   text-align: left;
   font-size: var(--body-1-size);
   color: var(--gris-principal);
 }
-.frameParent {
-  align-self: stretch;
-  background-color: var(--blanco);
+.areaDescriptionParent,
+.frameWrapper {
+  display: flex;
   flex-direction: row;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.areaDescriptionParent {
+  width: 1349.5px;
   justify-content: space-between;
-  flex-wrap: wrap;
-  align-content: flex-start;
-  padding: var(--padding-31xl) var(--padding-357xl) var(--padding-31xl)
-    var(--padding-348xl);
   gap: var(--gap-xl);
-  text-align: center;
+}
+.frameWrapper {
+  align-self: stretch;
+  justify-content: flex-end;
+}
+.areaNavigationParent {
+  width: 1401.8px;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: var(--gap-45xl-9);
   font-size: var(--h11-size);
   color: var(--osp);
+}
+.areaNavigationParent,
+.ospAfiliacionesInner {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+
+.ospAfiliacionesInner {
+  align-self: stretch;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0 var(--padding-xl) var(--padding-53xl-5);
+  box-sizing: border-box;
+  text-align: center;
+  font-size: var(--font-size-base-8);
+  color: var(--gris-principal);
   font-family: var(--body-1);
 }
-@media screen and (max-width: 1050px) {
-  .nutricin {
-    font-size: var(--font-size-19xl);
+
+
+@media screen and (max-width: 1200px) {
+  .botones {
+    padding-left: var(--padding-17xl);
+    padding-right: var(--padding-17xl);
+    box-sizing: border-box;
   }
-  .frameParent {
-    padding-left: var(--padding-164xl);
-    padding-right: var(--padding-169xl);
+  .areaDescriptionParent {
+    flex-wrap: wrap;
+  }
+  .ospAfiliacionesInner {
+    padding-bottom: var(--padding-28xl);
     box-sizing: border-box;
   }
 }
+@media screen and (max-width: 1050px) {
+  .reaAfiliaciones {
+    font-size: var(--font-size-19xl);
+  }
+}
 @media screen and (max-width: 750px) {
+  .botones {
+    gap: var(--gap-lg);
+  }
+  .cabeceraConIconos {
+    padding-top: var(--padding-7xl);
+    padding-bottom: var(--padding-7xl);
+    box-sizing: border-box;
+  }
+  .reaAfiliacionesWrapper {
+    padding-left: var(--padding-12xl);
+    padding-right: var(--padding-12xl);
+    box-sizing: border-box;
+  }
+  .areaAction {
+    flex-wrap: wrap;
+  }
   .frameParent {
-    padding-left: var(--padding-72xl);
-    padding-right: var(--padding-75xl);
+    gap: var(--gap-mid);
+  }
+  .areaNavigationParent {
+    gap: var(--gap-13xl);
+  }
+  .cabeceraConIconosParent {
+    gap: var(--gap-4xl);
+  }
+  .ospAfiliacionesInner {
+    padding-bottom: var(--padding-12xl);
     box-sizing: border-box;
   }
 }
 @media screen and (max-width: 450px) {
-  .nutricin {
+  .afiliaciones {
+    font-size: var(--font-size-lgi);
+  }
+  .reaAfiliaciones {
     font-size: var(--font-size-10xl);
   }
-  .frameParent {
-    padding-top: var(--padding-13xl);
-    padding-bottom: var(--padding-13xl);
-    box-sizing: border-box;
+  .areaAction {
+    gap: var(--gap-19xl);
+  }
+  .areaNavigationParent {
+    gap: var(--gap-base);
   }
 }

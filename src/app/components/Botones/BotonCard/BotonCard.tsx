@@ -31,7 +31,8 @@ const BotonCard: NextPage<BotonCardType> = memo(
     }, [consultaDeExpedienteTextDecoration]);
 
     return (
-      <div className={[styles.botnPiesNicon, className].join(" ")}>
+      <div className={[styles.botnPiesNicon, className].join(" ")} 
+      onClick={() => onClick(value)}>
         <img className={styles.fondoIcon} alt="" src={fondo} />
         {mostrarIcono && (
           <img
@@ -43,7 +44,7 @@ const BotonCard: NextPage<BotonCardType> = memo(
         <div
           className={styles.consultaDeExpediente}
           style={consultaDeExpedienteStyle}
-          onClick={() => onClick(value)}
+          
         >
           {consultaDeExpediente}
         </div>

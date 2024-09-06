@@ -44,16 +44,7 @@ const Navbar: NextPage<NavbarType> = memo(
             logoGobiernoFlex={logoGobiernoFlex}
           />
         </div>
-        <div className={styles.cIDILogo}>
-          <div className={styles.logoCidiHorizontal}>
-            <img
-              className={styles.logoCidiHorizontalChild}
-              loading="lazy"
-              alt=""
-              src="/group-85.svg"
-            />
-          </div>
-        </div>
+       
       </div>
     );
   }

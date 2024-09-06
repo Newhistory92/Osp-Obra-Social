@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import Image from 'next/image';
 import { ProgressBar } from 'primereact/progressbar';
-//import "./Carrusel.css";
 import { CarruselItem } from '@/app/interfaces/interfaces';
 import "primereact/resources/themes/saga-blue/theme.css"; 
 import banner from "../../../../public/banner.png"
@@ -13,7 +12,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function ControlledCarousel() {
   const [carruselItems, setCarruselItems] = useState<CarruselItem[]>([]);
-  const [loading, setLoading] = useState(false); // Cambiado a false para que no muestre el indicador de carga
+  const [loading, setLoading] = useState(false); 
   
   useEffect(() => {
     // Comentado temporalmente hasta que conectes la base de datos

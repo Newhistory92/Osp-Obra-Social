@@ -1,18 +1,18 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface NavbarState {
-  activeButton: string | null; 
+  activeButton: boolean; 
 }
 
 const initialState: NavbarState = {
-  activeButton: null,
+  activeButton: false,
 };
 
 const navbarSlice = createSlice({
   name: 'navbar',
   initialState,
   reducers: {
-    setActiveButton(state, action: PayloadAction<string | null>) {
+    setActiveButton(state, action: PayloadAction<boolean>) {
       state.activeButton = action.payload;
     },
   },
