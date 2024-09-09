@@ -22,8 +22,15 @@
 }
 
 .infoWrapper:hover{
-  border: 4px solid var(--osp);
+  transition: background-color 0.5s;
+  outline: 1px solid var(--osp);
+  background-color: #F5F5F5;
 }
+
+.infoWrapper:focus{
+  outline: 2px solid var(--osp);
+}
+
 .misDocumentos {
   align-self: stretch;
   height: 44.9px;
@@ -33,7 +40,7 @@
   flex-shrink: 0;
 }
 .botonServicio {
-  width: 140px;
+  width: 130px;
   display: flex;
   flex-direction: column;
   align-items: center;

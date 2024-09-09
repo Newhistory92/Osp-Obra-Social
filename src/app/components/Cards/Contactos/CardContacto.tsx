@@ -49,7 +49,7 @@ const CardContacto: NextPage<CardContactoType> = memo(
             </div>
           </div>
         </div>
-        <img className={styles.fondoIcon} alt="" src={fondo} />
+        <div className={styles.borderDecoration}></div>
       </div>
     );
   }
