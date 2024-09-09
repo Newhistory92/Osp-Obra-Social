@@ -1,0 +1,9 @@
+.carrusel {
+  padding: 0px 126px !important;
+  height: auto;
+}
+
+.carrusel img {
+  width: 100%;
+  height: auto;
+}
