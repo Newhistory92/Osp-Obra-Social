@@ -24,7 +24,7 @@ const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
     const [mostrarDelegacion, setMostrarDelegacion] = useState(false);
     const activeButton = useAppSelector((state) => state.navbar.activeButton);
     const dispatch = useAppDispatch();
-
+ console.log(subSubCategorias)
     useEffect(() => {
       if (activeButton === false) {
         setContenidoSeleccionado(null); 
@@ -86,18 +86,7 @@ const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
                           />
                         </div>
                       ))}
-                          {servicioSeleccionado === "servicios" && (
-                        <BotonSubSubCategoria
-                          showIcono={true}
-                          text="Delegación"
-                          registroBlanco="/registro-blanco.svg"
-                          propMinWidth="87px"
-                          onClick={handleDelegacionClick}
-                          titulo="Delegación"
-                          contenido=""
-                          id={0}
-                        />
-                      )}
+                          
                       <BotonSubSubCategoria
                         showIcono={false}
                         text="Afiliaciones"
