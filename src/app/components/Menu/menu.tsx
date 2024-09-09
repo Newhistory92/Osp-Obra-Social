@@ -11,32 +11,19 @@ export type MenuType = {
   className?: string;
 };
 
-
 const Menu: NextPage<MenuType> = memo(({ className = "" }) => {
   const [mostrarContenido, setMostrarContenido] = useState(false);
   const [servicioSeleccionado, setServicioSeleccionado] = useState<string>("Servicios");
- const [contenidoSeleccionado, setContenidoSeleccionado] = useState<
-  { titulo: string; contenido: string; subsubcategoria_nombre: string | null ; id: number}[]
->([]);
-
-
-
-  const handlePublicacionesFiltradasChange = (publicaciones: any[]) => {
-    setContenidoSeleccionado(publicaciones);
-  };
-
-    
-
+  const [contenidoSeleccionado, setContenidoSeleccionado] = useState<string>("");
 
   const handleServicioClick = (servicio: string) => {
-    setContenidoSeleccionado([]); 
     setServicioSeleccionado(servicio);
-    setMostrarContenido(true);
+    setMostrarContenido(true); 
   };
-
- 
+  const handleValueChange = (value: string) => {
+    setContenidoSeleccionado(value); 
+  };
   const handleCerrarClick = () => {
-    setContenidoSeleccionado([]); 
     setMostrarContenido(false); 
   };
 
@@ -62,11 +49,9 @@ const Menu: NextPage<MenuType> = memo(({ className = "" }) => {
               </div>
               <div className={styles.busquedaParent}>
                 <div className={styles.busqueda}>
-                  <div className={styles.busquedaChild} />
-                  <div className={styles.busquedaItem} />
                   <input
                     className={styles.queTrmiteO}
-                    placeholder="Que trámite o servicio estás buscando"
+                    placeholder="Buscar..."
                     type="text"
                   />
                 </div>
@@ -77,98 +62,82 @@ const Menu: NextPage<MenuType> = memo(({ className = "" }) => {
           <div className={styles.botones}>
             <BotonServicio
               showIcono
-              text="Afiliaciones"
-              info="/afiliaciones.svg"
-              onClick={() => handleServicioClick("afiliaciones")}
-            /> 
-              <BotonServicio
-                showIcono
-                text="Prestadores"
-                info="/empleados-publicos.svg"
-                onClick={() => handleServicioClick("prestadores")}
-              />
-              <BotonServicio
-                showIcono
-                text="Coberturas"
-                info="/autorizaciones-farmacia1.svg"
-                onClick={() => handleServicioClick("Cobertura")}
-              />
-            <BotonServicio
-              showIcono
               text="Servicios"
               info="/servicios-salud.svg"
-              onClick={() => handleServicioClick("servicios")}
+              onClick={() => handleServicioClick("Servicios")}
             />
-             <BotonServicio
-                showIcono
-                text="Programas"
-                info="/medicamentos1.svg"
-                onClick={() => handleServicioClick("programas")}
-              />
-          
-            <BotonServicio 
-            showIcono text="Farmacia y Medicamento" 
-            info="/farmacia.svg"   
-            onClick={() => handleServicioClick("farmacia y medicamento")} />
+            <BotonServicio
+              showIcono
+              text="Afiliaciones"
+              info="/afiliaciones.svg"
+              onClick={() => handleServicioClick("Afiliaciones")}
+            />
+            <BotonServicio
+              showIcono
+              text="Prestadores"
+              info="/empleados-publicos.svg"
+              onClick={() => handleServicioClick("Prestadores")}
+            />
+            <BotonServicio
+              showIcono
+              text="Medicamentos"
+              info="/medicamentos.svg"
+              onClick={() => handleServicioClick("Medicamentos")}
+            />
+            <BotonServicio
+              showIcono
+              text="Farmacia"
+              info="/farmacia.svg"
+              onClick={() => handleServicioClick("Farmacia")}
+            />
+            <BotonServicio
+              showIcono
+              text="Pacientes Crónicos"
+              info="/pacientes-cronicos.svg"
+              onClick={() => handleServicioClick("Pacientes Crónicos")}
+            />
 
-            <div className={styles.botonServicio}>
-              <div className={styles.pacientesCronicosWrapper}>
-                <img
-                  className={styles.pacientesCronicosIcon}
-                  loading="lazy"
-                  alt=""
-                  src="/pacientes-cronicos.svg"
-                />
-              </div>
-              <div className={styles.misDocumentos}>
-                <p className={styles.pacientes}>Pacientes</p>
-                <p className={styles.pacientes}>Crónicos</p>
-                
-              </div>
-            </div>
             <BotonServicio
               showIcono
               text="Formularios"
               info="/formularios-medicos.svg"
-              onClick={() => handleServicioClick("formularios")}
+              onClick={() => handleServicioClick("Formularios")}
             />
             <BotonServicio
               showIcono
               text="Institucional"
               info="/delegaciones.svg"
-              onClick={() => handleServicioClick("institucional")}
+              onClick={() => handleServicioClick("Institucional")}
             />
-            
+            <BotonServicio
+              showIcono
+              text="Autorizaciones"
+              info="/autorizaciones-farmacia.svg"
+              onClick={() => handleServicioClick("Autorizaciones")}
+            />
+            <BotonServicio showIcono text="Consultas" info="/info@2x.png" />
           </div>
-          
         </div>
         {mostrarContenido && (
-            <>
-        <div className={styles.servicesButton} onClick={handleCerrarClick}>
-            <img
-              className={styles.botonArea}
-              loading="lazy"
-              alt=""
-              src="/boton-area.svg"
-              
-            />
-          <button className={styles.serviciosWrapper}>
-              <b className={styles.servicios}>{servicioSeleccionado}</b>
-            </button>
-          </div>
-          <CardRequisitos
-        servicioSeleccionado={servicioSeleccionado}
-        onPublicacionesFiltradasChange={handlePublicacionesFiltradasChange}
-      />
-          <div className={styles.cabecerarequisito}>
-          <ContenidoPrincipal 
-          subSubCategorias={contenidoSeleccionado} 
-         servicioSeleccionado={servicioSeleccionado} 
-      />
-          </div>
+          <>
+            <div className={styles.servicesButton} onClick={handleCerrarClick}>
+              <img
+                className={styles.botonArea}
+                loading="lazy"
+                alt=""
+                src="/boton-area.svg"
+              />
+              <button className={styles.serviciosWrapper}>
+                <b className={styles.servicios}>{servicioSeleccionado}</b>
+              </button>
+            </div>
+            <CardRequisitos onValueChange={handleValueChange} />
+            <div className={styles.cabecerarequisito}>
+              <ContenidoPrincipal value={contenidoSeleccionado} />
+            </div>
           </>
-          )}
-        <div className={styles.cardVerticalParent}>
+        )}
+        <div className={styles.contactParent}>
           <CardContacto
             textPrncipal="Horario de Atención"
             textSecundario="de Lunes a Viernes de 7hs a 19hs"
