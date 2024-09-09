@@ -49,11 +49,9 @@ const Menu: NextPage<MenuType> = memo(({ className = "" }) => {
               </div>
               <div className={styles.busquedaParent}>
                 <div className={styles.busqueda}>
-                  <div className={styles.busquedaChild} />
-                  <div className={styles.busquedaItem} />
                   <input
                     className={styles.queTrmiteO}
-                    placeholder="Que trámite o servicio estás buscando"
+                    placeholder="Buscar..."
                     type="text"
                   />
                 </div>
@@ -86,22 +84,19 @@ const Menu: NextPage<MenuType> = memo(({ className = "" }) => {
               info="/medicamentos.svg"
               onClick={() => handleServicioClick("Medicamentos")}
             />
-            <BotonServicio showIcono text="Farmacia" info="/farmacia.svg"   onClick={() => handleServicioClick("Farmacia")} />
-            <div className={styles.botonServicio}>
-              <div className={styles.pacientesCronicosWrapper}>
-                <img
-                  className={styles.pacientesCronicosIcon}
-                  loading="lazy"
-                  alt=""
-                  src="/pacientes-cronicos.svg"
-                />
-              </div>
-              <div className={styles.misDocumentos}>
-                <p className={styles.pacientes}>Pacientes</p>
-                <p className={styles.pacientes}>Crónicos</p>
-                
-              </div>
-            </div>
+            <BotonServicio
+              showIcono
+              text="Farmacia"
+              info="/farmacia.svg"
+              onClick={() => handleServicioClick("Farmacia")}
+            />
+            <BotonServicio
+              showIcono
+              text="Pacientes Crónicos"
+              info="/pacientes-cronicos.svg"
+              onClick={() => handleServicioClick("Pacientes Crónicos")}
+            />
+
             <BotonServicio
               showIcono
               text="Formularios"
@@ -122,29 +117,27 @@ const Menu: NextPage<MenuType> = memo(({ className = "" }) => {
             />
             <BotonServicio showIcono text="Consultas" info="/info@2x.png" />
           </div>
-          
         </div>
         {mostrarContenido && (
-            <>
-        <div className={styles.servicesButton} onClick={handleCerrarClick}>
-            <img
-              className={styles.botonArea}
-              loading="lazy"
-              alt=""
-              src="/boton-area.svg"
-              
-            />
-          <button className={styles.serviciosWrapper}>
-              <b className={styles.servicios}>{servicioSeleccionado}</b>
-            </button>
-          </div>
-            <CardRequisitos onValueChange={handleValueChange}/>
-          <div className={styles.cabecerarequisito}>
-          <ContenidoPrincipal value={contenidoSeleccionado}/>
-          </div>
+          <>
+            <div className={styles.servicesButton} onClick={handleCerrarClick}>
+              <img
+                className={styles.botonArea}
+                loading="lazy"
+                alt=""
+                src="/boton-area.svg"
+              />
+              <button className={styles.serviciosWrapper}>
+                <b className={styles.servicios}>{servicioSeleccionado}</b>
+              </button>
+            </div>
+            <CardRequisitos onValueChange={handleValueChange} />
+            <div className={styles.cabecerarequisito}>
+              <ContenidoPrincipal value={contenidoSeleccionado} />
+            </div>
           </>
-          )}
-        <div className={styles.cardVerticalParent}>
+        )}
+        <div className={styles.contactParent}>
           <CardContacto
             textPrncipal="Horario de Atención"
             textSecundario="de Lunes a Viernes de 7hs a 19hs"

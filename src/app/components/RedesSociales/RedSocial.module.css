@@ -8,3 +8,7 @@
   padding: 0 var(--padding-9xs) 0 0;
   gap: 19px 17.7px;
 }
+
+.sociales div:hover{
+  cursor: pointer;
+}

@@ -8,13 +8,12 @@ import { CarruselItem } from '@/app/interfaces/interfaces';
 import "primereact/resources/themes/saga-blue/theme.css"; 
 import banner from "../../../../public/banner.png"
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-
+import styles from "./Carrusel.module.css";
 
 function ControlledCarousel() {
   const [carruselItems, setCarruselItems] = useState<CarruselItem[]>([]);
   const [loading, setLoading] = useState(false); // Cambiado a false para que no muestre el indicador de carga
-  
+
   useEffect(() => {
     // Comentado temporalmente hasta que conectes la base de datos
     /*
@@ -40,52 +39,35 @@ function ControlledCarousel() {
     fetchCarruselItems();
     */
     // Añadimos un elemento por defecto para mostrar la imagen
-    setCarruselItems([{} as CarruselItem]); 
+    setCarruselItems([{} as CarruselItem]);
   }, []);
 
   if (loading) {
     return (
       <div className="card">
-        <ProgressBar mode="indeterminate" style={{ height: '6px' }}></ProgressBar>
+        <ProgressBar
+          mode="indeterminate"
+          style={{ height: "6px" }}
+        ></ProgressBar>
       </div>
     );
   }
 
- 
-    return (
+  return (
+    <div className={styles.carrusel}>
       <Carousel data-bs-theme="dark">
         <Carousel.Item>
-          <Image
-            className="d-block w-100"
-            src={banner}
-            alt="First slide"
-            width={1000}
-            height={200}
-          />
-         
+          <Image src={banner} alt="First slide" />
         </Carousel.Item>
         <Carousel.Item>
-          <Image
-            className="d-block w-100"
-            src={banner}
-            alt="Second slide"
-            width={1000}
-            height={200}
-          />
-        
+          <Image src={banner} alt="Second slide" />
         </Carousel.Item>
         <Carousel.Item>
-          <Image
-            className="d-block w-100"
-            src={banner}
-            alt="Third slide"
-            width={1000}
-            height={200}
-          />
-          
+          <Image src={banner} alt="Third slide" />
         </Carousel.Item>
       </Carousel>
-    );
-  }
+    </div>
+  );
+}
 
 export default ControlledCarousel;

@@ -1,0 +1,158 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}
+
+
+
+model Afiliado {
+  id             String         @id @unique
+  name           String         @db.VarChar(50)
+  email          String         @unique @db.VarChar(200)
+  password       String         @db.VarChar(200)
+  imageUrl       String         @db.VarChar(800)
+  dni            String         @unique @db.VarChar(8)
+  phone          String         @db.VarChar(13)
+  address        String?        @db.VarChar(200)
+  coordinatesLat Int?
+  coordinatesLon Int?
+  dependencia    String?
+  role           String?        @default("USER")
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt @default(now())
+  notificaciones Notificacion[]
+  opiniones      Opinion[]
+}
+
+model Prestador {
+  id             String         @id @unique
+  name           String         @db.VarChar(50)
+  email          String         @unique @db.VarChar(200)
+  password       String         @db.VarChar(200)
+  phone          String         @db.VarChar(13)
+  checkedPhone   Boolean?       @default(false)
+  phoneOpc       String?        @db.VarChar(13)
+  imageUrl       String         @db.VarChar(800)
+  matricula      String         @db.VarChar(5)@unique
+  especialidad   String         @db.VarChar(100)
+  especialidad2  String?        @db.VarChar(100)
+  especialidad3  String?        @db.VarChar(100)
+  descripcion    String?        @db.VarChar(600)
+  role           String?        @default("PROVIDER")
+  tipo           String?       
+  address        String?        @db.VarChar(200)
+  coordinatesLat Int?
+  coordinatesLon Int?
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt @default(now())
+  denuncias      Denuncia[]
+  notificaciones Notificacion[]
+}
+
+model Operador {
+  id             String         @id @unique
+  name           String         @db.VarChar(50)
+  email          String         @unique @db.VarChar(200)
+  password       String         @db.VarChar(200)
+  phone          String         @db.VarChar(13)
+  imageUrl       String         @db.VarChar(800)
+  numeroOperador String         @unique @db.VarChar(5)
+  role           String?        @default("EMPLOYEE")
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt @default(now())
+  notificaciones Notificacion[]
+  publicaciones  Publicacion[]
+}
+
+model Publicacion {
+  id            Int       @id @default(autoincrement())
+  titulo        String
+  contenido     String     @db.Text
+  imagen        String?    @db.Text
+  video         String?
+  autorId       String
+  published     Categoria? @relation(fields: [publishedId], references: [id])
+  publishedId   Int?
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt @default(now())
+  autor         Operador   @relation(fields: [autorId], references: [id])
+}
+
+model Categoria {
+  id          Int          @id @default(autoincrement())
+  nombre      String
+  subCategorias SubCategoria[]
+  publicaciones Publicacion[]
+}
+
+model SubCategoria {
+  id              Int               @id @default(autoincrement())
+  nombre          String
+  categoriaId     Int?             
+  subSubCategorias SubSubCategoria[]
+  categoria       Categoria?        @relation(fields: [categoriaId], references: [id])
+}
+
+model SubSubCategoria {
+  id              Int               @id @default(autoincrement())
+  nombre          String
+  subCategoriaId  Int?             
+  subCategoria    SubCategoria?     @relation(fields: [subCategoriaId], references: [id]) 
+}
+
+
+
+
+model Denuncia {
+  id              Int       @id @default(autoincrement())
+  motivo          String    @db.Text
+  nombrePrestador String    @db.VarChar(50)
+  especialidad    String    @db.VarChar(50)
+  practica        String    @db.VarChar(50)
+  fechadelsuceso  String
+  prestadorId     String?   @db.VarChar(5)
+  status          String    @default("Nuevo")
+  createdAt       DateTime  @default(now())
+  prestador       Prestador? @relation(fields: [prestadorId], references: [matricula])
+}
+
+
+model Notificacion {
+  id                  Int    @id @default(autoincrement())
+  titulo              String
+  contenido           String     @db.Text
+  autorId             String
+  receptorId          String
+  receptorPrestadorId String?
+  status              String     @default("No_leido")
+  url                 String?    @db.Text
+  createdAt           DateTime   @default(now())
+  updatedAt           DateTime   @updatedAt @default(now())
+  autor               Operador   @relation(fields: [autorId], references: [id])
+  receptor            Afiliado   @relation(fields: [receptorId], references: [id])
+  receptorPrestador   Prestador? @relation(fields: [receptorPrestadorId], references: [id])
+}
+
+model Carrusel {
+  id               Int    @id @default(autoincrement())
+  tituloprincipal  String
+  titulosecundario String
+  contenido        String
+  urlImagen        String  @db.Text
+}
+
+model Opinion {
+  id        Int      @id @default(autoincrement())
+  contenido String   @db.Text
+  autorId   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt @default(now())
+  autor     Afiliado @relation(fields: [autorId], references: [id])
+}
