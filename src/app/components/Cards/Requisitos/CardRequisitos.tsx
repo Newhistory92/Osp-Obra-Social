@@ -32,8 +32,8 @@ useEffect(() => {
 
 const handleBotonCardClick = (value: string, id: number) => {
   if (activeButton) {
-   
-     dispatch(setActiveButton(false));
+    // Si el botón activo es el que se está clickeando, limpie el estado global
+    dispatch(setActiveButton(false));
   } else {
     
     const filtradas = publicacionesFiltradas.filter(

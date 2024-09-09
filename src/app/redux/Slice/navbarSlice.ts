@@ -12,7 +12,7 @@ const navbarSlice = createSlice({
   name: 'navbar',
   initialState,
   reducers: {
-    setActiveButton(state, action: PayloadAction<boolean>) {
+    setActiveButton(state, action: PayloadAction<boolean >) {
       state.activeButton = action.payload;
     },
   },

@@ -1,8 +1,12 @@
 import type { NextPage } from "next";
-import { memo, useState  } from "react";
+import { memo, useEffect, useState  } from "react";
 import styles from "./ContenidoPrincipal.module.css";
 import Requisitos from "@/app/components/Cards/Requisitos/componentsRequisitos";
 import BotonSubSubCategoria from "@/app/components/Botones/BotonSubsubCategoria/BotonSubsubCategoria"
+import  {setActiveButton}  from '@/app/redux/Slice/navbarSlice';
+import {useAppSelector,useAppDispatch} from "@/app/hooks/StoreHook"
+import Prestadores from "../Prestador/Tabla";
+import CardDelegacion from "../Cards/CardDelegacion/CardDelegacion";
 
 export type ContenidoPrincipalType = {
   className?: string;
@@ -15,21 +19,38 @@ const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
     const [contenidoSeleccionado, setContenidoSeleccionado] = useState<{
       titulo: string;
       contenido: string;
-      id:number
+      id: number;
     } | null>(null);
+    const [mostrarDelegacion, setMostrarDelegacion] = useState(false);
+    const activeButton = useAppSelector((state) => state.navbar.activeButton);
+    const dispatch = useAppDispatch();
 
-    console.log(contenidoSeleccionado)
+    useEffect(() => {
+      if (activeButton === false) {
+        setContenidoSeleccionado(null); 
+      }
+    }, [activeButton]);
+
     const handleSubSubCategoriaClick = (
       titulo: string,
       contenido: string,
       id: number
     ) => {
+      
       if (contenidoSeleccionado?.id === id) {
         setContenidoSeleccionado(null);
+        dispatch(setActiveButton(false)); 
       } else {
+        
         setContenidoSeleccionado({ titulo, contenido, id });
+        dispatch(setActiveButton(true)); 
       }
     };
+
+
+    const handleDelegacionClick = () => {
+      setMostrarDelegacion(!mostrarDelegacion); // Muestra u oculta el componente CardDelegacion
+    }
     return (
       <section className={[styles.ospAfiliacionesInner, className].join(" ")}>
         <div className={styles.areaNavigationParent}>
@@ -65,6 +86,18 @@ const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
                           />
                         </div>
                       ))}
+                          {servicioSeleccionado === "servicios" && (
+                        <BotonSubSubCategoria
+                          showIcono={true}
+                          text="Delegación"
+                          registroBlanco="/registro-blanco.svg"
+                          propMinWidth="87px"
+                          onClick={handleDelegacionClick}
+                          titulo="Delegación"
+                          contenido=""
+                          id={0}
+                        />
+                      )}
                       <BotonSubSubCategoria
                         showIcono={false}
                         text="Afiliaciones"
@@ -127,10 +160,10 @@ const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
               </div>
             </div>
           </div>
-
-          {/* Muestra los requisitos siempre en su lugar original */}
           <div className={styles.requisitosContainer}>
-            {contenidoSeleccionado ? (
+          {mostrarDelegacion ? (
+              <CardDelegacion />
+            ) : contenidoSeleccionado ? (
               <Requisitos
                 titulo={contenidoSeleccionado.titulo}
                 contenido={contenidoSeleccionado.contenido}
@@ -144,6 +177,8 @@ const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
                 />
               )
             )}
+
+             {servicioSeleccionado === "prestadores" && <Prestadores />}
           </div>
         </div>
       </section>
