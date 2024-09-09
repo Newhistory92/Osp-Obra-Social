@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import { memo } from "react";
 import styles from "./CardDelegacion.module.css";
-
+import delegaciones from "../../../../../delegaciones.json"
 export type CardDelegacionType = {
   className?: string;
   showIcon?: boolean;
@@ -11,7 +11,9 @@ export type CardDelegacionType = {
 const CardDelegacion: NextPage<CardDelegacionType> = memo(
   ({ className = "", showIcon = true, showBotN = true }) => {
     return (
-      <div className={[styles.cardAtp, className].join(" ")}>
+      <>
+         {delegaciones.map((delegacion) => (
+      <div key={delegacion.id} className={[styles.cardAtp, className].join(" ")}>
         <div className={styles.rectangleParent}>
           <div className={styles.frameChild} />
           <div className={styles.frameItem} />
@@ -26,15 +28,15 @@ const CardDelegacion: NextPage<CardDelegacionType> = memo(
           )}
         </div>
         <div className={styles.sectorAgropecuarioWrapper}>
-          <div className={styles.sectorAgropecuario}>Angaco</div>
+          <div className={styles.sectorAgropecuario}> {delegacion.delegacion}</div>
         </div>
         <div className={styles.esUnSectorContainer}>
           <p className={styles.repblicaDelLbano}>
-            República del Líbano 511(s) antes de España (Ex Coloso)
+          {delegacion.domicilio}
           </p>
           <p className={styles.repblicaDelLbano}>&nbsp;</p>
-          <p className={styles.repblicaDelLbano}>Tel. 4 97-2202 </p>
-          <p className={styles.horario0730A}>Horario: 07:30 a 13:30</p>
+          <p className={styles.repblicaDelLbano}>Tel. {delegacion.telefono}</p>
+          <p className={styles.horario0730A}>Horario: {delegacion.horario}</p>
         </div>
         <div className={styles.botonPrincipalWrapper}>
           {showBotN && (
@@ -47,6 +49,8 @@ const CardDelegacion: NextPage<CardDelegacionType> = memo(
           )}
         </div>
       </div>
+         ))}
+      </>
     );
   }
 );

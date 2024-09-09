@@ -14,16 +14,28 @@ export type MenuType = {
 const Menu: NextPage<MenuType> = memo(({ className = "" }) => {
   const [mostrarContenido, setMostrarContenido] = useState(false);
   const [servicioSeleccionado, setServicioSeleccionado] = useState<string>("Servicios");
-  const [contenidoSeleccionado, setContenidoSeleccionado] = useState<string>("");
+  const [contenidoSeleccionado, setContenidoSeleccionado] = useState<
+  { titulo: string; contenido: string; subsubcategoria_nombre: string | null ; id: number}[]
+>([]);
+
+
+
+  const handlePublicacionesFiltradasChange = (publicaciones: any[]) => {
+    setContenidoSeleccionado(publicaciones);
+  };
+
+    
+
 
   const handleServicioClick = (servicio: string) => {
+    setContenidoSeleccionado([]); 
     setServicioSeleccionado(servicio);
-    setMostrarContenido(true); 
+    setMostrarContenido(true);
   };
-  const handleValueChange = (value: string) => {
-    setContenidoSeleccionado(value); 
-  };
+
+ 
   const handleCerrarClick = () => {
+    setContenidoSeleccionado([]); 
     setMostrarContenido(false); 
   };
 
@@ -131,10 +143,16 @@ const Menu: NextPage<MenuType> = memo(({ className = "" }) => {
                 <b className={styles.servicios}>{servicioSeleccionado}</b>
               </button>
             </div>
-            <CardRequisitos onValueChange={handleValueChange} />
-            <div className={styles.cabecerarequisito}>
-              <ContenidoPrincipal value={contenidoSeleccionado} />
-            </div>
+            <CardRequisitos
+        servicioSeleccionado={servicioSeleccionado}
+        onPublicacionesFiltradasChange={handlePublicacionesFiltradasChange}
+      />
+          <div className={styles.cabecerarequisito}>
+          <ContenidoPrincipal 
+          subSubCategorias={contenidoSeleccionado} 
+         servicioSeleccionado={servicioSeleccionado} 
+      />
+          </div>
           </>
         )}
         <div className={styles.contactParent}>

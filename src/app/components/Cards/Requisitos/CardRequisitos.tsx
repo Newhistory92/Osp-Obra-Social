@@ -4,8 +4,8 @@ import { memo} from "react";
 import BotonCard from "@/app/components/Botones/BotonCard/BotonCard";
 import styles from "./CardRequisitos.module.css";
 import fetchData  from "@/app/utils/fetchData";
-import  {setActiveButton}  from '@/app/redux/Slice/navbarSlice';
-import {useAppSelector,useAppDispatch} from "@/app/hooks/StoreHook"
+import { setActiveButton, setMostrarDelegacion } from '@/app/redux/Slice/navbarSlice';
+import { useAppSelector, useAppDispatch } from "@/app/hooks/StoreHook";
 
 export type CardRequisitosType = {
   className?: string;
@@ -15,6 +15,9 @@ export type CardRequisitosType = {
 };
 const apiData = fetchData('/api/Datos/Publicaciones');
 
+
+// Datos estáticos por defecto
+
 const CardRequisitos: NextPage<CardRequisitosType> = memo(({ className = "",servicioSeleccionado,onPublicacionesFiltradasChange }) => {
   const [publicacionesFiltradas, setPublicacionesFiltradas] = useState<any[]>([]);
   const  activeButton  = useAppSelector(state =>  state.navbar.activeButton);
@@ -22,44 +25,45 @@ const CardRequisitos: NextPage<CardRequisitosType> = memo(({ className = "",serv
   const data = apiData.read();
 
 
+  useEffect(() => {
 
-useEffect(() => {
-  const filtradas = data.publicaciones.filter(
-    (publicacion: any) => publicacion.categoria_nombre === servicioSeleccionado
-  );
-  setPublicacionesFiltradas(filtradas);
-}, [servicioSeleccionado, data]);
+    if (data && data.publicaciones) {
+      const filtradas = data.publicaciones.filter(
+        (publicacion: any) => publicacion.categoria_nombre === servicioSeleccionado
+      );
+      setPublicacionesFiltradas(filtradas);
+    }
+  }, [servicioSeleccionado, data]);
 
-const handleBotonCardClick = (value: string, id: number) => {
-  if (activeButton) {
-    // Si el botón activo es el que se está clickeando, limpie el estado global
-    dispatch(setActiveButton(false));
-  } else {
+  const handleBotonCardClick = (value: string, id: number) => {
+    console.log("Botón clickeado:", value); // Agrega esto para verificar qué botón se clickea
     
-    const filtradas = publicacionesFiltradas.filter(
-      (publicacion) => publicacion.subcategoria_nombre === value
-    );
+    if (value === 'Delegación') {
+      console.log("Delegación seleccionada");
+      dispatch(setMostrarDelegacion(true)); 
+    } else {
+      console.log("Opción diferente a Delegación seleccionada");
+      dispatch(setMostrarDelegacion(false)); // Debería ocultar delegación
+    
+    if (activeButton) {
+      dispatch(setActiveButton(false)); 
+    } else {
+      const filtradas = publicacionesFiltradas.filter(
+        (publicacion) => publicacion.subcategoria_nombre === value
+      );
 
-    const filtradasFinales = filtradas.map((publicacion) => {
-      if (publicacion.subsubcategoria_nombre) {
-        return {
-          id: publicacion.id,
-          titulo: publicacion.titulo,
-          contenido: publicacion.contenido,
-          subsubcategoria_nombre: publicacion.subsubcategoria_nombre,
-        };
-      }
-      return {
+      const filtradasFinales = filtradas.map((publicacion) => ({
         id: publicacion.id,
         titulo: publicacion.titulo,
         contenido: publicacion.contenido,
-        subsubcategoria_nombre: null, 
-      };
-    });
+        subsubcategoria_nombre: publicacion.subsubcategoria_nombre || null,
+      }));
 
-    onPublicacionesFiltradasChange(filtradasFinales);
+      onPublicacionesFiltradasChange(filtradasFinales);
+    }
   }
 };
+
 
   return (
     <section className={[styles.cardIconBicolor, className].join(" ")}>
@@ -76,16 +80,17 @@ const handleBotonCardClick = (value: string, id: number) => {
               onClick={() => handleBotonCardClick(publicacion.subcategoria_nombre, publicacion.id)}
             />
           ))}
-          <BotonCard
-           
-            mostrarIcono
-            fondo="/fondo2.svg"
-            consultaDeExpediente="Alta"
-            consultaDeExpedienteTextDecoration="unset"
-            value="Alta" onClick={function (value: string): void {
-              throw new Error("Function not implemented.");
-            } }              
+              {"servicios" === "servicios" && (
+            <BotonCard
+              mostrarIcono
+              fondo="/fondo2.svg"
+              consultaDeExpediente="Delegación de Partamental"
+              consultaDeExpedienteTextDecoration="unset"
+              value="Delegación"
+              onClick={() => handleBotonCardClick("Delegación", 0)} 
             />
+          )}
+
             <BotonCard
           
             mostrarIcono
