@@ -1,0 +1,172 @@
+[
+    {
+      "id": 1,
+      "delegacion": "Albardón",
+      "domicilio": "Municipio: Mitre 1968",
+      "telefono": "4911180",
+      "horario": "07:00 a 13:00"
+    },
+    {
+      "id": 2,
+      "delegacion": "Angaco",
+      "domicilio": "Municipio: Teresa A. de Mallea s/n y Santa María de Oro",
+      "telefono": "4972202",
+      "horario": "07:30 a 13:30"
+    },
+    {
+      "id": 3,
+      "delegacion": "Barreal",
+      "domicilio": "Municipio: Presidente Roca y Las Heras s/n",
+      "telefono": "2648-441066",
+      "horario": "07:30 a 13:30"
+    },
+    {
+      "id": 4,
+      "delegacion": "Calingasta",
+      "domicilio": "Municipio: Av. Argentina s/n",
+      "telefono": "2648-421066",
+      "horario": "07:00 a 13:00"
+    },
+    {
+      "id": 5,
+      "delegacion": "Capital",
+      "domicilio": "Municipio: Caseros 298 (S)",
+      "telefono": "264-4869356 int 9699",
+      "horario": "07:30 a 13:00"
+    },
+    {
+      "id": 6,
+      "delegacion": "Caucete",
+      "domicilio": "Municipio: Belgrano 180 - Mesa de Entradas",
+      "telefono": "4962051 - 264486953",
+      "horario": "07:00 a 13:00"
+    },
+    {
+      "id": 7,
+      "delegacion": "Centro Cívico",
+      "domicilio": "Las Heras y Libertador",
+      "telefono": "4305628",
+      "horario": "07:30 a 13:30"
+    },
+   
+    {
+      "id": 8,
+      "delegacion": "Iglesia",
+      "domicilio": "Municipio: Santo Domingo 3650",
+      "telefono": "2647-493200",
+      "horario": "07:00 a 13:00"
+    },
+    {
+      "id": 9,
+      "delegacion": "Jáchal",
+      "domicilio": "Gral. Paz 349",
+      "telefono": "264-4108672",
+      "horario": "07:30 a 13:30"
+    },
+    {
+      "id": 10,
+      "delegacion": "Pocito",
+      "domicilio": "Calle 11 entre David Chávez y Av. Aberastain (ex hospital departamental)",
+      "telefono": "",
+      "horario": "07:00 a 13:00"
+    },
+    {
+      "id": 11,
+      "delegacion": "Rawson",
+      "domicilio": "República del Líbano 511(s) antes de España (Ex Coloso)",
+      "telefono": "4284836",
+      "horario": "07:30 a 13:30"
+    },
+    {
+      "id": 12,
+      "delegacion": "Rivadavia",
+      "domicilio": "Av. Libertador General San Martín 5401",
+      "telefono": "",
+      "horario": "07:30 a 13:30"
+    },
+    {
+      "id": 13,
+      "delegacion": "San Martin",
+      "domicilio": "Municipio: Av. Sarmiento y Cruz Godoy",
+      "telefono": "264-4971230, 264-4971231",
+      "horario": "07:00 a 13:00"
+    },
+    {
+      "id": 14,
+      "delegacion": "Santa Lucía",
+      "domicilio": "Municipio: Aberastain 590 (S)",
+      "telefono": "4250482 int 234",
+      "horario": "07:00 a 13:00"
+    },
+    {
+      "id": 15,
+      "delegacion": "Sarmiento",
+      "domicilio": "Municipio: Rivadavia y 9 de Julio s/n",
+      "telefono": "4941003",
+      "horario": "07:00 a 13:00"
+    },
+    {
+      "id": 16,
+      "delegacion": "Tamberías",
+      "domicilio": "Municipio: Lavalle y Sarmiento s/n",
+      "telefono": "2648-492005",
+      "horario": "07:00 a 13:00"
+    },
+    {
+      "id": 17,
+      "delegacion": "Ullúm",
+      "domicilio": "Municipio: Valentín Ruiz s/n",
+      "telefono": "4943100",
+      "horario": "07:00 a 13:00"
+    },
+    {
+      "id": 18,
+      "delegacion": "Valle Fértil",
+      "domicilio": "Municipio: Gral. Acha 52",
+      "telefono": "420192",
+      "horario": "07:00 a 13:00"
+    },
+    {
+      "id": 19,
+      "delegacion": "Villa Iglesia",
+      "domicilio": "Calle principal s/n Villa Iglesia",
+      "telefono": "s/n",
+      "horario": "07:00 a 13:00"
+    },
+    {
+      "id": 20,
+      "delegacion": "Zonda",
+      "domicilio": "Municipio: Ruta 12 km 34",
+      "telefono": "4945001",
+      "horario": "07:00 a 13:00"
+    },
+    {
+      "id": 21,
+      "delegacion": "25 de Mayo",
+      "domicilio": "Municipio: R. Barrera y 9 de Julio",
+      "telefono": "4978010",
+      "horario": "07:30 a 13:00"
+    },
+    {
+      "id": 22,
+      "delegacion": "9 de Julio",
+      "domicilio": "Municipio: Diag. San Martin y Sarmiento",
+      "telefono": "4977022",
+      "horario": "07:00 a 13:00"
+    },
+    {
+      "id": 23,
+      "delegacion": "Casa de San Juan en Buenos Aires",
+      "domicilio": "Sarmiento 1251 CABA San Nicolás",
+      "telefono": "011 4382-5580",
+      "horario": "09:00 a 17:00"
+    },
+    {
+      "id": 24,
+      "delegacion": "Córdoba",
+      "domicilio": "Blvr. San Juan 736 - B° Alberdi",
+      "telefono": "0351-4234577",
+      "horario": "09:00 a 15:00"
+    }
+  ]
+  

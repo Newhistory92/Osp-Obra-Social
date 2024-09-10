@@ -1,19 +1,20 @@
 import type { NextPage } from "next";
 import { memo, useEffect, useState  } from "react";
 import styles from "./ContenidoPrincipal.module.css";
-import Requisitos from "@/app/components/Cards/Requisitos/componentsRequisitos";
+import Requisitos from "@/app/components/Cards/Requisitos/Requisito/Requisitos";
 import BotonSubSubCategoria from "@/app/components/Botones/BotonSubsubCategoria/BotonSubsubCategoria"
 import  {setActiveButton}  from '@/app/redux/Slice/navbarSlice';
 import {useAppSelector,useAppDispatch} from "@/app/hooks/StoreHook"
 import Prestadores from "../Prestador/Tabla";
 import CardDelegacion from "../Cards/CardDelegacion/CardDelegacion";
+import SistemaOnline from "../../../../sistemaOnline.json"
+import Link from "next/link";
 
 export type ContenidoPrincipalType = {
   className?: string;
   servicioSeleccionado: string; 
   subSubCategorias: Array<{ titulo: string, contenido: string, subsubcategoria_nombre: string | null, id:number }>; 
 };
-
 const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
   ({ className = "", servicioSeleccionado, subSubCategorias }) => {
     const [contenidoSeleccionado, setContenidoSeleccionado] = useState<{
@@ -21,75 +22,93 @@ const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
       contenido: string;
       id: number;
     } | null>(null);
-    const [mostrarDelegacion, setMostrarDelegacion] = useState(false);
+
     const activeButton = useAppSelector((state) => state.navbar.activeButton);
+    const mostrarDelegacion = useAppSelector((state) => state.navbar.mostrarDelegacion);
     const dispatch = useAppDispatch();
- console.log(subSubCategorias)
+    
     useEffect(() => {
-      if (activeButton === false) {
-        setContenidoSeleccionado(null); 
+      if (!activeButton) {
+        setContenidoSeleccionado(null);
       }
     }, [activeButton]);
 
+
+   
+    
     const handleSubSubCategoriaClick = (
       titulo: string,
       contenido: string,
-      id: number
+      id: number,
+      url?: string
     ) => {
-      
+      if (url) {
+        // Redirigir a la URL proporcionada si está definida
+        window.location.href = url;
+      } else {
+
       if (contenidoSeleccionado?.id === id) {
         setContenidoSeleccionado(null);
         dispatch(setActiveButton(false)); 
       } else {
-        
         setContenidoSeleccionado({ titulo, contenido, id });
         dispatch(setActiveButton(true)); 
       }
-    };
-
-
-    const handleDelegacionClick = () => {
-      setMostrarDelegacion(!mostrarDelegacion); // Muestra u oculta el componente CardDelegacion
     }
+  };
+
     return (
       <section className={[styles.ospAfiliacionesInner, className].join(" ")}>
-        <div className={styles.areaNavigationParent}>
-          <div className={styles.frameWrapper}>
-            <div className={styles.areaDescriptionParent}>
-              <div className={styles.areaDescription}>
-                <div className={styles.frameParent}>
-                  <div className={styles.reaAfiliacionesWrapper}>
-                    <h1 className={styles.reaAfiliaciones}>
-                      {servicioSeleccionado}
-                    </h1>
-                  </div>
-                  <div className={styles.paraPresentacinDe}>
-                    {/* Texto estático */}
-                    Para presentación de documentación o retiro de carnet y
-                    renovación del plástico por extravío, hurto o deterioro de
-                    carnet, atención presencial primer piso, Box 10, de 7.30 hs
-                    a 13:00 hs.
-                  </div>
-                  <div className={styles.areaActionWrapper}>
-                    <div className={styles.areaAction}>
-                      {subSubCategorias.map((subSubCategoria, index) => (
-                        <div key={index}>
-                            <BotonSubSubCategoria
-                            showIcono={true}
-                            text={subSubCategoria.subsubcategoria_nombre || ""}
-                            registroBlanco="/registro-blanco.svg"
-                            propMinWidth="87px"
-                            onClick={handleSubSubCategoriaClick}
-                            titulo={subSubCategoria.titulo}
-                            contenido={subSubCategoria.contenido}
-                            id={subSubCategoria.id}
-                          />
-                        </div>
-                      ))}
-                          
-                      <BotonSubSubCategoria
+      <div className={styles.areaNavigationParent}>
+        <div className={styles.frameWrapper}>
+          <div className={styles.areaDescriptionParent}>
+            <div className={styles.areaDescription}>
+              <div className={styles.frameParent}>
+                <div className={styles.reaAfiliacionesWrapper}>
+                  <h1 className={styles.reaAfiliaciones}>
+                    {servicioSeleccionado}
+                  </h1>
+                </div>
+                <div className={styles.paraPresentacinDe}>
+                  {/* Texto estático */}
+                  Para presentación de documentación o retiro de carnet y
+                  renovación del plástico por extravío, hurto o deterioro de
+                  carnet, atención presencial primer piso, Box 10, de 7.30 hs
+                  a 13:00 hs.
+                </div>
+                <div className={styles.areaActionWrapper}>
+                  <div className={styles.areaAction}>
+                    {subSubCategorias.map((subSubCategoria) => (
+                      <div key={subSubCategoria.id}>
+                          <BotonSubSubCategoria
+                          showIcono={true}
+                          text={subSubCategoria.subsubcategoria_nombre || ""}
+                          registroBlanco="/registro-blanco.svg"
+                          propMinWidth="87px"
+                          onClick={handleSubSubCategoriaClick}
+                          titulo={subSubCategoria.titulo}
+                          contenido={subSubCategoria.contenido}
+                          id={subSubCategoria.id}
+                        />
+                      </div>
+                    ))}
+                     {servicioSeleccionado === "Sistema Online para Prestadores" && SistemaOnline.map((link) => (
+                     <div key={link.id}>
+                     <BotonSubSubCategoria
+                      showIcono={true}
+                      text={link.nombre}
+                      registroBlanco="/registro-blanco.svg"
+                      propMinWidth="87px"
+                      onClick={() => handleSubSubCategoriaClick( "", "",link.id,link.url)}
+                      titulo=""
+                      contenido=""
+                      id={link.id}
+                      />
+                    </div>
+                        ))}  
+                         <BotonSubSubCategoria
                         showIcono={false}
-                        text="Afiliaciones"
+                        text="Afiliacion"
                         registroBlanco="/registro-blanco.svg"
                         propMinWidth="87px" onClick={function (): void {
                           throw new Error("Function not implemented.");
@@ -149,8 +168,9 @@ const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
               </div>
             </div>
           </div>
+
           <div className={styles.requisitosContainer}>
-          {mostrarDelegacion ? (
+            {mostrarDelegacion ? (
               <CardDelegacion />
             ) : contenidoSeleccionado ? (
               <Requisitos
@@ -166,9 +186,16 @@ const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
                 />
               )
             )}
-
-             {servicioSeleccionado === "prestadores" && <Prestadores />}
+            {servicioSeleccionado.toLowerCase() === "prestadores" && <Prestadores />}
+            {servicioSeleccionado.toLowerCase() === "pacientes crónicos" && 
+            <iframe
+            src="https://sdf.tandemdigital.net/generador-formulario-cronicos"
+            width="1300px"
+            height="300px"
+            title="Formulario Pacientes Crónicos"
+          />}
           </div>
+          
         </div>
       </section>
     );

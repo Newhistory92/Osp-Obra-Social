@@ -6,6 +6,8 @@ import CardContacto from "../Cards/Contactos/CardContacto";
 import ContenidoPrincipal from "../Contenido/ContenidoPrincipal";
 import CardRequisitos from "../Cards/Requisitos/CardRequisitos";
 import styles from "./menu.module.css";
+import { setActiveButton, setMostrarDelegacion } from '@/app/redux/Slice/navbarSlice';
+import { useAppSelector, useAppDispatch } from '@/app/hooks/StoreHook';
 
 export type MenuType = {
   className?: string;
@@ -17,20 +19,40 @@ const Menu: NextPage<MenuType> = memo(({ className = "" }) => {
   const [contenidoSeleccionado, setContenidoSeleccionado] = useState<
   { titulo: string; contenido: string; subsubcategoria_nombre: string | null ; id: number}[]
 >([]);
+const activeButton = useAppSelector((state) => state.navbar.activeButton);
+const mostrarDelegacion = useAppSelector((state) => state.navbar.mostrarDelegacion);
+const dispatch = useAppDispatch();
 
-const handlePublicacionesFiltradasChange = (publicaciones: any[]) => {
-  setContenidoSeleccionado(publicaciones);
-};
-console.log(contenidoSeleccionado)
-const handleServicioClick = (servicio: string) => {
-  setContenidoSeleccionado([]); 
-  setServicioSeleccionado(servicio);
-  setMostrarContenido(true);
-};
-const handleCerrarClick = () => {
-  setContenidoSeleccionado([]); 
-  setMostrarContenido(false); 
-};
+
+  const handlePublicacionesFiltradasChange = (publicaciones: any[]) => {
+    setContenidoSeleccionado(publicaciones);
+  };
+
+    
+
+
+  const handleServicioClick = (servicio: string) => {
+    setServicioSeleccionado(servicio);
+    setMostrarContenido(true);
+    setContenidoSeleccionado([]);
+    if (activeButton) {
+      dispatch(setActiveButton(false)); 
+    }
+    if (mostrarDelegacion) {
+      dispatch(setMostrarDelegacion(false));
+    }
+  };
+
+  const handleCerrarClick = () => {
+    setMostrarContenido(false);
+    setServicioSeleccionado("")
+    if (activeButton) {
+      dispatch(setActiveButton(false)); 
+    }
+    if (mostrarDelegacion) {
+      dispatch(setMostrarDelegacion(false)); 
+    } 
+  };
 
 
 
@@ -67,34 +89,41 @@ const handleCerrarClick = () => {
           <div className={styles.botones}>
             <BotonServicio
               showIcono
+              text="Afiliaciones"
+              info="/afiliaciones.svg"
+              onClick={() => handleServicioClick("Afiliaciones")}
+            />
+              <BotonServicio
+                showIcono
+                text="Prestadores"
+                info="/empleados-publicos.svg"
+                onClick={() => handleServicioClick("Prestadores")}
+              />
+               <BotonServicio
+               showIcono
+               text="Cobertura"
+               info="/autorizaciones-farmacia.svg"
+               onClick={() => handleServicioClick("Cobertura")}
+               />
+            <BotonServicio
+              showIcono
               text="Servicios"
               info="/servicios-salud.svg"
               onClick={() => handleServicioClick("Servicios")}
             />
             <BotonServicio
-              showIcono
-              text="Afiliaciones"
-              info="/afiliaciones.svg"
-              onClick={() => handleServicioClick("Afiliaciones")}
-            />
+                showIcono
+                text="Programas"
+                info="/medicamentos1.svg"
+                onClick={() => handleServicioClick("Programas")}
+              />
             <BotonServicio
               showIcono
-              text="Prestadores"
-              info="/empleados-publicos.svg"
-              onClick={() => handleServicioClick("Prestadores")}
+              text="Medicamentos y Farmacia"
+               info="/farmacia.svg"
+              onClick={() => handleServicioClick("Medicamentos y Farmacia")}
             />
-            <BotonServicio
-              showIcono
-              text="Medicamentos"
-              info="/medicamentos.svg"
-              onClick={() => handleServicioClick("Medicamentos")}
-            />
-            <BotonServicio
-              showIcono
-              text="Farmacia"
-              info="/farmacia.svg"
-              onClick={() => handleServicioClick("Farmacia")}
-            />
+          
             <BotonServicio
               showIcono
               text="Pacientes Crónicos"
@@ -115,12 +144,10 @@ const handleCerrarClick = () => {
               onClick={() => handleServicioClick("Institucional")}
             />
             <BotonServicio
-              showIcono
-              text="Autorizaciones"
-              info="/autorizaciones-farmacia.svg"
-              onClick={() => handleServicioClick("Autorizaciones")}
-            />
-            <BotonServicio showIcono text="Consultas" info="/info@2x.png" />
+             showIcono 
+             text="Sistema Online para Prestadores" 
+             info="/info@2x.png" 
+             onClick={() => handleServicioClick("Sistema Online para Prestadores")}/>
           </div>
         </div>
         {mostrarContenido && (
@@ -140,12 +167,12 @@ const handleCerrarClick = () => {
         servicioSeleccionado={servicioSeleccionado}
         onPublicacionesFiltradasChange={handlePublicacionesFiltradasChange}
       />
-            <div className={styles.cabecerarequisito}>
-            <ContenidoPrincipal 
+          <div className={styles.cabecerarequisito}>
+          <ContenidoPrincipal 
           subSubCategorias={contenidoSeleccionado} 
          servicioSeleccionado={servicioSeleccionado} 
       />
-            </div>
+          </div>
           </>
         )}
         <div className={styles.contactParent}>
