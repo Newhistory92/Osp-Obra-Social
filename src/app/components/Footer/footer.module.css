@@ -91,6 +91,10 @@
   align-items: flex-start;
   justify-content: center;
 }
+
+.footerSocialContainer div:hover{
+  cursor: pointer;
+}
 .footerSocialContainer {
   flex-direction: row;
   flex-wrap: wrap;
