@@ -1,11 +1,11 @@
 import type { NextPage } from "next";
 import { memo } from "react";
 import React, { useState } from 'react';
-import styles from "./componentsRequisitos.module.css";
+import styles from "./Requisitos.module.css";
 import { Accordion, AccordionTab } from 'primereact/accordion';
 import Parser from 'html-react-parser';
 
-// Actualizar el tipo de RequisitosType para aceptar título y contenido dinámico
+
 export type RequisitosType = {
   className?: string;
   titulo: string;
@@ -14,11 +14,11 @@ export type RequisitosType = {
 
 const Requisitos: NextPage<RequisitosType> = memo(
   ({ className = "", titulo, contenido }) => {
-
+    const [activeIndex, setActiveIndex] = useState<number | number[]>();
     
     return (
       <div>
-        <Accordion className={styles.accordionContainer} activeIndex={0}>
+        <Accordion className={styles.accordionContainer} activeIndex={activeIndex} onTabChange={(e) => setActiveIndex(e.index)}>
           {/* Datos dinámicos */}
           <AccordionTab header={titulo}>
             <p className={styles.requisitosDeAfiliaciones}>

@@ -16,15 +16,19 @@ export type CardRequisitosType = {
 const apiData = fetchData('/api/Datos/Publicaciones');
 
 
-// Datos estáticos por defecto
-
 const CardRequisitos: NextPage<CardRequisitosType> = memo(({ className = "",servicioSeleccionado,onPublicacionesFiltradasChange }) => {
   const [publicacionesFiltradas, setPublicacionesFiltradas] = useState<any[]>([]);
   const  activeButton  = useAppSelector(state =>  state.navbar.activeButton);
   const dispatch = useAppDispatch(); 
   const data = apiData.read();
-
-
+ 
+  // useEffect(() => {
+  //   const filtradas = data.publicaciones.filter((publicacion: any) => {
+  //     return publicacion.categoria_nombre.toLowerCase() === servicioSeleccionado.toLowerCase();
+  //   });
+  //   setPublicacionesFiltradas(filtradas);
+  // }, [servicioSeleccionado, data]);
+  
   useEffect(() => {
 
     if (data && data.publicaciones) {
@@ -34,24 +38,16 @@ const CardRequisitos: NextPage<CardRequisitosType> = memo(({ className = "",serv
       setPublicacionesFiltradas(filtradas);
     }
   }, [servicioSeleccionado, data]);
-
+  
   const handleBotonCardClick = (value: string, id: number) => {
-    console.log("Botón clickeado:", value); // Agrega esto para verificar qué botón se clickea
-    
     if (value === 'Delegación') {
-      console.log("Delegación seleccionada");
-      dispatch(setMostrarDelegacion(true)); 
+      dispatch(setMostrarDelegacion(true));
     } else {
-      console.log("Opción diferente a Delegación seleccionada");
-      dispatch(setMostrarDelegacion(false)); // Debería ocultar delegación
-    
-    if (activeButton) {
-      dispatch(setActiveButton(false)); 
-    } else {
+      dispatch(setMostrarDelegacion(false));
+  
       const filtradas = publicacionesFiltradas.filter(
         (publicacion) => publicacion.subcategoria_nombre === value
       );
-
       const filtradasFinales = filtradas.map((publicacion) => ({
         id: publicacion.id,
         titulo: publicacion.titulo,
@@ -61,8 +57,11 @@ const CardRequisitos: NextPage<CardRequisitosType> = memo(({ className = "",serv
 
       onPublicacionesFiltradasChange(filtradasFinales);
     }
-  }
-};
+    if (activeButton) {
+      dispatch(setActiveButton(false));
+    }
+  };
+
 
 
   return (
@@ -80,7 +79,7 @@ const CardRequisitos: NextPage<CardRequisitosType> = memo(({ className = "",serv
               onClick={() => handleBotonCardClick(publicacion.subcategoria_nombre, publicacion.id)}
             />
           ))}
-              {"servicios" === "servicios" && (
+              {servicioSeleccionado.toLowerCase() === "servicios" && (
             <BotonCard
               mostrarIcono
               fondo="/fondo2.svg"
@@ -90,17 +89,27 @@ const CardRequisitos: NextPage<CardRequisitosType> = memo(({ className = "",serv
               onClick={() => handleBotonCardClick("Delegación", 0)} 
             />
           )}
-
-            <BotonCard
+          <BotonCard
           
-            mostrarIcono
-            fondo="/fondo2.svg"
-            consultaDeExpediente="Baja"
-            consultaDeExpedienteTextDecoration="unset"
-            value="Baja" onClick={function (value: string): void {
-              throw new Error("Function not implemented.");
-            } }             
-            />
+          mostrarIcono
+          fondo="/fondo2.svg"
+          consultaDeExpediente="Baja"
+          consultaDeExpedienteTextDecoration="unset"
+          value="Baja" onClick={function (value: string): void {
+            throw new Error("Function not implemented.");
+          } }             
+          />
+          <BotonCard
+          
+          mostrarIcono
+          fondo="/fondo2.svg"
+          consultaDeExpediente="Baja"
+          consultaDeExpedienteTextDecoration="unset"
+          value="Baja" onClick={function (value: string): void {
+            throw new Error("Function not implemented.");
+          } }             
+          />
+
         </div>
       </div>
     </section>

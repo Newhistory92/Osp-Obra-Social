@@ -1,41 +1,57 @@
-.title {
-  flex: 1;
+.requisitosDeAfiliaciones {
+  margin: 0;
   position: relative;
-  display: inline-block;
-  min-width: 13px;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+}
+.requisitosDeAfiliacionesParent {
+  width: 1450px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-11xl);
   max-width: 100%;
 }
-.vectorIcon {
-  width: 12px;
-  height: 6px;
-  position: relative;
+.accordionContainerChild {
+  width: 292px;
+  height: 28px;
+  display: none;
 }
-.caretDown {
-  height: 20px;
-  width: 20px;
+.accordionContainer {
+  align-self: stretch;
+  border-radius: var(--br-xl);
+  background-color: var(--blanco);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-}
-.accordion3 {
-  width: 1450px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
-  border-radius: var(--br-6xs);
-  background-color: var(--blanco);
-  border-bottom: 2px solid var(--osp);
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
   justify-content: flex-start;
-  flex-wrap: wrap;
-  align-content: flex-start;
-  padding: var(--padding-13xl) var(--padding-3xs) var(--padding-10xl);
-  gap: var(--gap-5xl);
+  padding: var(--padding-31xl) var(--padding-xl);
+  box-sizing: border-box;
+  gap: var(--gap-xl);
   max-width: 100%;
   text-align: left;
-  font-size: var(--body-1-size);
-  color: var(--gris-principal);
+  font-size: var(--h1-size);
+  color: var(--osp);
   font-family: var(--body-1);
+}
+@media screen and (max-width: 1200px) {
+  .accordionContainer {
+    padding-top: var(--padding-2xl);
+    padding-bottom: var(--padding-2xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .accordionContainer {
+    padding-top: var(--padding-xl);
+    padding-bottom: var(--padding-xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .requisitosDeAfiliaciones {
+    font-size: var(--font-size-lgi);
+  }
 }

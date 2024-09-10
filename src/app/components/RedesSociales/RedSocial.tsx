@@ -14,9 +14,9 @@ const RedSocial: NextPage<RedSocialType> = memo(({ className = "" }) => {
   return (
     <div className={[styles.sociales, className].join(" ")}>
       <Facebook1 />
-      <X1 />
+      {/* <X1 /> */}
       <Instagram1 />
-      <Youtube1 />
+      {/* <Youtube1 /> */}
     </div>
   );
 });
