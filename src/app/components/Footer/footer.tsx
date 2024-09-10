@@ -280,15 +280,9 @@ const Footer: NextPage<FooterType> = memo(
             style={footerSocialContainerStyle}
           >
             <Facebook />
-            <X />
+            
             <Instagram />
-            <Youtube
-              youtubePosition={youtubePosition}
-              youtubeMargin={youtubeMargin}
-              youtubeTop={youtubeTop}
-              youtubeRight={youtubeRight}
-              youtubeBottom={youtubeBottom}
-            />
+           
           </div>
         </div>
       </footer>

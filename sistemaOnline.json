@@ -1,0 +1,33 @@
+[
+    {
+      "id": 1,
+      "nombre": "Internados",
+      "url": "https://dossanjuan.online/Osp/Login.Aspx?ReturnUrl=%2fOsp"
+    },
+    {
+      "id": 2,
+      "nombre": "Autorizaciones",
+      "url": "https://dossanjuan.online/OspAmb/Login.Aspx?ReturnUrl=%2fOspAmb%2fdefault.aspx"
+    },
+    {
+      "id": 3,
+      "nombre": "Odontológico",
+      "url": "https://dossanjuan.online/OspOdontologos/Login.Aspx?ReturnUrl=%2fospodontologos%2fdefault.aspx"
+    },
+    {
+      "id": 4,
+      "nombre": "Bioquímicos",
+      "url": "https://dossanjuan.online/OspBio/Login.Aspx?ReturnUrl=%2fOspBio%2fdefault.aspx"
+    },
+    {
+      "id": 5,
+      "nombre": "Facturación",
+      "url": "https://dossanjuan.online/OspFacturar/Account/Login.aspx?ReturnUrl=%2fOspFacturar"
+    },
+    {
+      "id": 6,
+      "nombre": "Diálisis",
+      "url": "https://dossanjuan.online/AmbulatorioOsp/Login.Aspx?ReturnUrl=%2fAmbulatorioOsp"
+    }
+  ]
+  
