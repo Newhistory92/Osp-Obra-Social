@@ -76,7 +76,7 @@
   font-weight: 500;
 }
 .centroCvicoAvenidaContainer {
-  height: 208px;
+  height: 308px;
   flex: 1;
   position: relative;
   display: flex;
@@ -89,7 +89,7 @@
 .footerSocialContainer {
   display: flex;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: center;
 }
 .footerSocialContainer {
   flex-direction: row;
@@ -97,6 +97,11 @@
   align-content: flex-start;
   padding: 0 var(--padding-9xs) 0 0;
   gap: 19px 17.7px;
+}
+@media screen and (max-width: 800px) {
+  .footerSocial{
+    padding: 0px !important;
+  }
 }
 .footer01,
 .footerSocial {
