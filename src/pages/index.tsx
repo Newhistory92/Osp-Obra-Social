@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import Navbar from "../app/components/Navbar/header";
+import Header from "../app/components/Navbar/header";
 import Menu from "../app/components/Menu/menu";
 import EstructuraOrganizacional from "../app/components/Contenido/Organizacion/estructura-organizacional";
 import CardAccesoRapido from "../app/components/Cards/AccesoRapido/CardAccesoRapido";
@@ -10,22 +10,21 @@ import Carrusel from "@/app/components/Carrusel/Carrusel";
 const OSPLanding: NextPage = () => {
   return (
     <div className={styles.ospLanding}>
-      <header className={styles.mainContent}>
-        <Navbar />
-      </header>
+      <Header />
+      <div style={{ height: "94px" }}></div>
+      <div style={{ height: "94px" }}></div>
       <img
         className={styles.texturasOsp5Icon}
         alt=""
         src="/texturas-osp-5@2x.png"
       />
-      
+
       <Menu />
-      
+
       <section className={styles.rectangleParent}>
         <div className={styles.frameChild} />
         <div className={styles.frameParent}>
-         <Carrusel/>
-          
+          <Carrusel />
         </div>
       </section>
       {/* <div className={styles.loremIpsumDolorSitAmetConParent}>
