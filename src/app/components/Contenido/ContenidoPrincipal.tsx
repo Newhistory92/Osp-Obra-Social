@@ -8,7 +8,7 @@ import {useAppSelector,useAppDispatch} from "@/app/hooks/StoreHook"
 import Prestadores from "../Prestador/Tabla";
 import CardDelegacion from "../Cards/CardDelegacion/CardDelegacion";
 import SistemaOnline from "../../../../sistemaOnline.json"
-import Link from "next/link";
+;
 
 export type ContenidoPrincipalType = {
   className?: string;
@@ -55,6 +55,16 @@ const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
         dispatch(setActiveButton(true)); 
       }
     }
+  };
+
+  // solo para datos estaticos
+  const handleAfiliacionClick = () => {
+    setContenidoSeleccionado({
+      titulo: "Afiliación",
+      contenido: "Aquí va la información estática relacionada con el trámite de afiliación.",
+      id: 0, // Un ID estático para esta acción
+    });
+    dispatch(setActiveButton(true)); // Activar el botón si es necesario
   };
 
     return (
@@ -106,20 +116,24 @@ const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
                       />
                     </div>
                         ))}  
-                         <BotonSubSubCategoria
-                        showIcono={false}
-                        text="Afiliacion"
+                        <BotonSubSubCategoria
+                         showIcono={false}
+                        text="Afiliación"
                         registroBlanco="/registro-blanco.svg"
-                        propMinWidth="87px" onClick={function (): void {
-                          throw new Error("Function not implemented.");
-                        } } titulo={""} contenido={""} id={0} />
+                         propMinWidth="87px" 
+                        onClick={handleAfiliacionClick} // Usar la nueva función de manejo de clic
+                        titulo={""}
+                        contenido={""}
+                        id={0}
+                           />
+
                           <BotonSubSubCategoria
                         showIcono={false}
                         text="Afiliaciones"
                         registroBlanco="/registro-blanco.svg"
                         propMinWidth="87px" onClick={function (): void {
                           throw new Error("Function not implemented.");
-                        } } titulo={""} contenido={""} id={0} />
+                        } } titulo={"Cambio de situación de revista"} contenido={""} id={0} />
                     </div>
                   </div>
                 </div>
