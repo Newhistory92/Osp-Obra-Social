@@ -40,7 +40,7 @@ const OSPLanding: NextPage = () => {
       </div> */}
       <section className={styles.contentBottomContainerParent}>
         <EstructuraOrganizacional />
-        <div className={styles.cardX5Color}>
+        {/* <div className={styles.cardX5Color}>
           <CardAccesoRapido
             propTop="50px"
             propLeft="279.5px"
@@ -74,14 +74,10 @@ const OSPLanding: NextPage = () => {
                 className={styles.expediente3Icon}
                 alt=""
                 src="/expediente-31.svg"
-              />
-              <div className={styles.ingreseContenido}>Inicio</div>
-              <div className={styles.direccinDelRegistro}>2 de Septiembre</div>
+              />         
             </div>
-            <img className={styles.billeteraIcon} alt="" src="/billetera.svg" />
-            <div className={styles.inicio}>Pagos</div>
           </div>
-        </div>
+        </div> */}
       </section>
       <Footer />
     </div>

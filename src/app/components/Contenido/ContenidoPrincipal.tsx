@@ -7,8 +7,8 @@ import  {setActiveButton}  from '@/app/redux/Slice/navbarSlice';
 import {useAppSelector,useAppDispatch} from "@/app/hooks/StoreHook"
 import Prestadores from "../Prestador/Tabla";
 import CardDelegacion from "../Cards/CardDelegacion/CardDelegacion";
-import SistemaOnline from "../../../../sistemaOnline.json"
-;
+import SistemaOnline from "../../../../sistemaOnline.json";
+import InformaciondeServicios from "../../../../InformaciondeServicios.json"
 
 export type ContenidoPrincipalType = {
   className?: string;
@@ -40,12 +40,9 @@ const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
       titulo: string,
       contenido: string,
       id: number,
-      url?: string
+     
     ) => {
-      if (url) {
-        // Redirigir a la URL proporcionada si está definida
-        window.location.href = url;
-      } else {
+    
 
       if (contenidoSeleccionado?.id === id) {
         setContenidoSeleccionado(null);
@@ -54,7 +51,7 @@ const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
         setContenidoSeleccionado({ titulo, contenido, id });
         dispatch(setActiveButton(true)); 
       }
-    }
+    
   };
 
   // solo para datos estaticos
@@ -102,20 +99,7 @@ const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
                         />
                       </div>
                     ))}
-                     {servicioSeleccionado === "Sistema Online para Prestadores" && SistemaOnline.map((link) => (
-                     <div key={link.id}>
-                     <BotonSubSubCategoria
-                      showIcono={true}
-                      text={link.nombre}
-                      registroBlanco="/registro-blanco.svg"
-                      propMinWidth="87px"
-                      onClick={() => handleSubSubCategoriaClick( "", "",link.id,link.url)}
-                      titulo=""
-                      contenido=""
-                      id={link.id}
-                      />
-                    </div>
-                        ))}  
+                    
                         <BotonSubSubCategoria
                          showIcono={false}
                         text="Afiliación"
