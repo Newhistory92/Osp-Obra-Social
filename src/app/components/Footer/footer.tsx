@@ -60,32 +60,6 @@ const Footer: NextPage<FooterType> = memo(
     footerSocialContainerPadding,
     footerSocialContainerAlignSelf,
     footerSocialContainerPosition,
-    youtubePosition,
-    youtubeMargin,
-    youtubeTop,
-    youtubeRight,
-    youtubeBottom,
-    blankLineFontFamily,
-    paulaAlbarracnDeSarmientoFontFamily,
-    conmutador0264429604546FontFamily,
-    fAX02644237333FontFamily,
-    blankLineFontFamily1,
-    centroCvicoFontFamily,
-    horariosDeAtencinFontFamily,
-    blankLineFontFamily2,
-    paulaAlbarracnDeSarmientoFontFamily1,
-    conmutador0264429604546FontFamily1,
-    fAX02644237333FontFamily1,
-    blankLineFontFamily3,
-    centroCvicoFontFamily1,
-    horariosDeAtencinFontFamily1,
-    blankLineFontFamily4,
-    paulaAlbarracnDeSarmientoFontFamily2,
-    conmutador0264429604546FontFamily2,
-    fAX02644237333FontFamily2,
-    blankLineFontFamily5,
-    centroCvicoFontFamily2,
-    horariosDeAtencinFontFamily2,
     blankLineFontFamily6,
     paulaAlbarracnDeSarmientoFontFamily3,
     conmutador0264429604546FontFamily3,
@@ -193,7 +167,7 @@ const Footer: NextPage<FooterType> = memo(
           <span>
             <p className={styles.casaDeGobiernoDeLaProvinc}>
               <span className={styles.horariosDeAtencin}>
-                <span>Casa de Gobierno de la Provincia de San Juan</span>
+                <span>Obra Social Provincia</span>
               </span>
             </p>
             <p className={styles.casaDeGobiernoDeLaProvinc}>
@@ -207,8 +181,7 @@ const Footer: NextPage<FooterType> = memo(
                 style={paulaAlbarracnDeSarmientoStyle}
               >
                 <span>
-                  Paula Albarracín de Sarmiento 134 norte | C.P: 5400 | San Juan
-                  | Argentina
+                Agustín Gnecco 360 (S)- 5400 | San Juan, Argentina
                 </span>
               </span>
             </p>
@@ -217,17 +190,10 @@ const Footer: NextPage<FooterType> = memo(
                 className={styles.horariosDeAtencin}
                 style={conmutador0264429604546Style}
               >
-                <span>Conmutador: (0264) 429-6045/46</span>
+                <span> Teléfono: (0264) 4304300</span>
               </span>
             </p>
-            <p className={styles.casaDeGobiernoDeLaProvinc}>
-              <span
-                className={styles.horariosDeAtencin}
-                style={fAX02644237333Style}
-              >
-                <span>FAX: (0264) 423-7333</span>
-              </span>
-            </p>
+           
             <p className={styles.blankLine2}>
               <span
                 className={styles.horariosDeAtencin}
@@ -235,43 +201,7 @@ const Footer: NextPage<FooterType> = memo(
               >
                 <span>&nbsp;</span>
               </span>
-            </p>
-            <p className={styles.casaDeGobiernoDeLaProvinc}>
-              <span
-                className={styles.horariosDeAtencin}
-                style={centroCvicoStyle}
-              >
-                <span>Centro Cívico</span>
-              </span>
-            </p>
-            <p className={styles.casaDeGobiernoDeLaProvinc}>
-              <span>
-                <span>
-                  Avenida Libertador General San Martín 750 Oeste | C.P: 5400 |
-                  San Juan | Argentina
-                </span>
-              </span>
-            </p>
-            <p className={styles.casaDeGobiernoDeLaProvinc}>
-              <span>
-                <span>Conmutador: (0264) 430-5000</span>
-              </span>
-            </p>
-            <p className={styles.casaDeGobiernoDeLaProvinc}>
-              <span>
-                <span className={styles.horariosDeAtencin}>&nbsp;</span>
-              </span>
-            </p>
-            <p className={styles.casaDeGobiernoDeLaProvinc}>
-              <span>
-                <span
-                  className={styles.horariosDeAtencin}
-                  style={horariosDeAtencinStyle}
-                >
-                  Horarios de Atención de 8 a 19 hs.
-                </span>
-              </span>
-            </p>
+            </p>                               
           </span>
         </div>
         <div className={styles.footerSocial} style={footerSocialStyle}>
@@ -291,3 +221,67 @@ const Footer: NextPage<FooterType> = memo(
 );
 
 export default Footer;
+
+
+// export type Footer1Type = {
+//   className?: string;
+// };
+
+// const Footer1: NextPage<Footer1Type> = memo(({ className = "" }) => {
+//   return (
+//     <footer className={[styles.footer01, className].join(" ")}>
+//       <div className={styles.footerContent}>
+//         <div className={styles.isologoGobSjNegativo0446ce}>
+//           <div className={styles.capa1}>
+//             <div className={styles.group}>
+//               <img
+//                 className={styles.groupIcon}
+//                 loading="lazy"
+//                 alt=""
+//                 src="/group.svg"
+//               />
+//               <img className={styles.groupIcon1} alt="" src="/group-1.svg" />
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//       <div className={styles.frameParent}>
+//         <div className={styles.institucionalBlancoWrapper}>
+//           <img
+//             className={styles.institucionalBlancoIcon}
+//             loading="lazy"
+//             alt=""
+//             src="/institucional-blanco.svg"
+//           />
+//         </div>
+//         <div className={styles.obraSocialProvinciaContainer}>
+//           <p className={styles.obraSocialProvincia}>Obra Social Provincia</p>
+//           <p className={styles.obraSocialProvincia}>&nbsp;</p>
+//           <p className={styles.obraSocialProvincia}>
+//              Agustín Gnecco 360 (S)- 5400 | San Juan, Argentina
+//           </p>
+//           <p className={styles.obraSocialProvincia}>&nbsp;</p>
+//           <p className={styles.obraSocialProvincia}>
+//             Teléfonos: (0264) 4304300
+//           </p>
+//         </div>
+//       </div>
+//       <div className={styles.footerSocialIconsWrapper}>
+//         <div className={styles.footerSocialIcons}>
+//           <Facebook />
+//           {/* <X /> */}
+//           <Instagram />
+//           {/* <Youtube
+//             youtubePosition="relative"
+//             youtubeMargin="unset"
+//             youtubeTop="unset"
+//             youtubeRight="unset"
+//             youtubeBottom="unset"
+//           /> */}
+//         </div>
+//       </div>
+//     </footer>
+//   );
+// });
+
+// export default Footer1;

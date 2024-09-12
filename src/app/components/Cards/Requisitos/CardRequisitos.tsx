@@ -6,6 +6,7 @@ import styles from "./CardRequisitos.module.css";
 import fetchData  from "@/app/utils/fetchData";
 import { setActiveButton, setMostrarDelegacion } from '@/app/redux/Slice/navbarSlice';
 import { useAppSelector, useAppDispatch } from "@/app/hooks/StoreHook";
+import SistemaOnline from "../../../../../sistemaOnline.json";
 
 export type CardRequisitosType = {
   className?: string;
@@ -22,22 +23,22 @@ const CardRequisitos: NextPage<CardRequisitosType> = memo(({ className = "",serv
   const dispatch = useAppDispatch(); 
   const data = apiData.read();
  
-  // useEffect(() => {
-  //   const filtradas = data.publicaciones.filter((publicacion: any) => {
-  //     return publicacion.categoria_nombre.toLowerCase() === servicioSeleccionado.toLowerCase();
-  //   });
-  //   setPublicacionesFiltradas(filtradas);
-  // }, [servicioSeleccionado, data]);
-  
   useEffect(() => {
-
-    if (data && data.publicaciones) {
-      const filtradas = data.publicaciones.filter(
-        (publicacion: any) => publicacion.categoria_nombre === servicioSeleccionado
-      );
-      setPublicacionesFiltradas(filtradas);
-    }
+    const filtradas = data.publicaciones.filter((publicacion: any) => {
+      return publicacion.categoria_nombre.toLowerCase() === servicioSeleccionado.toLowerCase();
+    });
+    setPublicacionesFiltradas(filtradas);
   }, [servicioSeleccionado, data]);
+  
+  // useEffect(() => {
+
+  //   if (data && data.publicaciones) {
+  //     const filtradas = data.publicaciones.filter(
+  //       (publicacion: any) => publicacion.categoria_nombre === servicioSeleccionado
+  //     );
+  //     setPublicacionesFiltradas(filtradas);
+  //   }
+  // }, [servicioSeleccionado, data]);
   
   const handleBotonCardClick = (value: string, id: number) => {
     if (value === 'Delegación') {
@@ -62,7 +63,11 @@ const CardRequisitos: NextPage<CardRequisitosType> = memo(({ className = "",serv
     }
   };
 
-
+  const handleRedireccionClick = (url?: string) => {
+    if (url) {
+      window.location.href = url; // Redirigir a la URL proporcionada
+    }
+  };
 
   return (
     <section className={[styles.cardIconBicolor, className].join(" ")}>
@@ -89,6 +94,18 @@ const CardRequisitos: NextPage<CardRequisitosType> = memo(({ className = "",serv
               onClick={() => handleBotonCardClick("Delegación", 0)} 
             />
           )}
+              {servicioSeleccionado === "Sistema Online para Prestadores" && SistemaOnline.map((link) => (
+            <div key={link.id}>
+              <BotonCard
+                mostrarIcono
+                fondo="/fondo2.svg"
+                consultaDeExpediente={link.nombre}
+                consultaDeExpedienteTextDecoration="unset"
+                value={link.nombre}
+                onClick={() => handleRedireccionClick(link.url)} 
+              />
+            </div>
+          ))}
           <BotonCard
           
           mostrarIcono
