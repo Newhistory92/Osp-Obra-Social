@@ -7,7 +7,6 @@ import  {setActiveButton}  from '@/app/redux/Slice/navbarSlice';
 import {useAppSelector,useAppDispatch} from "@/app/hooks/StoreHook"
 import Prestadores from "../Prestador/Tabla";
 import CardDelegacion from "../Cards/CardDelegacion/CardDelegacion";
-import SistemaOnline from "../../../../sistemaOnline.json";
 import InformaciondeServicios from "../../../../InformaciondeServicios.json"
 
 export type ContenidoPrincipalType = {
