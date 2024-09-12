@@ -10,9 +10,9 @@ const EstructuraOrganizacional: NextPage<EstructuraOrganizacionalType> = memo(
   ({ className = "" }) => {
     return (
       <section className="w-full flex flex-col items-center">
-        <div className="flex w-full flex-col lg:flex-row gap-5 px-7 lg:px-7 max-w-[1600px]">
-          <div className="flex gap-[7px] w-full lg:w-1/3 lg:items-start">
-            <div className="w-[3px] bg-[#D31D16] rounded-full lg:h-full" />
+        <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-5 px-7 lg:px-7 max-w-[1600px]">
+          <div className="flex gap-[7px] w-full lg:items-start">
+            <div className="w-[3px] min-w-[3px] bg-[#D31D16] rounded-full lg:h-full" />
             <div className="flex flex-col justify-center gap-3 text-start px-9 w-full mt-6">
               <h3 className="text-2xl text-gray-600 font-medium">Misión</h3>
               <span className="text-gray-600 text-base">
@@ -22,8 +22,8 @@ const EstructuraOrganizacional: NextPage<EstructuraOrganizacionalType> = memo(
               </span>
             </div>
           </div>
-          <div className="flex gap-[7px] w-full lg:w-1/3 lg:items-start">
-            <div className="w-[3px] bg-[#D31D16] rounded-full lg:h-full" />
+          <div className="flex gap-[7px] w-full lg:items-start">
+            <div className="w-[3px] min-w-[3px] bg-[#D31D16] rounded-full lg:h-full" />
             <div className="flex flex-col justify-center gap-3 text-start px-9 w-full mt-6">
               <h3 className="text-2xl text-gray-600 font-medium">Visión</h3>
               <span className="text-gray-600 text-base">
@@ -34,8 +34,8 @@ const EstructuraOrganizacional: NextPage<EstructuraOrganizacionalType> = memo(
               </span>
             </div>
           </div>
-          <div className="flex gap-[7px] w-full lg:w-1/3 lg:items-start">
-            <div className="w-[3px] bg-[#D31D16] rounded-full lg:h-full" />
+          <div className="flex gap-[7px] w-full lg:items-start">
+            <div className="w-[3px] min-w-[3px] bg-[#D31D16] rounded-full lg:h-full" />
             <div className="flex flex-col justify-center gap-3 text-start px-9 w-full mt-6">
               <h3 className="text-2xl text-gray-600 font-medium">
                 Función Social
