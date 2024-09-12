@@ -1,3 +1,4 @@
+
 export const AccesosRapidos = () => {
   return (
     <section className="w-full bg-white py-12 xl:px-[300px] px-7">

@@ -9,79 +9,60 @@ export type EstructuraOrganizacionalType = {
 const EstructuraOrganizacional: NextPage<EstructuraOrganizacionalType> = memo(
   ({ className = "" }) => {
     return (
-      <div className={[styles.contentBottomContainer, className].join(" ")}>
-        <div className={styles.contentBottomContainerChild} />
-        <div className={styles.missionContainerParent}>
-          <div className={styles.missionContainer}>
-            <div className={styles.missionContent}>
-              <div className={styles.frameParent}>
-                <div className={styles.functionContainerWrapper}>
-                  <div className={styles.functionContainer}>
-                    <h1 className={styles.misin}>Misión</h1>
-                    <h2 className={styles.custodiarYPreservar}>
-                      Custodiar y preservar el patrimonio documental provincial,
-                      garantizando el derecho de acceso a la información y el
-                      asesoramiento técnico a todos los ciudadanos
-                    </h2>
-                  </div>
-                </div>
-                <div className={styles.visionContainer}>
-                  <div className={styles.visionDivider} />
-                  <div className={styles.missionContainer1}>
-                    <div className={styles.visionDescription}>
-                      <div className={styles.visinWrapper}>
-                        <h1 className={styles.visin}>Visión</h1>
-                      </div>
-                      <h2 className={styles.lograrElPosicionamientoContainer}>
-                        <span>
-                          <p className={styles.lograrElPosicionamiento}>
-                            Lograr el posicionamiento y reconocimiento
-                            institucional donde todos los archivos que forman
-                            parte del sistema trabajen de manera integral y
-                            coordinadamente, a través de la modernización e
-                            innovación de la organización en su totalidad.
-                          </p>
-                        </span>
-                      </h2>
-                    </div>
-                  </div>
-                </div>
-                <div className={styles.functionDivider} />
-                <div className={styles.socialFunction}>
-                  <h1 className={styles.misin}>Función Social</h1>
-                  <h2 className={styles.nuestraInstitucinResguardaContainer}>
-                    <span>
-                      <p className={styles.lograrElPosicionamiento}>
-                        Nuestra institución resguarda información esencial que
-                        refleja la historia de nuestra provincia. Esta
-                        información resulta crucial para la administración, la
-                        investigación, el desarrollo económico, social,
-                        científico y tecnológico, el fomento de la cultura y la
-                        consolidación de la identidad provincial.
-                      </p>
-                    </span>
-                  </h2>
-                </div>
-              </div>
+      <section className="w-full flex flex-col items-center">
+        <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-5 px-7 lg:px-7 max-w-[1600px]">
+          <div className="flex gap-[7px] w-full lg:items-start">
+            <div className="w-[3px] min-w-[3px] bg-[#D31D16] rounded-full lg:h-full" />
+            <div className="flex flex-col justify-center gap-3 text-start px-9 w-full mt-6">
+              <h3 className="text-2xl text-gray-600 font-medium">Misión</h3>
+              <span className="text-gray-600 text-base">
+                Custodiar y preservar el patrimonio documental provincial,
+                garantizando el derecho de acceso a la información y el
+                asesoramiento técnico a todos los ciudadanos
+              </span>
             </div>
-            <h1 className={styles.estructuraOrganizacional}>
-              Estructura Organizacional
-            </h1>
           </div>
-          <h2 className={styles.laDireccinDelContainer}>
-            <p className={styles.lograrElPosicionamiento}>
-              La Dirección del Archivo General de la Provincia y Sistema
-              Provincial de Archivos pertenece a la Secretaría de Relaciones
-              Institucionales dentro del ámbito del Ministerio de Gobierno.
-            </p>
-            <p className={styles.lograrElPosicionamiento}>&nbsp;</p>
-            <p className={styles.lograrElPosicionamiento}>
-              Según lo establece la ley 279-A, nuestra institución está
-              conformada por los siguientes departamento
-            </p>
-          </h2>
+          <div className="flex gap-[7px] w-full lg:items-start">
+            <div className="w-[3px] min-w-[3px] bg-[#D31D16] rounded-full lg:h-full" />
+            <div className="flex flex-col justify-center gap-3 text-start px-9 w-full mt-6">
+              <h3 className="text-2xl text-gray-600 font-medium">Visión</h3>
+              <span className="text-gray-600 text-base">
+                Lograr el posicionamiento y reconocimiento institucional donde
+                todos los archivos que forman parte del sistema trabajen de
+                manera integral y coordinadamente, a través de la modernización
+                e innovación de la organización en su totalidad.
+              </span>
+            </div>
+          </div>
+          <div className="flex gap-[7px] w-full lg:items-start">
+            <div className="w-[3px] min-w-[3px] bg-[#D31D16] rounded-full lg:h-full" />
+            <div className="flex flex-col justify-center gap-3 text-start px-9 w-full mt-6">
+              <h3 className="text-2xl text-gray-600 font-medium">
+                Función Social
+              </h3>
+              <span className="text-gray-600 text-base">
+                Nuestra institución resguarda información esencial que refleja
+                la historia de nuestra provincia. Esta información resulta
+                crucial para la administración, la investigación, el desarrollo
+                económico, social, científico y tecnológico, el fomento de la
+                cultura y la consolidación de la identidad provincial.
+              </span>
+            </div>
+          </div>
         </div>
-      </div>
+        <div className="text-start w-full px-7 max-w-[1600px] mt-[36px]">
+          <h3 className="text-2xl text-gray-600 font-medium mb-[28px]">
+            Estructura organizacional
+          </h3>
+          <span className="text-gray-600 text-base leading-8">
+            La Dirección del Archivo General de la Provincia y Sistema
+            Provincial de Archivos pertenece a la Secretaría de Relaciones
+            Institucionales dentro del ámbito del Ministerio de Gobierno.
+            <br /> Según lo establece la ley 279-A, nuestra institución está
+            conformada por los siguientes departamento
+          </span>
+        </div>
+      </section>
     );
   }
 );
