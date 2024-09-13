@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import { memo } from "react";
-import styles from "./estructura-organizacional.module.css";
+
 
 export type EstructuraOrganizacionalType = {
   className?: string;

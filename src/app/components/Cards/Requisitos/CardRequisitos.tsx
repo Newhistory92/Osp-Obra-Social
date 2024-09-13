@@ -23,22 +23,22 @@ const CardRequisitos: NextPage<CardRequisitosType> = memo(({ className = "",serv
   const dispatch = useAppDispatch(); 
   const data = apiData.read();
  
-  /* useEffect(() => {
-    const filtradas = data.publicaciones.filter((publicacion: any) => {
-      return publicacion.categoria_nombre.toLowerCase() === servicioSeleccionado.toLowerCase();
-    });
-    setPublicacionesFiltradas(filtradas);
-  }, [servicioSeleccionado, data]); */
+  // useEffect(() => {
+  //   const filtradas = data.publicaciones.filter((publicacion: any) => {
+  //     return publicacion.categoria_nombre.toLowerCase() === servicioSeleccionado.toLowerCase();
+  //   });
+  //   setPublicacionesFiltradas(filtradas);
+  // }, [servicioSeleccionado, data]);
   
-   useEffect(() => {
+  useEffect(() => {
 
-     if (data && data.publicaciones) {
-       const filtradas = data.publicaciones.filter(
-         (publicacion: any) => publicacion.categoria_nombre === servicioSeleccionado
-       );
-       setPublicacionesFiltradas(filtradas);
-     }
-   }, [servicioSeleccionado, data]);
+    if (data && data.publicaciones) {
+      const filtradas = data.publicaciones.filter(
+        (publicacion: any) => publicacion.categoria_nombre === servicioSeleccionado
+      );
+      setPublicacionesFiltradas(filtradas);
+    }
+  }, [servicioSeleccionado, data]);
   
   const handleBotonCardClick = (value: string, id: number) => {
     if (value === 'Delegación') {
