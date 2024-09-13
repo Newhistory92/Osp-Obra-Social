@@ -93,18 +93,18 @@ const dispatch = useAppDispatch();
               info="/afiliaciones.svg"
               onClick={() => handleServicioClick("Afiliaciones")}
             />
-              <BotonServicio
-                showIcono
-                text="Prestadores"
-                info="/empleados-publicos.svg"
-                onClick={() => handleServicioClick("Prestadores")}
-              />
-               <BotonServicio
-               showIcono
-               text="Cobertura"
-               info="/autorizaciones-farmacia.svg"
-               onClick={() => handleServicioClick("Cobertura")}
-               />
+            <BotonServicio
+              showIcono
+              text="Prestadores"
+              info="/empleados-publicos.svg"
+              onClick={() => handleServicioClick("Prestadores")}
+            />
+            <BotonServicio
+              showIcono
+              text="Cobertura"
+              info="/autorizaciones-farmacia.svg"
+              onClick={() => handleServicioClick("Cobertura")}
+            />
             <BotonServicio
               showIcono
               text="Servicios"
@@ -112,18 +112,18 @@ const dispatch = useAppDispatch();
               onClick={() => handleServicioClick("Servicios")}
             />
             <BotonServicio
-                showIcono
-                text="Programas"
-                info="/medicamentos1.svg"
-                onClick={() => handleServicioClick("Programas")}
-              />
+              showIcono
+              text="Programas"
+              info="/medicamentos1.svg"
+              onClick={() => handleServicioClick("Programas")}
+            />
             <BotonServicio
               showIcono
               text="Medicamentos y Farmacia"
-               info="/farmacia.svg"
+              info="/farmacia.svg"
               onClick={() => handleServicioClick("Medicamentos y Farmacia")}
             />
-          
+
             <BotonServicio
               showIcono
               text="Pacientes Crónicos"
@@ -144,35 +144,42 @@ const dispatch = useAppDispatch();
               onClick={() => handleServicioClick("Institucional")}
             />
             <BotonServicio
-             showIcono 
-             text="Sistema Online para Prestadores" 
-             info="/info@2x.png" 
-             onClick={() => handleServicioClick("Sistema Online para Prestadores")}/>
+              showIcono
+              text="Sistema Online para Prestadores"
+              info="/info@2x.png"
+              onClick={() =>
+                handleServicioClick("Sistema Online para Prestadores")
+              }
+            />
           </div>
         </div>
         {mostrarContenido && (
           <>
-            <div className={styles.servicesButton} onClick={handleCerrarClick}>
-              <img
-                className={styles.botonArea}
-                loading="lazy"
-                alt=""
-                src="/boton-area.svg"
-              />
-              <button className={styles.serviciosWrapper}>
-                <b className={styles.servicios}>{servicioSeleccionado}</b>
+            <div className="flex h-12 gap-2" onClick={handleCerrarClick}>
+              <div className="bg-[#413E43] px-3 py-3 rounded-l-md hover:cursor-pointer hover:bg-[#524F54] transition-colors">
+                <img
+                  className="h-full"
+                  loading="lazy"
+                  alt=""
+                  src="/boton-area.svg"
+                />
+              </div>
+              <button className="w-56 bg-[#D31D16] font-semibold text-white h-12 rounded-r-md hover:cursor-pointer hover:bg-[#E42E27] transition-colors">
+                {servicioSeleccionado}
               </button>
             </div>
             <CardRequisitos
-        servicioSeleccionado={servicioSeleccionado}
-        onPublicacionesFiltradasChange={handlePublicacionesFiltradasChange}
-      />
-          <div className={styles.cabecerarequisito}>
-          <ContenidoPrincipal 
-          subSubCategorias={contenidoSeleccionado} 
-         servicioSeleccionado={servicioSeleccionado} 
-      />
-          </div>
+              servicioSeleccionado={servicioSeleccionado}
+              onPublicacionesFiltradasChange={
+                handlePublicacionesFiltradasChange
+              }
+            />
+            <div className={styles.cabecerarequisito}>
+              <ContenidoPrincipal
+                subSubCategorias={contenidoSeleccionado}
+                servicioSeleccionado={servicioSeleccionado}
+              />
+            </div>
           </>
         )}
         <div className={styles.contactParent}>
