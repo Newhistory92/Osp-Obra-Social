@@ -28,22 +28,24 @@
   font-family: inherit;
  
 }
-/* .areaAction,
+
 .areaActionWrapper {
+  width: 100%;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  max-width: 100%;
-}
-.areaAction {
   justify-content: center;
-  gap: var(--gap-56xl-6);
-} */
-/* .areaActionWrapper {
-  justify-content: flex-end;
-  padding: 0 var(--padding-8xl);
+  padding: 0 2rem;
   box-sizing: border-box;
-} */
+}
+
+
+.areaAction {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem; 
+  max-width: 100%;
+  justify-items: center; 
+}
+
 .areaDescription,
 .frameParent {
   display: flex;
@@ -156,6 +158,9 @@
     border-right: none; 
     margin-top: 20px; 
   }
+  .areaAction {
+    grid-template-columns: repeat(2, 1fr); 
+  }
 }
 
 @media screen and (max-width: 650px) {
@@ -165,7 +170,9 @@
     font-size: 2rem; 
   }
 
- 
+  .areaAction {
+    grid-template-columns: 1fr; 
+  }
 .losTrmitesQueContainer {
   width: 90%;
   font-size: 1rem; 
@@ -201,6 +208,7 @@
   width: 70%; 
   
 }
+
 }
 
 
