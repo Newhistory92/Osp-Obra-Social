@@ -31,9 +31,10 @@ const BotonCard: NextPage<BotonCardType> = memo(
     }, [consultaDeExpedienteTextDecoration]);
 
     return (
-      <div className={[styles.botnPiesNicon, className].join(" ")} 
-      onClick={() => onClick(value)}>
-        <img className={styles.fondoIcon} alt="" src={fondo} />
+      <div
+        className="w-full bg-white relative rounded-[15px] shadow-sm flex justify-start items-center pl-5 h-[80px] hover:cursor-pointer"
+        onClick={() => onClick(value)}
+      >
         {mostrarIcono && (
           <img
             className={styles.expediente3Icon}
@@ -42,12 +43,12 @@ const BotonCard: NextPage<BotonCardType> = memo(
           />
         )}
         <div
-          className={styles.consultaDeExpediente}
+          className="text-[#413E43] font-medium ml-5"
           style={consultaDeExpedienteStyle}
-          
         >
           {consultaDeExpediente}
         </div>
+        <div className="absolute w-full bg-[#D31D16] bottom-0 z-50 h-2 rounded-b-md left-0" />
       </div>
     );
   }

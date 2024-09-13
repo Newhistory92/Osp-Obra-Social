@@ -23,22 +23,22 @@ const CardRequisitos: NextPage<CardRequisitosType> = memo(({ className = "",serv
   const dispatch = useAppDispatch(); 
   const data = apiData.read();
  
-  useEffect(() => {
+  /* useEffect(() => {
     const filtradas = data.publicaciones.filter((publicacion: any) => {
       return publicacion.categoria_nombre.toLowerCase() === servicioSeleccionado.toLowerCase();
     });
     setPublicacionesFiltradas(filtradas);
-  }, [servicioSeleccionado, data]);
+  }, [servicioSeleccionado, data]); */
   
-  // useEffect(() => {
+   useEffect(() => {
 
-  //   if (data && data.publicaciones) {
-  //     const filtradas = data.publicaciones.filter(
-  //       (publicacion: any) => publicacion.categoria_nombre === servicioSeleccionado
-  //     );
-  //     setPublicacionesFiltradas(filtradas);
-  //   }
-  // }, [servicioSeleccionado, data]);
+     if (data && data.publicaciones) {
+       const filtradas = data.publicaciones.filter(
+         (publicacion: any) => publicacion.categoria_nombre === servicioSeleccionado
+       );
+       setPublicacionesFiltradas(filtradas);
+     }
+   }, [servicioSeleccionado, data]);
   
   const handleBotonCardClick = (value: string, id: number) => {
     if (value === 'Delegación') {
@@ -70,31 +70,36 @@ const CardRequisitos: NextPage<CardRequisitosType> = memo(({ className = "",serv
   };
 
   return (
-    <section className={[styles.cardIconBicolor, className].join(" ")}>
-      <div className={styles.contentContainer}>
-        <div className={styles.buttonsContainer}>
+    <section className="w-full">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:grid-cols-3 xl:grid-cols-5">
         {publicacionesFiltradas.map((publicacion: any) => (
-            <BotonCard
-              key={publicacion.id}
-              mostrarIcono
-              fondo="/fondo2.svg"
-              consultaDeExpediente={publicacion.subcategoria_nombre} 
-              consultaDeExpedienteTextDecoration="unset"
-              value={publicacion.subcategoria_nombre} 
-              onClick={() => handleBotonCardClick(publicacion.subcategoria_nombre, publicacion.id)}
-            />
-          ))}
-              {servicioSeleccionado.toLowerCase() === "servicios" && (
-            <BotonCard
-              mostrarIcono
-              fondo="/fondo2.svg"
-              consultaDeExpediente="Delegación de Partamental"
-              consultaDeExpedienteTextDecoration="unset"
-              value="Delegación"
-              onClick={() => handleBotonCardClick("Delegación", 0)} 
-            />
-          )}
-              {servicioSeleccionado === "Sistema Online para Prestadores" && SistemaOnline.map((link) => (
+          <BotonCard
+            key={publicacion.id}
+            mostrarIcono
+            fondo="/fondo2.svg"
+            consultaDeExpediente={publicacion.subcategoria_nombre}
+            consultaDeExpedienteTextDecoration="unset"
+            value={publicacion.subcategoria_nombre}
+            onClick={() =>
+              handleBotonCardClick(
+                publicacion.subcategoria_nombre,
+                publicacion.id
+              )
+            }
+          />
+        ))}
+        {servicioSeleccionado.toLowerCase() === "servicios" && (
+          <BotonCard
+            mostrarIcono
+            fondo="/fondo2.svg"
+            consultaDeExpediente="Delegación de Partamental"
+            consultaDeExpedienteTextDecoration="unset"
+            value="Delegación"
+            onClick={() => handleBotonCardClick("Delegación", 0)}
+          />
+        )}
+        {servicioSeleccionado === "Sistema Online para Prestadores" &&
+          SistemaOnline.map((link) => (
             <div key={link.id}>
               <BotonCard
                 mostrarIcono
@@ -102,7 +107,7 @@ const CardRequisitos: NextPage<CardRequisitosType> = memo(({ className = "",serv
                 consultaDeExpediente={link.nombre}
                 consultaDeExpedienteTextDecoration="unset"
                 value={link.nombre}
-                onClick={() => handleRedireccionClick(link.url)} 
+                onClick={() => handleRedireccionClick(link.url)}
               />
             </div>
           ))}
@@ -112,22 +117,21 @@ const CardRequisitos: NextPage<CardRequisitosType> = memo(({ className = "",serv
           fondo="/fondo2.svg"
           consultaDeExpediente="Baja"
           consultaDeExpedienteTextDecoration="unset"
-          value="Baja" onClick={function (value: string): void {
+          value="Baja"
+          onClick={function (value: string): void {
             throw new Error("Function not implemented.");
-          } }             
-          />
-          <BotonCard
-          
+          }}
+        />
+        <BotonCard
           mostrarIcono
           fondo="/fondo2.svg"
           consultaDeExpediente="Baja"
           consultaDeExpedienteTextDecoration="unset"
-          value="Baja" onClick={function (value: string): void {
+          value="Baja"
+          onClick={function (value: string): void {
             throw new Error("Function not implemented.");
-          } }             
-          />
-
-        </div>
+          }}
+        />
       </div>
     </section>
   );
