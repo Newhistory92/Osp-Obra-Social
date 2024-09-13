@@ -3,9 +3,6 @@
       "id": 1,
       "servicio": "Afiliaciones",
       "descripcion": "Atención presencial primer piso, de 7.30 hs a 13:00 hs. Consultas vía e-mail afiliaciones.osp@gmail.com o Tefónicas al 4304300 opción, opción 7 luego opción 1.",
-      "atencionPresencial": "",
-      "telefono": "4304300 opción, opción 7 luego opción 1.",
-      "mail": "afiliaciones.osp@gmail.com",
       "informacionPrimaria": "Para presentación de documentación o retiro de carnet y renovación del plástico por extravío, hurto o deterioro de carnet,dirigirse al Box 10 atención presencial..",
       "informacionSecundaria": "En el caso de vencimientos parciales (renovaciones de estudiantes,pensionados, docentes interinos y suplentes), bajas de afiliaciones y reintegros de aportes, usted puede comunicarse con la Oficina de Control de Aportes vía e-mail a aportes.afiliaciones@gmail.com o vía telefónica al4304300 opción 7 luego opción 2."
     },
@@ -13,29 +10,20 @@
       "id": 2,
       "servicio": "Cobertura",
       "descripcion": "Información y gestión sobre coberturas médicas.",
-      "atencionPresencial": "Sucursal 2, Av. Córdoba 456, Mendoza",
-      "telefono": "0261-1234567",
-      "mail": "cobertura@empresa.com",
       "informacionPrimaria": "Coberturas: Medicamentos, estudios clínicos.",
       "informacionSecundaria": "Consultas adicionales a través de la web."
     },
     {
       "id": 3,
       "servicio": "Farmacia y Medicamento",
-      "descripcion": "Gestión de recetas y acceso a farmacias adheridas.",
-      "atencionPresencial": "Sucursal 3, Calle San Martín 789, Buenos Aires",
-      "telefono": "011-1234567",
-      "mail": "farmacia@empresa.com",
-      "informacionPrimaria": "Red de farmacias afiliadas disponible en la web.",
-      "informacionSecundaria": "Descuentos aplicables para afiliados."
+      "descripcion": "Atención presencial de Lunes a Viernes de 07:30 a 13:00 ha en Sede central, Auditoria de Planes y Patologías especiales.",
+      "informacionPrimaria": "",
+      "informacionSecundaria": ""
     },
     {
       "id": 4,
       "servicio": "Institucional",
       "descripcion": "Asuntos institucionales y administrativos.",
-      "atencionPresencial": "Oficina Central, Mitre 234, San Juan",
-      "telefono": "264-9876543",
-      "mail": "institucional@empresa.com",
       "informacionPrimaria": "Consultas sobre convenios institucionales.",
       "informacionSecundaria": "Horario: Lunes a viernes de 9:00 a 17:00."
     },
@@ -43,9 +31,6 @@
       "id": 5,
       "servicio": "Prestadores",
       "descripcion": "Red de prestadores médicos y hospitalarios.",
-      "atencionPresencial": "Oficina de Prestadores, Av. Belgrano 890, San Juan",
-      "telefono": "264-7654321",
-      "mail": "prestadores@empresa.com",
       "informacionPrimaria": "Listado de prestadores en la web.",
       "informacionSecundaria": "Actualización periódica de la red."
     },
@@ -53,9 +38,6 @@
       "id": 6,
       "servicio": "Servicios",
       "descripcion": "Consulta y acceso a servicios médicos.",
-      "atencionPresencial": "Centro Médico, Av. Rivadavia 345, Buenos Aires",
-      "telefono": "011-9876543",
-      "mail": "servicios@empresa.com",
       "informacionPrimaria": "Servicios disponibles: Consultas, diagnósticos.",
       "informacionSecundaria": "Acceso a servicios online 24/7."
     },
@@ -63,9 +45,6 @@
       "id": 7,
       "servicio": "Programas",
       "descripcion": "Programas de salud y bienestar.",
-      "atencionPresencial": "Oficina de Programas, Calle Córdoba 123, Mendoza",
-      "telefono": "0261-7654321",
-      "mail": "programas@empresa.com",
       "informacionPrimaria": "Programas de prevención y tratamiento.",
       "informacionSecundaria": "Inscripción abierta todo el año."
     },
@@ -73,9 +52,6 @@
       "id": 8,
       "servicio": "Noticias",
       "descripcion": "Actualización de noticias y novedades del sistema.",
-      "atencionPresencial": "Oficina de Prensa, Av. San Juan 654, Córdoba",
-      "telefono": "0351-7654321",
-      "mail": "noticias@empresa.com",
       "informacionPrimaria": "Noticias actualizadas semanalmente.",
       "informacionSecundaria": "Boletines de noticias vía mail."
     },
@@ -83,9 +59,6 @@
       "id": 9,
       "servicio": "Formularios",
       "descripcion": "Gestión de formularios y documentación necesaria.",
-      "atencionPresencial": "Oficina Central, Libertador 890, San Juan",
-      "telefono": "264-4321234",
-      "mail": "formularios@empresa.com",
       "informacionPrimaria": "Descarga de formularios online.",
       "informacionSecundaria": "Soporte en línea para completado de formularios."
     }

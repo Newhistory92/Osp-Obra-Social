@@ -1,8 +1,5 @@
 
-.areaNavigation {
-  width: 242.6px;
-  gap: var(--gap-mini);
-}
+
 .reaAfiliaciones {
   margin: 0;
   position: relative;
@@ -15,7 +12,7 @@
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  justify-content: flex-end;
+  justify-content: center;
   padding: 0 var(--padding-43xl);
   box-sizing: border-box;
   max-width: 100%;
@@ -25,72 +22,64 @@
   align-self: stretch;
   position: relative;
   font-size: var(--body-1-size);
-  font-weight: 500;
+  font-weight: 700;
   color: var(--gris-principal);
+  text-align: left;
+  font-family: inherit;
+ 
 }
-.areaAction,
+/* .areaAction,
 .areaActionWrapper {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   max-width: 100%;
 }
 .areaAction {
   justify-content: center;
   gap: var(--gap-56xl-6);
-}
-.areaActionWrapper {
+} */
+/* .areaActionWrapper {
   justify-content: flex-end;
   padding: 0 var(--padding-8xl);
   box-sizing: border-box;
-}
+} */
 .areaDescription,
 .frameParent {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  align-items: center;
   box-sizing: border-box;
   max-width: 100%;
 }
 .frameParent {
   align-self: stretch;
-  align-items: flex-end;
+  justify-content: space-around;
   padding: 0 var(--padding-7xs) var(--padding-12xs-1);
   gap: var(--gap-14xl-8);
 }
 .areaDescription {
-  width: 541.5px;
+  width: 550px;
   align-items: flex-start;
   padding: var(--padding-7xl-4) 0 0;
 }
-.frameChild {
-  height: 272px;
-  width: 0;
-  position: relative;
-  object-fit: contain;
-}
+
 .losTrmitesQue {
   margin-block-start: 0;
   margin-block-end: 20px;
 }
-.afiliacionesospgmailcom1 {
-  text-decoration: underline;
-}
-.afiliacionesospgmailcom {
-  margin: 0;
-  color: var(--osp);
-}
+
 .losTrmitesQueContainer {
-  width: 530px;
+  width: 550px;
   position: relative;
   display: inline-block;
   max-height: 238px;
   word-break: break-word;
+  
 }
 .losTrmitesQueSeRealizanPWrapper {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   justify-content: flex-start;
   padding: var(--padding-mid) 0 0;
   box-sizing: border-box;
@@ -99,6 +88,7 @@
   font-size: var(--body-1-size);
   color: var(--gris-principal);
 }
+
 .areaDescriptionParent,
 .frameWrapper {
   display: flex;
@@ -108,7 +98,7 @@
 }
 .areaDescriptionParent {
   width: 1349.5px;
-  justify-content: space-between;
+  justify-content: space-evenly;
   gap: var(--gap-xl);
 }
 .frameWrapper {
@@ -141,14 +131,16 @@
   color: var(--gris-principal);
   font-family: var(--body-1);
 }
+.lineaDivisoria {
+  height: 197.9px;
+  width: 2.9px;
+  position: relative;
+  border-right: 2.9px solid var(--osp);
+  box-sizing: border-box;
+}
 
 
 @media screen and (max-width: 1200px) {
-  .botones {
-    padding-left: var(--padding-17xl);
-    padding-right: var(--padding-17xl);
-    box-sizing: border-box;
-  }
   .areaDescriptionParent {
     flex-wrap: wrap;
   }
@@ -156,54 +148,61 @@
     padding-bottom: var(--padding-28xl);
     box-sizing: border-box;
   }
-}
-@media screen and (max-width: 1050px) {
-  .reaAfiliaciones {
-    font-size: var(--font-size-19xl);
+  .lineaDivisoria {
+    position: relative;
+    height: 2.9px; 
+    width: 50%; 
+    border-bottom: 2.9px solid var(--osp); 
+    border-right: none; 
+    margin-top: 20px; 
   }
 }
-@media screen and (max-width: 750px) {
-  .botones {
-    gap: var(--gap-lg);
+
+@media screen and (max-width: 650px) {
+  .losTrmitesQueContainer,
+  .areaDescription {
+    width: 90%;
+    font-size: 2rem; 
   }
-  .cabeceraConIconos {
-    padding-top: var(--padding-7xl);
-    padding-bottom: var(--padding-7xl);
-    box-sizing: border-box;
-  }
-  .reaAfiliacionesWrapper {
-    padding-left: var(--padding-12xl);
-    padding-right: var(--padding-12xl);
-    box-sizing: border-box;
-  }
-  .areaAction {
-    flex-wrap: wrap;
-  }
-  .frameParent {
-    gap: var(--gap-mid);
-  }
-  .areaNavigationParent {
-    gap: var(--gap-13xl);
-  }
-  .cabeceraConIconosParent {
-    gap: var(--gap-4xl);
-  }
-  .ospAfiliacionesInner {
-    padding-bottom: var(--padding-12xl);
-    box-sizing: border-box;
-  }
+
+ 
+.losTrmitesQueContainer {
+  width: 90%;
+  font-size: 1rem; 
+  margin-left: 20px;
+  
 }
+.lineaDivisoria {
+  
+  width: 70%; 
+
+}
+  
+}
+
 @media screen and (max-width: 450px) {
-  .afiliaciones {
-    font-size: var(--font-size-lgi);
+  
+  .losTrmitesQueContainer,
+  .areaDescription {
+    width: 90%;
+    font-size: 1.5rem; 
   }
-  .reaAfiliaciones {
-    font-size: var(--font-size-10xl);
-  }
-  .areaAction {
-    gap: var(--gap-19xl);
-  }
-  .areaNavigationParent {
-    gap: var(--gap-base);
-  }
+
+ 
+.losTrmitesQueContainer {
+  width: 90%;
+  font-size: 0.8rem; 
+  margin-left: 20px;
+ text-rendering: auto;
+  
 }
+.lineaDivisoria {
+ 
+  width: 70%; 
+  
+}
+}
+
+
+
+

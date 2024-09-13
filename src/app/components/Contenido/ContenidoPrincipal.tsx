@@ -26,6 +26,10 @@ const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
     const mostrarDelegacion = useAppSelector((state) => state.navbar.mostrarDelegacion);
     const dispatch = useAppDispatch();
     
+    const servicioInfo = InformaciondeServicios.find(
+      (servicio) => servicioSeleccionado.trim().toLowerCase() === servicio.servicio.trim().toLowerCase()
+    );
+    console.log(servicioInfo)
     useEffect(() => {
       if (!activeButton) {
         setContenidoSeleccionado(null);
@@ -53,15 +57,15 @@ const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
     
   };
 
-  // solo para datos estaticos
-  const handleAfiliacionClick = () => {
-    setContenidoSeleccionado({
-      titulo: "Afiliación",
-      contenido: "Aquí va la información estática relacionada con el trámite de afiliación.",
-      id: 0, // Un ID estático para esta acción
-    });
-    dispatch(setActiveButton(true)); // Activar el botón si es necesario
-  };
+ // solo para datos estaticos
+ const handleAfiliacionClick = () => {
+  setContenidoSeleccionado({
+    titulo: "Afiliación",
+    contenido: "Aquí va la información estática relacionada con el trámite de afiliación.",
+    id: 0, // Un ID estático para esta acción
+  });
+  dispatch(setActiveButton(true)); // Activar el botón si es necesario
+};
 
     return (
       <section className={[styles.ospAfiliacionesInner, className].join(" ")}>
@@ -75,94 +79,71 @@ const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
                     {servicioSeleccionado}
                   </h1>
                 </div>
-                <div className={styles.paraPresentacinDe}>
-                  {/* Texto estático */}
-                  Para presentación de documentación o retiro de carnet y
-                  renovación del plástico por extravío, hurto o deterioro de
-                  carnet, atención presencial primer piso, Box 10, de 7.30 hs
-                  a 13:00 hs.
-                </div>
+                {servicioInfo && (
+                    <div className={styles.paraPresentacinDe}>
+                      {servicioInfo.descripcion}
+                    </div>
+                  )}
                 <div className={styles.areaActionWrapper}>
                   <div className={styles.areaAction}>
-                    {subSubCategorias.map((subSubCategoria) => (
-                      <div key={subSubCategoria.id}>
-                          <BotonSubSubCategoria
-                          showIcono={true}
-                          text={subSubCategoria.subsubcategoria_nombre || ""}
-                          registroBlanco="/registro-blanco.svg"
-                          propMinWidth="87px"
-                          onClick={handleSubSubCategoriaClick}
-                          titulo={subSubCategoria.titulo}
-                          contenido={subSubCategoria.contenido}
-                          id={subSubCategoria.id}
-                        />
-                      </div>
-                    ))}
-                    
-                        <BotonSubSubCategoria
-                         showIcono={false}
+                  {subSubCategorias
+                        .filter(
+                          (subSubCategoria) =>
+                            subSubCategoria.subsubcategoria_nombre &&
+                            subSubCategoria.subsubcategoria_nombre.trim() !== ""
+                        )
+                        .map((subSubCategoria) => (
+                          <div key={subSubCategoria.id}>
+                            <BotonSubSubCategoria                            
+                              text={subSubCategoria.subsubcategoria_nombre || ""}
+                              registroBlanco="/registro-blanco.svg"                            
+                              onClick={() => handleSubSubCategoriaClick(
+                                subSubCategoria.titulo,
+                                subSubCategoria.contenido,
+                                subSubCategoria.id
+                              )} titulo={""} contenido={""} id={0}                            
+                            />
+                          </div>
+                        ))}
+                           <BotonSubSubCategoria
+                         
                         text="Afiliación"
                         registroBlanco="/registro-blanco.svg"
-                         propMinWidth="87px" 
                         onClick={handleAfiliacionClick} // Usar la nueva función de manejo de clic
                         titulo={""}
                         contenido={""}
                         id={0}
                            />
-
-                          <BotonSubSubCategoria
-                        showIcono={false}
-                        text="Afiliaciones"
+                              <BotonSubSubCategoria 
+                        text="Afiliación"
                         registroBlanco="/registro-blanco.svg"
-                        propMinWidth="87px" onClick={function (): void {
-                          throw new Error("Function not implemented.");
-                        } } titulo={"Cambio de situación de revista"} contenido={""} id={0} />
+                       
+                        onClick={handleAfiliacionClick} // Usar la nueva función de manejo de clic
+                        titulo={""}
+                        contenido={""}
+                        id={0}
+                           />
                     </div>
                   </div>
                 </div>
               </div>
-              <img className={styles.frameChild} alt="" src="/line-51.svg" />
-              <div className={styles.losTrmitesQueSeRealizanPWrapper}>
-                <div className={styles.losTrmitesQueContainer}>
-                  <p className={styles.losTrmitesQue}>
-                    •Los trámites que se realizan por expediente es de manera
-                    presencial, primer piso afiliaciones. Atención de 7:30 a
-                    13:00 hs.
-                  </p>
-                  <p className={styles.losTrmitesQue}>
-                    Consultas vía e-mail 
-                    <a
-                      className={styles.afiliacionesospgmailcom}
-                      href="mailto:afiliaciones.osp@gmail.com"
-                      target="_blank"
-                    >
-                      <span className={styles.afiliacionesospgmailcom1}>
-                        afiliaciones.osp@gmail.com
-                      </span>
-                    </a>
-                     o telefónicas al número de teléfono fijo de D.OS. (0264)
-                    4304300 opción, opción 7 luego opción  1.
-                  </p>
-                  <p className={styles.pacientes}>
-                    En el caso de vencimientos parciales (renovaciones de
-                    estudiantes, pensionados, docentes interinos y suplentes),
-                    bajas de afiliaciones y reintegros de aportes, usted puede
-                    comunicarse con la Oficina de Control de Aportes vía
-                    e-mail a 
-                    <a
-                      className={styles.afiliacionesospgmailcom}
-                      href="mailto:aportes.afiliaciones@gmail.com"
-                      target="_blank"
-                    >
-                      <span className={styles.afiliacionesospgmailcom1}>
-                        aportes.afiliaciones@gmail.com
-                      </span>
-                    </a>
-                      o vía telefónica al teléfono fijo de D.O.S.
-                    (0264) 4304300 opción,  opción 7 luego opción 2.
-                  </p>
-                </div>
-              </div>
+              <div className={styles.lineaDivisoria}></div>
+              {servicioInfo && (
+                  <div className={styles.losTrmitesQueSeRealizanPWrapper}>
+                    <div className={styles.losTrmitesQueContainer}>
+                      {servicioInfo.informacionPrimaria && (
+                        <p className={styles.losTrmitesQue}>
+                          {servicioInfo.informacionPrimaria}
+                        </p>
+                      )}
+                    {servicioInfo.informacionSecundaria && (
+                        <p className={styles.losTrmitesQue}>
+                          {servicioInfo.informacionSecundaria}
+                        </p>
+                      )}
+                 </div>
+                  </div>
+                )}
             </div>
           </div>
 
