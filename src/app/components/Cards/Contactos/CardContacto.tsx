@@ -8,6 +8,7 @@ export type CardContactoType = {
   textSecundario?: string;
   mostrarIcono?: boolean;
   fondo?: string;
+    onClick?: () => void;
 
   /** Style props */
   propOverflow?: CSSProperties["overflow"];
@@ -21,6 +22,7 @@ const CardContacto: NextPage<CardContactoType> = memo(
     mostrarIcono = true,
     propOverflow,
     fondo,
+    onClick,
   }) => {
     const expediente3IconStyle: CSSProperties = useMemo(() => {
       return {
@@ -29,7 +31,7 @@ const CardContacto: NextPage<CardContactoType> = memo(
     }, [propOverflow]);
 
     return (
-      <div className={[styles.cardVertical, className].join(" ")}>
+      <div className={[styles.cardVertical, className].join(" ") }   onClick={onClick}>
         <div className={styles.cardVerticalChild} />
         <div className={styles.cardVerticalInner}>
           <div className={styles.frameParent}>

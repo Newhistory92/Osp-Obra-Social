@@ -18,46 +18,44 @@ const apiData = fetchData('/api/Datos/Publicaciones');
 
 
 const CardRequisitos: NextPage<CardRequisitosType> = memo(({ className = "",servicioSeleccionado,onPublicacionesFiltradasChange }) => {
-  const [publicacionesFiltradas, setPublicacionesFiltradas] = useState<any[]>([]);
+  const [publicacionesAgrupadas, setPublicacionesAgrupadas] = useState<{ [key: string]: any[] }>({});
   const  activeButton  = useAppSelector(state =>  state.navbar.activeButton);
   const dispatch = useAppDispatch(); 
   const data = apiData.read();
  
-  // useEffect(() => {
-  //   const filtradas = data.publicaciones.filter((publicacion: any) => {
-  //     return publicacion.categoria_nombre.toLowerCase() === servicioSeleccionado.toLowerCase();
-  //   });
-  //   setPublicacionesFiltradas(filtradas);
-  // }, [servicioSeleccionado, data]);
-  
   useEffect(() => {
+    // Filtramos las publicaciones por la categoría seleccionada
+    const filtradas = data.publicaciones.filter((publicacion: any) => {
+      return publicacion.categoria_nombre.toLowerCase() === servicioSeleccionado.toLowerCase();
+    });
 
-    if (data && data.publicaciones) {
-      const filtradas = data.publicaciones.filter(
-        (publicacion: any) => publicacion.categoria_nombre === servicioSeleccionado
-      );
-      setPublicacionesFiltradas(filtradas);
-    }
+    // Agrupamos las publicaciones por subcategoria_nombre
+    const agrupadas = filtradas.reduce((acc: any, publicacion: any) => {
+      const { subcategoria_nombre } = publicacion;
+      if (!acc[subcategoria_nombre]) {
+        acc[subcategoria_nombre] = [];
+      }
+      acc[subcategoria_nombre].push(publicacion);
+      return acc;
+    }, {});
+
+    setPublicacionesAgrupadas(agrupadas);
   }, [servicioSeleccionado, data]);
+ 
   
-  const handleBotonCardClick = (value: string, id: number) => {
-    if (value === 'Delegación') {
-      dispatch(setMostrarDelegacion(true));
-    } else {
-      dispatch(setMostrarDelegacion(false));
   
-      const filtradas = publicacionesFiltradas.filter(
-        (publicacion) => publicacion.subcategoria_nombre === value
-      );
-      const filtradasFinales = filtradas.map((publicacion) => ({
-        id: publicacion.id,
-        titulo: publicacion.titulo,
-        contenido: publicacion.contenido,
-        subsubcategoria_nombre: publicacion.subsubcategoria_nombre || null,
-      }));
+  const handleBotonCardClick = (subcategoria: string) => {
+    const publicacionesSubcategoria = publicacionesAgrupadas[subcategoria] || [];
+    
+    const filtradasFinales = publicacionesSubcategoria.map((publicacion: any) => ({
+      id: publicacion.id,
+      titulo: publicacion.titulo,
+      contenido: publicacion.contenido,
+      subsubcategoria_nombre: publicacion.subsubcategoria_nombre || null,
+    }));
 
-      onPublicacionesFiltradasChange(filtradasFinales);
-    }
+    onPublicacionesFiltradasChange(filtradasFinales);
+
     if (activeButton) {
       dispatch(setActiveButton(false));
     }
@@ -65,29 +63,26 @@ const CardRequisitos: NextPage<CardRequisitosType> = memo(({ className = "",serv
 
   const handleRedireccionClick = (url?: string) => {
     if (url) {
-      window.location.href = url; // Redirigir a la URL proporcionada
+      window.location.href = url; 
     }
   };
 
   return (
     <section className="w-full">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:grid-cols-3 xl:grid-cols-5">
-        {publicacionesFiltradas.map((publicacion: any) => (
+        {Object.keys(publicacionesAgrupadas).map((subcategoria: string) => (
           <BotonCard
-            key={publicacion.id}
+            key={subcategoria}
             mostrarIcono
             fondo="/fondo2.svg"
-            consultaDeExpediente={publicacion.subcategoria_nombre}
+            consultaDeExpediente={subcategoria}
             consultaDeExpedienteTextDecoration="unset"
-            value={publicacion.subcategoria_nombre}
-            onClick={() =>
-              handleBotonCardClick(
-                publicacion.subcategoria_nombre,
-                publicacion.id
-              )
-            }
+            value={subcategoria}
+            onClick={() => handleBotonCardClick(subcategoria)}
           />
         ))}
+
+        {/* Botón para "Delegación de Partamental" */}
         {servicioSeleccionado.toLowerCase() === "servicios" && (
           <BotonCard
             mostrarIcono
@@ -95,9 +90,11 @@ const CardRequisitos: NextPage<CardRequisitosType> = memo(({ className = "",serv
             consultaDeExpediente="Delegación de Partamental"
             consultaDeExpedienteTextDecoration="unset"
             value="Delegación"
-            onClick={() => handleBotonCardClick("Delegación", 0)}
+            onClick={() => handleBotonCardClick("Delegación")}
           />
         )}
+
+        {/* Botones de "Sistema Online para Prestadores" */}
         {servicioSeleccionado === "Sistema Online para Prestadores" &&
           SistemaOnline.map((link) => (
             <div key={link.id}>
@@ -111,27 +108,6 @@ const CardRequisitos: NextPage<CardRequisitosType> = memo(({ className = "",serv
               />
             </div>
           ))}
-          <BotonCard
-          
-          mostrarIcono
-          fondo="/fondo2.svg"
-          consultaDeExpediente="Baja"
-          consultaDeExpedienteTextDecoration="unset"
-          value="Baja"
-          onClick={function (value: string): void {
-            throw new Error("Function not implemented.");
-          }}
-        />
-        <BotonCard
-          mostrarIcono
-          fondo="/fondo2.svg"
-          consultaDeExpediente="Baja"
-          consultaDeExpedienteTextDecoration="unset"
-          value="Baja"
-          onClick={function (value: string): void {
-            throw new Error("Function not implemented.");
-          }}
-        />
       </div>
     </section>
   );

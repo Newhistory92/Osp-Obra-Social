@@ -7,55 +7,88 @@ import Parser from 'html-react-parser';
 
 
 export type RequisitosType = {
-  className?: string;
   titulo: string;
   contenido: string;
 };
 
 const Requisitos: NextPage<RequisitosType> = memo(
-  ({ className = "", titulo, contenido }) => {
+  ({  titulo, contenido }) => {
     const [activeIndex, setActiveIndex] = useState<number | number[]>();
-    
     return (
-      <div>
-        <Accordion className={styles.accordionContainer} activeIndex={activeIndex} onTabChange={(e) => setActiveIndex(e.index)}>
-          {/* Datos dinámicos */}
-          <AccordionTab header={titulo}>
-            <p className={styles.requisitosDeAfiliaciones}>
-            {Parser(contenido)}
-            </p>
-          </AccordionTab>
+    //   <div className="w-full p-4">
+    //     <Accordion
+    //       className="border-b-2 border-red-700 shadow-none"
+    //       activeIndex={activeIndex}
+    //       onTabChange={(e) => setActiveIndex(e.index)}
+    //     >
+    //       <AccordionTab
+    //         header={
+    //           <div className="text-lg font-semibold text-gray-900 no-underline">
+    //             {titulo}
+    //           </div>
+    //         }
+    //       >
+    //         <div>
+    //           {Parser(contenido)}
+    //         </div>
+    //       </AccordionTab>
+    //     </Accordion>
+    //   </div>
+    // );
 
-          {/* Datos estáticos */}
-          <AccordionTab className={styles.requisitosDeAfiliacionesParent} header="02 - Cambio de situación de revista">
-            <p className={styles.requisitosDeAfiliaciones}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-              commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-          </AccordionTab>
-          <AccordionTab header="05 - Hijos mayores de 21 años con discapacidad">
-            <p className={styles.requisitosDeAfiliaciones}>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa 
-              quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas 
-              sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. 
-              Consectetur, adipisci velit, sed quia non numquam eius modi.
-            </p>
-          </AccordionTab>
-          <AccordionTab header="04 - Menores de 21 años">
-            <p className={styles.requisitosDeAfiliaciones}>
-              At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti
-              quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt 
-              mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. 
-              Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
-            </p>
-          </AccordionTab>
-        </Accordion>
+    <div className="accordion w-full p-4" id="accordionPanelsStayOpenExample">
+    <div className="accordion-item border-b-2 border-red-700 shadow-none">
+    <h2 className="accordion-header">
+      <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+        Accordion Item #2
+      </button>
+    </h2>
+    <div id="panelsStayOpen-collapseTwo" className="accordion-collapse collapse">
+      <div className="accordion-body">
+        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
       </div>
-    );
-  }
-);
+      </div>
+    </div>
+    </div>
+    )
+  });
+  
+  export default Requisitos;
 
-export default Requisitos;
+
+// import type { NextPage } from "next";
+// import { memo } from "react";
+// import React, { useState } from 'react';
+// import styles from "./Requisitos.module.css";
+// import { Accordion, AccordionTab } from 'primereact/accordion';
+// import Parser from 'html-react-parser';
+
+// export type RequisitosType = {
+//   requisitos: Array<{
+//     titulo: string;
+//     contenido: string;
+//   }>;
+// };
+
+// const Requisitos: NextPage<RequisitosType> = memo(({ Requisitos }) => {
+//   const [activeIndex, setActiveIndex] = useState<number | number[]>();
+
+//   return (
+//     <div>
+//       <Accordion
+//         className={styles.accordionContainer}
+//         activeIndex={activeIndex}
+//         onTabChange={(e) => setActiveIndex(e.index)}
+//       >
+//         {Requisitos.map((requisito, index) => (
+//           <AccordionTab header={Requisitos.titulo} key={index}>
+//             {Parser(Requisitos.contenido)}
+//           </AccordionTab>
+//         ))}
+//       </Accordion>
+//     </div>
+//   );
+// });
+
+// export default Requisitos;
 

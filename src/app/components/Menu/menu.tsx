@@ -8,7 +8,6 @@ import CardRequisitos from "../Cards/Requisitos/CardRequisitos";
 import styles from "./menu.module.css";
 import { setActiveButton, setMostrarDelegacion } from '@/app/redux/Slice/navbarSlice';
 import { useAppSelector, useAppDispatch } from '@/app/hooks/StoreHook';
-
 export type MenuType = {
   className?: string;
 };
@@ -57,6 +56,12 @@ const dispatch = useAppDispatch();
 
 
 
+
+  const handleTuVozImportaClick = () => {
+    window.location.href =
+      "https://docs.google.com/forms/d/e/1FAIpQLScuTsmhPDvmSUDC20tP8LSPuVni46iNP3m3SJ0dg_QT0VFMhA/viewform?embedded=true%22%20width%3D%22640%22%20height%3D%221606%22%20frameborder%3D%220%22%20marginheight%3D%220%22%20marginwidth%3D%220%22%3ECargando%E2%80%A6%3C%2Fiframe%3E&amp;gxids=7628";
+  };
+
   return (
     <section className={[styles.ospLandingInner, className].join(" ")}>
       <div className={styles.cabeceraConIconosParent}>
@@ -91,7 +96,7 @@ const dispatch = useAppDispatch();
               showIcono
               text="Afiliaciones"
               info="/afiliaciones.svg"
-              onClick={() => handleServicioClick("Afiliaciones")}
+              onClick={() => handleServicioClick("Afiliaciones") }
             />
             <BotonServicio
               showIcono
@@ -204,18 +209,23 @@ const dispatch = useAppDispatch();
             propOverflow="hidden"
             fondo="/fondo.svg"
           />
-          <CardContacto
-            textPrncipal="Preguntas Frecuentes"
-            textSecundario="accedé a las consultas más frecuentes"
+           <CardContacto
+            textPrncipal="Tu voz Importa"
+            textSecundario="Queremos conocer tu experiencia en la última consulta médica"
             mostrarIcono
             propOverflow="unset"
             fondo="/fondo.svg"
+            onClick={handleTuVozImportaClick} 
           />
           <CardContacto
             textPrncipal="Delegaciones"
-            textSecundario="conocé nuestras distintas delegaciones"
+            textSecundario="Conocé nuestras distintas delegaciones"
             mostrarIcono
             fondo="/fondo.svg"
+            onClick={() => {
+              handleServicioClick("Servicios");
+              dispatch(setMostrarDelegacion(true));
+            }}
           />
         </div>
       </div>

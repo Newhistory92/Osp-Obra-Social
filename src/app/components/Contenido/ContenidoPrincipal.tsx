@@ -25,47 +25,52 @@ const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
     const activeButton = useAppSelector((state) => state.navbar.activeButton);
     const mostrarDelegacion = useAppSelector((state) => state.navbar.mostrarDelegacion);
     const dispatch = useAppDispatch();
-    
     const servicioInfo = InformaciondeServicios.find(
       (servicio) => servicioSeleccionado.trim().toLowerCase() === servicio.servicio.trim().toLowerCase()
     );
-    console.log(servicioInfo)
+    
     useEffect(() => {
       if (!activeButton) {
         setContenidoSeleccionado(null);
       }
     }, [activeButton]);
 
-
-   
+    // Agrupar subsubcategorias
+    const subSubCategoriasAgrupadas = subSubCategorias.reduce(
+      (acc: { [key: string]: Array<{ titulo: string; contenido: string; id: number }> }, curr) => {
+        const subsubcategoria = curr.subsubcategoria_nombre;
+        if (subsubcategoria) {
+          if (!acc[subsubcategoria]) {
+            acc[subsubcategoria] = [];
+          }
+          acc[subsubcategoria].push({
+            titulo: curr.titulo,
+            contenido: curr.contenido,
+            id: curr.id,
+          });
+        }
+        return acc;
+      },
+      {}
+    );
+    console.log("subSubCategoriasAgrupadas: ", subSubCategoriasAgrupadas);
     
-    const handleSubSubCategoriaClick = (
-      titulo: string,
-      contenido: string,
-      id: number,
-     
-    ) => {
-    
-
-      if (contenidoSeleccionado?.id === id) {
+    const handleSubSubCategoriaClick = (subSubCategoriaItems: Array<{ titulo: string; contenido: string; id: number }>) => {
+      if (contenidoSeleccionado?.id === subSubCategoriaItems[0].id) {
         setContenidoSeleccionado(null);
-        dispatch(setActiveButton(false)); 
+        dispatch(setActiveButton(false));
       } else {
-        setContenidoSeleccionado({ titulo, contenido, id });
-        dispatch(setActiveButton(true)); 
+        const firstItem = subSubCategoriaItems[0];
+        setContenidoSeleccionado({
+          titulo: firstItem.titulo,
+          contenido: firstItem.contenido,
+          id: firstItem.id,
+        });
+        dispatch(setActiveButton(true));
       }
-    
-  };
+    };
 
- // solo para datos estaticos
- const handleAfiliacionClick = () => {
-  setContenidoSeleccionado({
-    titulo: "Afiliación",
-    contenido: "Aquí va la información estática relacionada con el trámite de afiliación.",
-    id: 0, // Un ID estático para esta acción
-  });
-  dispatch(setActiveButton(true)); // Activar el botón si es necesario
-};
+
 
     return (
       <section className={[styles.ospAfiliacionesInner, className].join(" ")}>
@@ -86,43 +91,24 @@ const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
                   )}
                 <div className={styles.areaActionWrapper}>
                   <div className={styles.areaAction}>
-                  {subSubCategorias
-                        .filter(
-                          (subSubCategoria) =>
-                            subSubCategoria.subsubcategoria_nombre &&
-                            subSubCategoria.subsubcategoria_nombre.trim() !== ""
-                        )
-                        .map((subSubCategoria) => (
-                          <div key={subSubCategoria.id}>
-                            <BotonSubSubCategoria                            
-                              text={subSubCategoria.subsubcategoria_nombre || ""}
-                              registroBlanco="/registro-blanco.svg"                            
-                              onClick={() => handleSubSubCategoriaClick(
-                                subSubCategoria.titulo,
-                                subSubCategoria.contenido,
-                                subSubCategoria.id
-                              )} titulo={""} contenido={""} id={0}                            
+                  {Object.keys(subSubCategoriasAgrupadas).map(
+                        (subsubcategoria) => (
+                          <div key={subsubcategoria}>
+                            <BotonSubSubCategoria
+                              text={subsubcategoria}
+                              registroBlanco="/registro-blanco.svg"
+                              onClick={() =>
+                                handleSubSubCategoriaClick(
+                                  subSubCategoriasAgrupadas[subsubcategoria]
+                                )
+                              }
+                              titulo=""
+                              contenido=""
+                              id={0}
                             />
                           </div>
-                        ))}
-                           <BotonSubSubCategoria
-                         
-                        text="Afiliación"
-                        registroBlanco="/registro-blanco.svg"
-                        onClick={handleAfiliacionClick} // Usar la nueva función de manejo de clic
-                        titulo={""}
-                        contenido={""}
-                        id={0}
-                           />
-                              <BotonSubSubCategoria 
-                        text="Afiliación"
-                        registroBlanco="/registro-blanco.svg"
-                       
-                        onClick={handleAfiliacionClick} // Usar la nueva función de manejo de clic
-                        titulo={""}
-                        contenido={""}
-                        id={0}
-                           />
+                        )
+                      )}
                     </div>
                   </div>
                 </div>
@@ -166,14 +152,15 @@ const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
             )}
             {servicioSeleccionado.toLowerCase() === "prestadores" && <Prestadores />}
             {servicioSeleccionado.toLowerCase() === "pacientes crónicos" && 
+            <div className=" max-w-[1000px] mx-auto  md:aspect-[16/9] h-[350px]  ms-5 mt-3 overflow-hidden justify-items-center">
             <iframe
-            src="https://sdf.tandemdigital.net/generador-formulario-cronicos"
-            width="1300px"
-            height="300px"
-            title="Formulario Pacientes Crónicos"
-          />}
+              src="https://sdf.tandemdigital.net/generador-formulario-cronicos"
+              title="Formulario Pacientes Crónicos"
+               className="w-full h-full border-0 overflow-hidden"
+            />
           </div>
-          
+          }
+          </div>
         </div>
       </section>
     );

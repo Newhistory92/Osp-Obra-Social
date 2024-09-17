@@ -13,29 +13,29 @@ export const AccesosRapidos = () => {
           </span>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-2 gap-3 lg:gap-5 lg:w-1/2 w-full justify-center">
-          <a
+          {/* <a
             href="#"
             className="w-full no-underline hover:cursor-pointer hover:bg-[#E42E27] transition-colors h-36 bg-[#D31D16] rounded-md flex flex-col justify-center items-center gap-3"
           >
             <img src="madre_hijo.png" className="w-16" alt="madre_hijo" />
             <span className="text-lg font-medium text-white">PAIMN</span>
-          </a>
-          <a
+          </a> */}
+          {/* <a
             href="#"
             className="w-full no-underline hover:cursor-pointer hover:bg-[#524F54] transition-colors  h-36 bg-[#413E43] rounded-md flex flex-col justify-center items-center gap-3"
           >
             <img src="afiliaciones.png" className="w-12" alt="afiliaciones" />
             <span className="text-lg font-medium text-white">Afiliaciones</span>
-          </a>
-          <a
+          </a> */}
+          {/* <a
             href="#"
             className="w-full no-underline hover:cursor-pointer hover:bg-[#E42E27] transition-colors h-36 bg-[#D31D16] rounded-md flex flex-col justify-center items-center gap-3"
           >
             <img src="prestadores.png" className="w-12" alt="prestadores" />
             <span className="text-lg font-medium text-white">Prestadores</span>
-          </a>
+          </a> */}
           <a
-            href="#"
+            href="https://sj.sanjuan.gob.ar/?uid=CUMV-VIEW-ExpedientesComponent"
             className="w-full no-underline hover:cursor-pointer hover:bg-[#524F54] transition-colors h-36 bg-[#413E43] rounded-md flex flex-col justify-center items-center gap-3"
           >
             <img src="expedientes.png" className="w-12" alt="expedientes" />
