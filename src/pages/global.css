@@ -5,12 +5,15 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 body {
+  font-family: var(--body-font);
+  font-size: var(--body-1-size);
   margin: 0;
   line-height: normal;
 }
+
+
+
 :root {
   /* fonts */
   --body-1: Ubuntu;

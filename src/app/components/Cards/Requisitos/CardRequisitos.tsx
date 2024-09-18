@@ -2,7 +2,6 @@ import type { NextPage } from "next";
 import React, { useState, useEffect} from "react";
 import { memo} from "react";
 import BotonCard from "@/app/components/Botones/BotonCard/BotonCard";
-import styles from "./CardRequisitos.module.css";
 import fetchData  from "@/app/utils/fetchData";
 import { setActiveButton, setMostrarDelegacion } from '@/app/redux/Slice/navbarSlice';
 import { useAppSelector, useAppDispatch } from "@/app/hooks/StoreHook";
@@ -81,8 +80,6 @@ const CardRequisitos: NextPage<CardRequisitosType> = memo(({ className = "",serv
             onClick={() => handleBotonCardClick(subcategoria)}
           />
         ))}
-
-        {/* Botón para "Delegación de Partamental" */}
         {servicioSeleccionado.toLowerCase() === "servicios" && (
           <BotonCard
             mostrarIcono
@@ -93,8 +90,6 @@ const CardRequisitos: NextPage<CardRequisitosType> = memo(({ className = "",serv
             onClick={() => handleBotonCardClick("Delegación")}
           />
         )}
-
-        {/* Botones de "Sistema Online para Prestadores" */}
         {servicioSeleccionado === "Sistema Online para Prestadores" &&
           SistemaOnline.map((link) => (
             <div key={link.id}>

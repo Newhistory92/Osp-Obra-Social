@@ -1,94 +1,102 @@
-import type { NextPage } from "next";
+import type { NextPage } from "next"; 
 import { memo } from "react";
-import React, { useState } from 'react';
-import styles from "./Requisitos.module.css";
-import { Accordion, AccordionTab } from 'primereact/accordion';
+import React from 'react';
 import Parser from 'html-react-parser';
+import { styled } from '@mui/material/styles';
+import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
+import MuiAccordion, { AccordionProps } from '@mui/material/Accordion';
+import MuiAccordionSummary, {
+  AccordionSummaryProps,
+} from '@mui/material/AccordionSummary';
+import MuiAccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';;
 
-
-export type RequisitosType = {
+export type RequisitoItem = {
   titulo: string;
   contenido: string;
+  id: number;
+};
+const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
+  padding: theme.spacing(2),
+  borderTop: '1px solid rgba(0, 0, 0, .125)',
+  color: 'black', 
+  fontFamily: "Ubuntu, sans-serif",
+  textAlign: "left", 
+  
+}));
+
+const Accordion = styled((props: AccordionProps) => (
+  <MuiAccordion disableGutters elevation={0} square {...props} />
+))(({ theme }) => ({
+  border: `1px solid ${theme.palette.divider}`,
+  '&:not(:last-child)': {
+    borderBottom: '1px solid #E42E27',
+    marginBottom: theme.spacing(2),
+  },
+  '&::before': {
+    display: 'none',
+  },
+  width: "100%",
+  margin: "10px 20px auto",
+}));
+
+const AccordionSummary = styled((props: AccordionSummaryProps) => (
+  <MuiAccordionSummary
+  expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: "0.9rem", color: "#E42E27",marginRight:"15px" }} />} 
+    {...props}
+  />
+))(({ theme }) => ({
+  backgroundColor: "white", 
+  boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.2)", 
+  flexDirection: 'row',
+  
+  '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
+    transform: 'rotate(90deg)',
+  },
+  '& .MuiAccordionSummary-content': {
+    marginLeft: theme.spacing(1),
+    fontFamily: "Ubuntu, sans-serif", 
+    fontWeight: "bold", 
+    margin: "auto 15px auto",
+   
+  
+    
+  },
+  ...theme.applyStyles('dark', {
+    backgroundColor: 'rgba(255, 255, 255, .05)',
+  }),
+}));
+
+export type RequisitosType = {
+  requisitos: Array<RequisitoItem>;
 };
 
-const Requisitos: NextPage<RequisitosType> = memo(
-  ({  titulo, contenido }) => {
-    const [activeIndex, setActiveIndex] = useState<number | number[]>();
-    return (
-    //   <div className="w-full p-4">
-    //     <Accordion
-    //       className="border-b-2 border-red-700 shadow-none"
-    //       activeIndex={activeIndex}
-    //       onTabChange={(e) => setActiveIndex(e.index)}
-    //     >
-    //       <AccordionTab
-    //         header={
-    //           <div className="text-lg font-semibold text-gray-900 no-underline">
-    //             {titulo}
-    //           </div>
-    //         }
-    //       >
-    //         <div>
-    //           {Parser(contenido)}
-    //         </div>
-    //       </AccordionTab>
-    //     </Accordion>
-    //   </div>
-    // );
+const Requisitos: NextPage<RequisitosType> = memo(({ requisitos }) => {
+  const [expanded, setExpanded] = React.useState<string | false>('panel1');
 
-    <div className="accordion w-full p-4" id="accordionPanelsStayOpenExample">
-    <div className="accordion-item border-b-2 border-red-700 shadow-none">
-    <h2 className="accordion-header">
-      <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-        Accordion Item #2
-      </button>
-    </h2>
-    <div id="panelsStayOpen-collapseTwo" className="accordion-collapse collapse">
-      <div className="accordion-body">
-        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-      </div>
-      </div>
+  const handleChange =
+  (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
+    setExpanded(isExpanded ? panel : false);
+  };
+
+  return (
+    <div>
+      {requisitos.map((requisito, index) => (
+        <Accordion
+          key={requisito.id}
+          expanded={expanded === `panel${index}`}
+          onChange={handleChange(`panel${index}`)}
+        >
+          <AccordionSummary aria-controls={`panel${index}-content`} id={`panel${index}-header`}>
+            <Typography>{requisito.titulo}</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            {Parser(requisito.contenido)}
+          </AccordionDetails>
+        </Accordion>
+      ))}
     </div>
-    </div>
-    )
-  });
-  
-  export default Requisitos;
+  );
+});
 
-
-// import type { NextPage } from "next";
-// import { memo } from "react";
-// import React, { useState } from 'react';
-// import styles from "./Requisitos.module.css";
-// import { Accordion, AccordionTab } from 'primereact/accordion';
-// import Parser from 'html-react-parser';
-
-// export type RequisitosType = {
-//   requisitos: Array<{
-//     titulo: string;
-//     contenido: string;
-//   }>;
-// };
-
-// const Requisitos: NextPage<RequisitosType> = memo(({ Requisitos }) => {
-//   const [activeIndex, setActiveIndex] = useState<number | number[]>();
-
-//   return (
-//     <div>
-//       <Accordion
-//         className={styles.accordionContainer}
-//         activeIndex={activeIndex}
-//         onTabChange={(e) => setActiveIndex(e.index)}
-//       >
-//         {Requisitos.map((requisito, index) => (
-//           <AccordionTab header={Requisitos.titulo} key={index}>
-//             {Parser(Requisitos.contenido)}
-//           </AccordionTab>
-//         ))}
-//       </Accordion>
-//     </div>
-//   );
-// });
-
-// export default Requisitos;
-
+export default Requisitos;
