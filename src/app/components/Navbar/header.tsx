@@ -1,7 +1,9 @@
 import React from "react";
 import "../../../pages/global.css";
-
+import { useAppSelector, useAppDispatch } from '@/app/hooks/StoreHook';
+import Loading from "@/app/components/Loading/loading";
 const Header: React.FC = () => {
+  const loading = useAppSelector(state => state.loading.loading);
   return (
     <header
       style={{ padding: "0 20px" }}
@@ -27,6 +29,7 @@ const Header: React.FC = () => {
           <img className="w-22" src="Logo-Cidi.svg" alt="Logo CIDI" />
         </a>
       </div>
+      {loading && <Loading />}
     </header>
   );
 };

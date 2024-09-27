@@ -3,7 +3,7 @@ import { memo, useEffect, useState  } from "react";
 import styles from "./ContenidoPrincipal.module.css";
 import Requisitos from "@/app/components/Cards/Requisitos/Requisito/Requisitos";
 import BotonSubSubCategoria from "@/app/components/Botones/BotonSubsubCategoria/BotonSubsubCategoria"
-import  {setActiveButton,setMostrarDelegacion}  from '@/app/redux/Slice/navbarSlice';
+import  {setActiveButton}  from '@/app/redux/Slice/navbarSlice';
 import {useAppSelector,useAppDispatch} from "@/app/hooks/StoreHook"
 import Prestadores from "../Prestador/Tabla";
 import CardDelegacion from "../Cards/CardDelegacion/CardDelegacion";
@@ -19,10 +19,9 @@ const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
     const [contenidoSeleccionado, setContenidoSeleccionado] = useState<Array<{ titulo: string; contenido: string; id: number }> | null>(null);
     const [subCategoriasAgrupadas, setSubCategoriasAgrupadas] = useState<{ [key: string]: { titulo: string; contenido: string; id: number }[] }>({});
     const [sinSubSubCategoria, setSinSubSubCategoria] = useState<{ titulo: string; contenido: string; id: number }[]>([]);
-
+  
     const activeButton = useAppSelector((state) => state.navbar.activeButton);
     const mostrarDelegacion = useAppSelector((state) => state.navbar.mostrarDelegacion);
-  
     const dispatch = useAppDispatch();
     const servicioInfo = InformaciondeServicios.find(
       (servicio) => servicioSeleccionado.trim().toLowerCase() === servicio.servicio.trim().toLowerCase()

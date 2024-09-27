@@ -4,25 +4,59 @@ import { memo} from "react";
 import BotonCard from "@/app/components/Botones/BotonCard/BotonCard";
 import fetchData  from "@/app/utils/fetchData";
 import { setActiveButton, setMostrarDelegacion } from '@/app/redux/Slice/navbarSlice';
+import { setLoading } from '@/app/redux/Slice/loading';
 import { useAppSelector, useAppDispatch } from "@/app/hooks/StoreHook";
 import SistemaOnline from "../../../../../sistemaOnline.json";
 
 export type CardRequisitosType = {
-  className?: string;
   servicioSeleccionado: string;
   onPublicacionesFiltradasChange: (publicaciones: any[]) => void;
 
 };
+
 const apiData = fetchData('/api/Datos/Publicaciones');
 
 
-const CardRequisitos: NextPage<CardRequisitosType> = memo(({ className = "",servicioSeleccionado,onPublicacionesFiltradasChange }) => {
+const CardRequisitos: NextPage<CardRequisitosType> = memo(({servicioSeleccionado,onPublicacionesFiltradasChange }) => {
   const [publicacionesAgrupadas, setPublicacionesAgrupadas] = useState<{ [key: string]: any[] }>({});
   const  activeButton  = useAppSelector(state =>  state.navbar.activeButton);
   const dispatch = useAppDispatch(); 
-  const data = apiData.read();
- 
-  useEffect(() => {
+
+  const fetchDataWithDelay = () => {
+    try {
+      const data = apiData.read();
+      if (data && Object.keys(data).length > 0) {
+        // Si `data` ya tiene datos, procesarlos y desactivar el loading
+        processFetchedData(data);
+        dispatch(setLoading(false));
+        return; // Salimos de la función porque ya tenemos los datos
+      } else {
+        // Si `data` no tiene datos, activar el estado de loading y aplicar el setTimeout
+        dispatch(setLoading(true));
+      }
+    } catch (error) {
+      // Si ocurre un error al leer los datos, activar el loading para esperar que se carguen
+      dispatch(setLoading(true));
+    }
+    // Aplicar el setTimeout para esperar los datos después de 3102 ms
+    setTimeout(() => {
+      try {
+        const dataAfterTimeout = apiData.read();
+        if (dataAfterTimeout && Object.keys(dataAfterTimeout).length > 0) {
+          // Si los datos están disponibles después del timeout, procesarlos y desactivar el loading
+          processFetchedData(dataAfterTimeout);
+          dispatch(setLoading(false));
+        }
+      } catch (error) {
+        console.error('Error fetching data after timeout:', error);
+        dispatch(setLoading(true));
+      }
+    }, 3102);
+  };
+  
+
+  const processFetchedData = (data: any) => {
+   
     // Filtramos las publicaciones por la categoría seleccionada
     const filtradas = data.publicaciones.filter((publicacion: any) => {
       return publicacion.categoria_nombre.toLowerCase() === servicioSeleccionado.toLowerCase();
@@ -39,11 +73,13 @@ const CardRequisitos: NextPage<CardRequisitosType> = memo(({ className = "",serv
     }, {});
 
     setPublicacionesAgrupadas(agrupadas);
-  }, [servicioSeleccionado, data]);
- 
-  
-  
-  const handleBotonCardClick = (subcategoria: string) => {
+   
+  }
+  useEffect(() => {
+    fetchDataWithDelay();
+  }, [servicioSeleccionado, dispatch]);
+
+  const handleBotonCardClick = (subcategoria: string,value: string) => {
     const publicacionesSubcategoria = publicacionesAgrupadas[subcategoria] || [];
     
     const filtradasFinales = publicacionesSubcategoria.map((publicacion: any) => ({
@@ -52,13 +88,17 @@ const CardRequisitos: NextPage<CardRequisitosType> = memo(({ className = "",serv
       contenido: publicacion.contenido,
       subsubcategoria_nombre: publicacion.subsubcategoria_nombre || null,
     }));
-
+  
     onPublicacionesFiltradasChange(filtradasFinales);
+  
+  if (value === 'Delegación') {
+    dispatch(setMostrarDelegacion(true));
+  } 
+  if (activeButton) {
+    dispatch(setActiveButton(false));
+  }
+};
 
-    if (activeButton) {
-      dispatch(setActiveButton(false));
-    }
-  };
 
   const handleRedireccionClick = (url?: string) => {
     if (url) {
@@ -77,7 +117,7 @@ const CardRequisitos: NextPage<CardRequisitosType> = memo(({ className = "",serv
             consultaDeExpediente={subcategoria}
             consultaDeExpedienteTextDecoration="unset"
             value={subcategoria}
-            onClick={() => handleBotonCardClick(subcategoria)}
+            onClick={() => handleBotonCardClick(subcategoria, subcategoria)} 
           />
         ))}
         {servicioSeleccionado.toLowerCase() === "servicios" && (
@@ -87,7 +127,7 @@ const CardRequisitos: NextPage<CardRequisitosType> = memo(({ className = "",serv
             consultaDeExpediente="Delegación de Partamental"
             consultaDeExpedienteTextDecoration="unset"
             value="Delegación"
-            onClick={() => handleBotonCardClick("Delegación")}
+            onClick={() => handleBotonCardClick("Delegación de Partamental", "Delegación")} 
           />
         )}
         {servicioSeleccionado === "Sistema Online para Prestadores" &&

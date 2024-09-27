@@ -8,6 +8,7 @@ import CardRequisitos from "../Cards/Requisitos/CardRequisitos";
 import styles from "./menu.module.css";
 import { setActiveButton, setMostrarDelegacion } from '@/app/redux/Slice/navbarSlice';
 import { useAppSelector, useAppDispatch } from '@/app/hooks/StoreHook';
+
 export type MenuType = {
   className?: string;
 };
@@ -63,10 +64,11 @@ const dispatch = useAppDispatch();
   };
 
   return (
-    <section className={[styles.ospLandingInner, className].join(" ")}>
+    <section className={styles.ospLandingInner}>
       <div className={styles.cabeceraConIconosParent}>
         <div className={styles.cabeceraConIconos}>
           <div className={styles.headerLeft}>
+      
             <img
               className={styles.headerSpacingIcon}
               loading="lazy"
@@ -124,9 +126,9 @@ const dispatch = useAppDispatch();
             />
             <BotonServicio
               showIcono
-              text="Medicamentos y Farmacia"
+              text="Farmacia y Medicamento"
               info="/farmacia.svg"
-              onClick={() => handleServicioClick("Medicamentos y Farmacia")}
+              onClick={() => handleServicioClick("Farmacia y Medicamento")}
             />
 
             <BotonServicio
@@ -140,7 +142,7 @@ const dispatch = useAppDispatch();
               showIcono
               text="Formularios"
               info="/formularios-medicos.svg"
-              onClick={() => handleServicioClick("Formularios")}
+              onClick={() => handleServicioClick("formulario")}
             />
             <BotonServicio
               showIcono
@@ -151,13 +153,14 @@ const dispatch = useAppDispatch();
             <BotonServicio
               showIcono
               text="Sistema Online para Prestadores"
-              info="/info@2x.png"
+              info="/web.svg"
               onClick={() =>
                 handleServicioClick("Sistema Online para Prestadores")
               }
             />
           </div>
         </div>
+        
         {mostrarContenido && (
           <>
             <div className="flex h-12 gap-2" onClick={handleCerrarClick}>

@@ -18,7 +18,7 @@ const navbarSlice = createSlice({
       state.activeButton = action.payload;
     },
     setMostrarDelegacion(state, action:PayloadAction<boolean >)  {
-      console.log("setMostrarDelegacion: ", action.payload);
+     
       state.mostrarDelegacion = action.payload; 
     },
   },

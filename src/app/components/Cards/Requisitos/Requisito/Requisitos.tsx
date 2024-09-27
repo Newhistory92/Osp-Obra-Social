@@ -19,9 +19,11 @@ export type RequisitoItem = {
 const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   padding: theme.spacing(2),
   borderTop: '1px solid rgba(0, 0, 0, .125)',
-  color: 'black', 
-  fontFamily: "Ubuntu, sans-serif",
-  textAlign: "left", 
+  color: 'black',
+  fontFamily: 'Ubuntu, sans-serif',
+  textAlign: 'left',
+  fontSize: '1rem',
+  paddingRight: '30px'
   
 }));
 
@@ -29,37 +31,46 @@ const Accordion = styled((props: AccordionProps) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
   border: `1px solid ${theme.palette.divider}`,
+  borderRadius: '10px',
+   
   '&:not(:last-child)': {
-    borderBottom: '1px solid #E42E27',
+    borderBottom: '1px  solid #E42E27',
     marginBottom: theme.spacing(2),
+    
+  },
+  '&:last-child': {
+    borderBottom: '1px solid #E42E27', 
+    
   },
   '&::before': {
     display: 'none',
   },
-  width: "100%",
-  margin: "10px 20px auto",
+  width: '90%',
+  margin: '10px 20px auto',
+  boxSizing: 'border-box',
+
 }));
 
 const AccordionSummary = styled((props: AccordionSummaryProps) => (
   <MuiAccordionSummary
-  expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: "0.9rem", color: "#E42E27",marginRight:"15px" }} />} 
+    expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem', color: '#E42E27', marginRight: '15px' }} />}
     {...props}
   />
 ))(({ theme }) => ({
-  backgroundColor: "white", 
-  boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.2)", 
+  backgroundColor: 'white',
+  boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.2)',
   flexDirection: 'row',
+  borderRadius: '10px',
   
   '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
     transform: 'rotate(90deg)',
   },
   '& .MuiAccordionSummary-content': {
     marginLeft: theme.spacing(1),
-    fontFamily: "Ubuntu, sans-serif", 
-    fontWeight: "bold", 
-    margin: "auto 15px auto",
-   
-  
+    fontFamily: 'Ubuntu, sans-serif',
+    fontWeight: 'bold',
+    margin: 'auto 15px auto',
+    textTransform: 'capitalize',
     
   },
   ...theme.applyStyles('dark', {
@@ -72,10 +83,9 @@ export type RequisitosType = {
 };
 
 const Requisitos: NextPage<RequisitosType> = memo(({ requisitos }) => {
-  const [expanded, setExpanded] = React.useState<string | false>('panel1');
+  const [expanded, setExpanded] = React.useState<string | false>(false); // Estado inicial corregido
 
-  const handleChange =
-  (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
+  const handleChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
     setExpanded(isExpanded ? panel : false);
   };
 
