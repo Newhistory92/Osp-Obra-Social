@@ -106,7 +106,7 @@ const Prestadores = () => {
     {/* Tabla */}
     <div className="overflow-x-auto">
       <table className="min-w-full text-sm text-left table-auto border-collapse">
-        <thead className="bg-gray-800 text-white">
+        <thead className=" bg-[#D31D16] text-white">
           <tr>
             <th className="px-4 py-2">Especialidad</th>
             <th className="px-4 py-2">Nombre y Apellido</th>
@@ -118,26 +118,57 @@ const Prestadores = () => {
         </thead>
         <tbody>
           <Suspense fallback={<div>Loading...</div>}>
-            {currentPrestadores.map((prestador) => (
-              <tr key={prestador.id} className="border-t">
-                <td className="px-4 py-2 text-black">
-                  {prestador.especialidad}<ChevronRightOutlinedIcon /> {prestador.esp1_nom}<ChevronRightOutlinedIcon /> {prestador.esp2_nom}
-                </td>
-                <td className="px-4 py-2 text-black">{prestador.Nombre}</td>
-                <td className="px-4 py-2 text-black">{prestador.Matricula}</td>
-                <td className="px-4 py-2 text-black">{prestador.Telefono}</td>
-                <td className="px-4 py-2 text-black">{`${prestador.Domicilio} - ${prestador.Localidad}`}</td>
-                <td className="px-4 py-2 text-black">
-                  {prestador.Fidelizado === "1"
-                    ? <>Fidelizado <AddTaskSharpIcon /></>
-                    : (
-                      <span className="text-red-500 flex items-center">
-                        No Fidelizado <RemoveCircleOutlineIcon className="text-red-500" />
-                      </span>
-                    )}
-                </td>
-              </tr>
-            ))}
+          {currentPrestadores.map((prestador) => (
+  <tr key={prestador.id} className="border-t">
+    <td className="px-4 py-2 text-black">
+      <div className="flex items-center"> {/* Contenedor para imagen y texto alineados */}
+        <img src="especialidad.svg" className="w-8 h-auto mr-2" alt="especialidad" />
+        {prestador.especialidad}
+        <ChevronRightOutlinedIcon />
+        {prestador.esp1_nom}
+        <ChevronRightOutlinedIcon />
+        {prestador.esp2_nom}
+      </div>
+    </td>
+
+    <td className="px-4 py-2 text-black">
+      <div className="flex items-center">
+        <img src="prestadortable.svg" className="w-8 h-auto mr-2" alt="prestador" />
+        {prestador.Nombre}
+      </div>
+    </td>
+
+    <td className="px-4 py-2 text-black">{prestador.Matricula}</td>
+
+    <td className="px-4 py-2 text-black">
+      <div className="flex items-center">
+        <img src="telefono.svg" className="w-8 h-auto mr-2" alt="telefono" />
+        {prestador.Telefono}
+      </div>
+    </td>
+
+    <td className="px-4 py-2 text-black">
+      <div className="flex items-center">
+        <img src="direccion.svg" className="w-8 h-auto mr-2" alt="direccion" />
+        {`${prestador.Domicilio} - ${prestador.Localidad}`}
+      </div>
+    </td>
+
+    <td className="px-4 py-2 text-black">
+      {prestador.Fidelizado === "1" ? (
+        <div className="flex items-center">
+          Fidelizado
+          <AddTaskSharpIcon />
+        </div>
+      ) : (
+        <span className="text-red-500 flex items-center">
+          No Fidelizado
+          <RemoveCircleOutlineIcon className="text-red-500" />
+        </span>
+      )}
+    </td>
+  </tr>
+))}
           </Suspense>
         </tbody>
       </table>

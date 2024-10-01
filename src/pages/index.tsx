@@ -7,6 +7,7 @@ import styles from "./index.module.css";
 import Carrusel from "@/app/components/Carrusel/Carrusel";
 import { AccesosRapidos } from "@/app/components/AccesosRapidos/AccesosRapidos";
 
+
 const OSPLanding: NextPage = () => {
   return (
     <div className={styles.ospLanding}>
@@ -16,7 +17,7 @@ const OSPLanding: NextPage = () => {
         className={styles.texturasOsp5Icon}
         alt=""
         src="/texturas-osp-5@2x.png"
-      />
+        />
       <Menu />
 
       <section className={styles.rectangleParent}>
@@ -25,11 +26,12 @@ const OSPLanding: NextPage = () => {
           <Carrusel />
         </div>
       </section>
+      <AccesosRapidos />
       <section className={styles.contentBottomContainerParent}>
         <EstructuraOrganizacional />
       </section>
-      <AccesosRapidos />
       <Footer />
+      
     </div>
   );
 };

@@ -1,3 +1,13 @@
+.cardAtpWrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px; 
+  padding: 20px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+
 .frameChild,
 .frameItem {
   position: absolute;
@@ -15,6 +25,7 @@
   left: calc(50% - 128px);
   border-radius: var(--br-3xs) var(--br-3xs) 0 0;
   background-color: var(--osp);
+  /* background-color: var(--gris-principal); */
   height: 85px;
   z-index: 1;
 }
@@ -131,4 +142,34 @@
   font-size: var(--body-1-size);
   color: var(--color-black);
   font-family: var(--body-1);
+  margin-top: 20px;  
+  margin-bottom: 20px; 
 }
+
+
+
+
+
+@media (max-width: 1200px) {
+  .cardAtpWrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .cardAtpWrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .cardAtpWrapper {
+    grid-template-columns: repeat(1, 1fr);
+
+  }
+ 
+}
+
+
+
+

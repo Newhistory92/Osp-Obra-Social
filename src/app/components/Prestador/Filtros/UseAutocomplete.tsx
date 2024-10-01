@@ -29,7 +29,9 @@ const FilterUser: React.FC<FilterUserProps> = ({ prestadores, setFilteredData })
       sx={{ width: 200 }}
       noValidate
       autoComplete="off"
+      className="flex items-center " 
     >
+      <img src="empleados-publicos.svg" className="w-12 h-auto " alt="prestador" />
       <TextField
         id="outlined-basic"
         label="Buscar por Nombre o Apellido"
@@ -37,6 +39,7 @@ const FilterUser: React.FC<FilterUserProps> = ({ prestadores, setFilteredData })
         value={inputValue}
         onChange={(event) => setInputValue(event.target.value)}
         onBlur={(event) => setInputValue(event.target.value)} 
+         
       />
     </Box>
   );

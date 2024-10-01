@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { memo, useEffect, useState  } from "react";
+import { memo, useEffect, useRef, useState  } from "react";
 import styles from "./ContenidoPrincipal.module.css";
 import Requisitos from "@/app/components/Cards/Requisitos/Requisito/Requisitos";
 import BotonSubSubCategoria from "@/app/components/Botones/BotonSubsubCategoria/BotonSubsubCategoria"
@@ -12,60 +12,66 @@ import InformaciondeServicios from "../../../../InformaciondeServicios.json"
 export type ContenidoPrincipalType = {
   className?: string;
   servicioSeleccionado: string; 
+  cardbotonRef: React.RefObject<HTMLDivElement>;
   subSubCategorias: Array<{ titulo: string, contenido: string, subsubcategoria_nombre: string | null, id:number }>; 
 };
 const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
-  ({ className = "", servicioSeleccionado, subSubCategorias }) => {
-    const [contenidoSeleccionado, setContenidoSeleccionado] = useState<{
-      titulo: string;
-      contenido: string;
-      id: number;
-    } | null>(null);
-
+  ({ className = "", servicioSeleccionado, subSubCategorias,cardbotonRef }) => {
+    const [contenidoSeleccionado, setContenidoSeleccionado] = useState<Array<{ titulo: string; contenido: string; id: number }> | null>(null);
+    const [subCategoriasAgrupadas, setSubCategoriasAgrupadas] = useState<{ [key: string]: { titulo: string; contenido: string; id: number }[] }>({});
+    const [sinSubSubCategoria, setSinSubSubCategoria] = useState<{ titulo: string; contenido: string; id: number }[]>([]);
+  
     const activeButton = useAppSelector((state) => state.navbar.activeButton);
     const mostrarDelegacion = useAppSelector((state) => state.navbar.mostrarDelegacion);
     const dispatch = useAppDispatch();
-    
+
+    const seviciobotonRef = useRef<HTMLDivElement | null>(null);
+
     const servicioInfo = InformaciondeServicios.find(
       (servicio) => servicioSeleccionado.trim().toLowerCase() === servicio.servicio.trim().toLowerCase()
     );
-    console.log(servicioInfo)
+    useEffect(() => {
+      const agrupadas: { [key: string]: { titulo: string; contenido: string; id: number }[] } = {};
+      const sinNombre: { titulo: string; contenido: string; id: number }[] = [];
+
+      subSubCategorias.forEach((sub) => {
+        if (sub.subsubcategoria_nombre) {
+          if (!agrupadas[sub.subsubcategoria_nombre]) {
+            agrupadas[sub.subsubcategoria_nombre] = [];
+          }
+          agrupadas[sub.subsubcategoria_nombre].push({ titulo: sub.titulo, contenido: sub.contenido, id: sub.id });
+        } else {
+          sinNombre.push({ titulo: sub.titulo, contenido: sub.contenido, id: sub.id });
+        }
+      });
+    
+      setSubCategoriasAgrupadas(agrupadas);
+      setSinSubSubCategoria(sinNombre);
+    }, [subSubCategorias]);
+
+    const handleSubSubCategoriaClick = (subsubcategoriaNombre: string) => {
+      
+      if (contenidoSeleccionado) {
+        setContenidoSeleccionado(null);
+        dispatch(setActiveButton(false));
+       
+      } else {
+        const contenidoDeSub = subCategoriasAgrupadas[subsubcategoriaNombre];
+        if (contenidoDeSub) {
+        
+          
+          setContenidoSeleccionado(contenidoDeSub);
+          dispatch(setActiveButton(true));
+        }
+      }
+      seviciobotonRef .current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+
     useEffect(() => {
       if (!activeButton) {
         setContenidoSeleccionado(null);
       }
     }, [activeButton]);
-
-
-   
-    
-    const handleSubSubCategoriaClick = (
-      titulo: string,
-      contenido: string,
-      id: number,
-     
-    ) => {
-    
-
-      if (contenidoSeleccionado?.id === id) {
-        setContenidoSeleccionado(null);
-        dispatch(setActiveButton(false)); 
-      } else {
-        setContenidoSeleccionado({ titulo, contenido, id });
-        dispatch(setActiveButton(true)); 
-      }
-    
-  };
-
- // solo para datos estaticos
- const handleAfiliacionClick = () => {
-  setContenidoSeleccionado({
-    titulo: "Afiliación",
-    contenido: "Aquí va la información estática relacionada con el trámite de afiliación.",
-    id: 0, // Un ID estático para esta acción
-  });
-  dispatch(setActiveButton(true)); // Activar el botón si es necesario
-};
 
     return (
       <section className={[styles.ospAfiliacionesInner, className].join(" ")}>
@@ -74,7 +80,7 @@ const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
           <div className={styles.areaDescriptionParent}>
             <div className={styles.areaDescription}>
               <div className={styles.frameParent}>
-                <div className={styles.reaAfiliacionesWrapper}>
+                <div className={styles.reaAfiliacionesWrapper} ref={cardbotonRef}>
                   <h1 className={styles.reaAfiliaciones}>
                     {servicioSeleccionado}
                   </h1>
@@ -84,52 +90,26 @@ const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
                       {servicioInfo.descripcion}
                     </div>
                   )}
-                <div className={styles.areaActionWrapper}>
-                  <div className={styles.areaAction}>
-                  {subSubCategorias
-                        .filter(
-                          (subSubCategoria) =>
-                            subSubCategoria.subsubcategoria_nombre &&
-                            subSubCategoria.subsubcategoria_nombre.trim() !== ""
-                        )
-                        .map((subSubCategoria) => (
-                          <div key={subSubCategoria.id}>
-                            <BotonSubSubCategoria                            
-                              text={subSubCategoria.subsubcategoria_nombre || ""}
-                              registroBlanco="/registro-blanco.svg"                            
-                              onClick={() => handleSubSubCategoriaClick(
-                                subSubCategoria.titulo,
-                                subSubCategoria.contenido,
-                                subSubCategoria.id
-                              )} titulo={""} contenido={""} id={0}                            
-                            />
-                          </div>
-                        ))}
-                           <BotonSubSubCategoria
-                         
-                        text="Afiliación"
+                <div className={styles.areaActionWrapper} >
+                  <div className={styles.areaAction} >
+                  {Object.keys(subCategoriasAgrupadas).map((subsubcategoriaNombre) => (
+                      <BotonSubSubCategoria
+                        key={subsubcategoriaNombre}
+                        text={subsubcategoriaNombre}
                         registroBlanco="/registro-blanco.svg"
-                        onClick={handleAfiliacionClick} // Usar la nueva función de manejo de clic
+                        onClick={() => handleSubSubCategoriaClick(subsubcategoriaNombre)}
                         titulo={""}
                         contenido={""}
                         id={0}
-                           />
-                              <BotonSubSubCategoria 
-                        text="Afiliación"
-                        registroBlanco="/registro-blanco.svg"
-                       
-                        onClick={handleAfiliacionClick} // Usar la nueva función de manejo de clic
-                        titulo={""}
-                        contenido={""}
-                        id={0}
-                           />
+                      />
+                    ))}
                     </div>
                   </div>
                 </div>
               </div>
-              <div className={styles.lineaDivisoria}></div>
+              <div className={styles.lineaDivisoria} ></div>
               {servicioInfo && (
-                  <div className={styles.losTrmitesQueSeRealizanPWrapper}>
+                  <div className={styles.losTrmitesQueSeRealizanPWrapper}  ref={seviciobotonRef  }>
                     <div className={styles.losTrmitesQueContainer}>
                       {servicioInfo.informacionPrimaria && (
                         <p className={styles.losTrmitesQue}>
@@ -148,32 +128,24 @@ const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
           </div>
 
           <div className={styles.requisitosContainer}>
-            {mostrarDelegacion ? (
-              <CardDelegacion />
-            ) : contenidoSeleccionado ? (
-              <Requisitos
-                titulo={contenidoSeleccionado.titulo}
-                contenido={contenidoSeleccionado.contenido}
-              />
-            ) : (
-              subSubCategorias.length > 0 &&
-              !subSubCategorias[0].subsubcategoria_nombre && (
-                <Requisitos
-                  titulo={subSubCategorias[0].titulo}
-                  contenido={subSubCategorias[0].contenido}
-                />
-              )
-            )}
+          {mostrarDelegacion ? (
+                <CardDelegacion />
+              ) : contenidoSeleccionado ? (
+                <Requisitos requisitos={contenidoSeleccionado} />
+              ) : sinSubSubCategoria.length > 0 ? (
+                <Requisitos requisitos={sinSubSubCategoria} />
+              ) : null}
             {servicioSeleccionado.toLowerCase() === "prestadores" && <Prestadores />}
             {servicioSeleccionado.toLowerCase() === "pacientes crónicos" && 
+            <div className=" max-w-[1000px] mx-auto  md:aspect-[16/9] h-[350px]  ms-5 mt-3 overflow-hidden justify-items-center">
             <iframe
-            src="https://sdf.tandemdigital.net/generador-formulario-cronicos"
-            width="1300px"
-            height="300px"
-            title="Formulario Pacientes Crónicos"
-          />}
+              src="https://sdf.tandemdigital.net/generador-formulario-cronicos"
+              title="Formulario Pacientes Crónicos"
+               className="w-full h-full border-0 overflow-hidden"
+            />
           </div>
-          
+          }
+          </div>
         </div>
       </section>
     );

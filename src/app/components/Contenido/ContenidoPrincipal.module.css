@@ -33,17 +33,20 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 0 2rem;
   box-sizing: border-box;
+
 }
 
 
 .areaAction {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem; 
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem; 
   max-width: 100%;
   justify-items: center; 
+  overflow: hidden;
+ 
+  
 }
 
 .areaDescription,
@@ -134,12 +137,15 @@
   font-family: var(--body-1);
 }
 .lineaDivisoria {
-  height: 197.9px;
+  height: 250px;
   width: 2.9px;
   position: relative;
-  border-right: 2.9px solid var(--osp);
+  border-right: 3px solid var(--osp);
   box-sizing: border-box;
 }
+
+
+
 
 
 @media screen and (max-width: 1200px) {
@@ -159,7 +165,7 @@
     margin-top: 20px; 
   }
   .areaAction {
-    grid-template-columns: repeat(2, 1fr); 
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -185,6 +191,7 @@
 
 }
   
+
 }
 
 @media screen and (max-width: 450px) {

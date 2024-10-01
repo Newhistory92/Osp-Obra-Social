@@ -1,11 +1,14 @@
 import React from "react";
 import "../../../pages/global.css";
+import { useAppSelector } from '@/app/hooks/StoreHook';
+import Loading from "@/app/components/Loading/loading";
 
 const Header: React.FC = () => {
+  const loading = useAppSelector(state => state.loading.loading);
   return (
     <header
       style={{ padding: "0 20px" }}
-      className="w-full fixed bg-white shadow-2xl z-[500] sm:px-20 md:px-32 lg:px-[120px] py-3 h-[94px] flex items-center justify-between text-black"
+      className="w-full fixed bg-white shadow-2xl z-[500] sm:px-20 md:px-32 lg:px-[120px] py-3 h-[70px] flex items-center justify-between text-black"
     >
       <a
         style={{ textDecoration: "none", gap: "20px" }}
@@ -27,6 +30,7 @@ const Header: React.FC = () => {
           <img className="w-22" src="Logo-Cidi.svg" alt="Logo CIDI" />
         </a>
       </div>
+      {loading && <Loading />}
     </header>
   );
 };
