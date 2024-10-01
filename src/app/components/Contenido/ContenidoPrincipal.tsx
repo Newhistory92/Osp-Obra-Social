@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { memo, useEffect, useState  } from "react";
+import { memo, useEffect, useRef, useState  } from "react";
 import styles from "./ContenidoPrincipal.module.css";
 import Requisitos from "@/app/components/Cards/Requisitos/Requisito/Requisitos";
 import BotonSubSubCategoria from "@/app/components/Botones/BotonSubsubCategoria/BotonSubsubCategoria"
@@ -12,10 +12,11 @@ import InformaciondeServicios from "../../../../InformaciondeServicios.json"
 export type ContenidoPrincipalType = {
   className?: string;
   servicioSeleccionado: string; 
+  cardbotonRef: React.RefObject<HTMLDivElement>;
   subSubCategorias: Array<{ titulo: string, contenido: string, subsubcategoria_nombre: string | null, id:number }>; 
 };
 const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
-  ({ className = "", servicioSeleccionado, subSubCategorias }) => {
+  ({ className = "", servicioSeleccionado, subSubCategorias,cardbotonRef }) => {
     const [contenidoSeleccionado, setContenidoSeleccionado] = useState<Array<{ titulo: string; contenido: string; id: number }> | null>(null);
     const [subCategoriasAgrupadas, setSubCategoriasAgrupadas] = useState<{ [key: string]: { titulo: string; contenido: string; id: number }[] }>({});
     const [sinSubSubCategoria, setSinSubSubCategoria] = useState<{ titulo: string; contenido: string; id: number }[]>([]);
@@ -23,6 +24,9 @@ const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
     const activeButton = useAppSelector((state) => state.navbar.activeButton);
     const mostrarDelegacion = useAppSelector((state) => state.navbar.mostrarDelegacion);
     const dispatch = useAppDispatch();
+
+    const seviciobotonRef = useRef<HTMLDivElement | null>(null);
+
     const servicioInfo = InformaciondeServicios.find(
       (servicio) => servicioSeleccionado.trim().toLowerCase() === servicio.servicio.trim().toLowerCase()
     );
@@ -60,6 +64,7 @@ const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
           dispatch(setActiveButton(true));
         }
       }
+      seviciobotonRef .current?.scrollIntoView({ behavior: "smooth", block: "start" });
     };
 
     useEffect(() => {
@@ -75,7 +80,7 @@ const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
           <div className={styles.areaDescriptionParent}>
             <div className={styles.areaDescription}>
               <div className={styles.frameParent}>
-                <div className={styles.reaAfiliacionesWrapper}>
+                <div className={styles.reaAfiliacionesWrapper} ref={cardbotonRef}>
                   <h1 className={styles.reaAfiliaciones}>
                     {servicioSeleccionado}
                   </h1>
@@ -85,8 +90,8 @@ const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
                       {servicioInfo.descripcion}
                     </div>
                   )}
-                <div className={styles.areaActionWrapper}>
-                  <div className={styles.areaAction}>
+                <div className={styles.areaActionWrapper} >
+                  <div className={styles.areaAction} >
                   {Object.keys(subCategoriasAgrupadas).map((subsubcategoriaNombre) => (
                       <BotonSubSubCategoria
                         key={subsubcategoriaNombre}
@@ -102,9 +107,9 @@ const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
                   </div>
                 </div>
               </div>
-              <div className={styles.lineaDivisoria}></div>
+              <div className={styles.lineaDivisoria} ></div>
               {servicioInfo && (
-                  <div className={styles.losTrmitesQueSeRealizanPWrapper}>
+                  <div className={styles.losTrmitesQueSeRealizanPWrapper}  ref={seviciobotonRef  }>
                     <div className={styles.losTrmitesQueContainer}>
                       {servicioInfo.informacionPrimaria && (
                         <p className={styles.losTrmitesQue}>

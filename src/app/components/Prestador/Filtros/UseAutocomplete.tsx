@@ -31,7 +31,7 @@ const FilterUser: React.FC<FilterUserProps> = ({ prestadores, setFilteredData })
       autoComplete="off"
       className="flex items-center " 
     >
-      <img src="empleados-publicos.svg" className="w-12 h-auto" alt="prestador" />
+      <img src="empleados-publicos.svg" className="w-12 h-auto " alt="prestador" />
       <TextField
         id="outlined-basic"
         label="Buscar por Nombre o Apellido"

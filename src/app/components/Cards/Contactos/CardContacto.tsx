@@ -10,7 +10,6 @@ export type CardContactoType = {
   fondo?: string;
     onClick?: () => void;
 
-  /** Style props */
   propOverflow?: CSSProperties["overflow"];
 };
 
@@ -40,7 +39,7 @@ const CardContacto: NextPage<CardContactoType> = memo(
                 <img
                   className={styles.expediente3Icon}
                   alt=""
-                  src="/expediente-3-4.svg"
+                  src={fondo}
                   style={expediente3IconStyle}
                 />
               )}

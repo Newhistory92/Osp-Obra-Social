@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect, useRef} from "react";
 import { memo} from "react";
 import BotonCard from "@/app/components/Botones/BotonCard/BotonCard";
 import fetchData  from "@/app/utils/fetchData";
@@ -11,16 +11,18 @@ import SistemaOnline from "../../../../../sistemaOnline.json";
 export type CardRequisitosType = {
   servicioSeleccionado: string;
   onPublicacionesFiltradasChange: (publicaciones: any[]) => void;
-
+  subcategoriaRef: React.RefObject<HTMLDivElement>; 
 };
 
 const apiData = fetchData('/api/Datos/Publicaciones');
 
 
-const CardRequisitos: NextPage<CardRequisitosType> = memo(({servicioSeleccionado,onPublicacionesFiltradasChange }) => {
+const CardRequisitos: NextPage<CardRequisitosType> = memo(({servicioSeleccionado,onPublicacionesFiltradasChange,subcategoriaRef}) => {
   const [publicacionesAgrupadas, setPublicacionesAgrupadas] = useState<{ [key: string]: any[] }>({});
   const  activeButton  = useAppSelector(state =>  state.navbar.activeButton);
   const dispatch = useAppDispatch(); 
+
+  
 
   const fetchDataWithDelay = () => {
     try {
@@ -45,13 +47,16 @@ const CardRequisitos: NextPage<CardRequisitosType> = memo(({servicioSeleccionado
         if (dataAfterTimeout && Object.keys(dataAfterTimeout).length > 0) {
           // Si los datos están disponibles después del timeout, procesarlos y desactivar el loading
           processFetchedData(dataAfterTimeout);
+          
           dispatch(setLoading(false));
         }
       } catch (error) {
         console.error('Error fetching data after timeout:', error);
         dispatch(setLoading(true));
       }
+    
     }, 3102);
+   
   };
   
 
@@ -88,12 +93,18 @@ const CardRequisitos: NextPage<CardRequisitosType> = memo(({servicioSeleccionado
       contenido: publicacion.contenido,
       subsubcategoria_nombre: publicacion.subsubcategoria_nombre || null,
     }));
-  
     onPublicacionesFiltradasChange(filtradasFinales);
+    subcategoriaRef.current?.scrollIntoView({ behavior: "smooth", block: "start", inline: "center" });
+   
+
   
   if (value === 'Delegación') {
     dispatch(setMostrarDelegacion(true));
-  } 
+    
+  } else {
+    // Si se hace clic en cualquier otro botón, poner mostrarDelegacion en false
+    dispatch(setMostrarDelegacion(false));
+  }
   if (activeButton) {
     dispatch(setActiveButton(false));
   }
@@ -144,7 +155,7 @@ const CardRequisitos: NextPage<CardRequisitosType> = memo(({servicioSeleccionado
             </div>
           ))}
       </div>
-    </section>
+    </section >
   );
 });
 

@@ -46,8 +46,8 @@ const FilterEspecialidad: React.FC<FilterEspecialidadProps> = ({ prestadores, se
         getOptionLabel={(option) => option.nombre}
         onChange={(event, newValue) => handleOptionSelect(newValue)}
         renderInput={(params) => (
-          <div className="flex items-center"> {/* Contenedor flex para alinear imagen y TextField */}
-            <img src="especialidad.svg" className="w-12 h-auto mr-2 " alt="especialidad" /> {/* Imagen */}
+          <div className="flex items-center">
+            <img src="especialidad.svg" className="w-12 h-auto mr-2 " alt="especialidad" /> 
             <TextField
               {...params}
               label="Busca por Especialidad"
