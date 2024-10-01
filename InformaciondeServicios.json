@@ -23,15 +23,15 @@
     {
       "id": 4,
       "servicio": "Institucional",
-      "descripcion": "Asuntos institucionales y administrativos.",
-      "informacionPrimaria": "Consultas sobre convenios institucionales.",
-      "informacionSecundaria": "Horario: Lunes a viernes de 9:00 a 17:00."
+      "descripcion": "La Dirección de Obra Social Provincia fue creada en el año 1955 mediante la ley 1948 para trabajar mancomunadamente en beneficio de sus afiliados, brindando un programa que permite la mayor cobertura en prestaciones y servicios a partir de la ley 4680 (año 1979) que permitió la reestructuración del régimen de prestaciones de salud.",
+      "informacionPrimaria": "NUESTRA VISIÓN: La Dirección de Obra Social pretende acompañar a los afiliados en las distintas etapas de la vida, en todo momento, en toda la provincia, y con una marcada orientación de la prevención, posibilitando la máxima accesibilidad a los servicios y garantizando el respeto por la dignidad humana.",
+      "informacionSecundaria": "NUESTRA MISIÓN: Atender las necesidades de los afiliados, brindando las prestaciones de salud y los beneficios sociales establecidos en el marco de la ley, mediante procesos que aseguren transparencia, calidad y eficiencia, promoviendo un ambiente de trabajo en equipo, comprometido y con un profundo sentido de respeto, humildad y servicio."
     },
     {
       "id": 5,
       "servicio": "Prestadores",
       "descripcion": "En esta sección, podrás acceder al listado completo de prestadores de Obra Social Provincia, organizados por especialidad.",
-      "informacionPrimaria": "Estimados Afiliados, al momento de realizar la búsqueda del prestador que usted desee, es posible que el número de teléfono del mismo no se encuentre registrado en nuestra base de datos por cuestiones ajenas a la Dirección Obra Social Provincia; ante dicho inconveniente los invitamos a ponerse en contacto con las entidades intermedias correspondientes al prestador. ¡Muchas gracias!",
+      "informacionPrimaria": "Estimados Afiliados, al momento de realizar la búsqueda del prestador que usted desee, es posible que el número de teléfono del mismo no se encuentre registrado en nuestra base de datos por cuestiones ajenas a la Dirección Obra Social Provincia; ante dicho inconveniente los invitamos a ponerse en contacto con las entidades intermedias correspondientes al prestador. ¡Muchas gracias!",
       "informacionSecundaria": ""
     },
     {

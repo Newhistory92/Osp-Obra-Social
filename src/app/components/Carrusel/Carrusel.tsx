@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import Image from 'next/image';
 import { ProgressBar } from 'primereact/progressbar';
-//import "./Carrusel.css";
 import { CarruselItem } from '@/app/interfaces/interfaces';
 import "primereact/resources/themes/saga-blue/theme.css"; 
 import banner from "../../../../public/banner.png"

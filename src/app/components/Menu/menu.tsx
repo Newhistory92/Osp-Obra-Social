@@ -10,10 +10,10 @@ import { setActiveButton, setMostrarDelegacion } from '@/app/redux/Slice/navbarS
 import { useAppSelector, useAppDispatch } from '@/app/hooks/StoreHook';
 
 export type MenuType = {
-  contenidoRef: React.RefObject<HTMLDivElement>;
+ 
 };
 
-const Menu: NextPage<MenuType> = memo(({contenidoRef} ) => {
+const Menu: NextPage<MenuType> = memo(( ) => {
   const [mostrarContenido, setMostrarContenido] = useState(false);
   const [servicioSeleccionado, setServicioSeleccionado] = useState<string>("Servicios");
   const [contenidoSeleccionado, setContenidoSeleccionado] = useState<
@@ -239,6 +239,14 @@ const subcategoriaRef = useRef<HTMLDivElement>(null);
               handleServicioClick("Servicios");
               dispatch(setMostrarDelegacion(true));
             }}
+          />
+          <CardContacto
+            textPrncipal="Institucion"
+            textSecundario="Nuestra Estructura organizacional"
+            mostrarIcono
+            propOverflow="hidden"
+            fondo="/Institucion.svg"
+            onClick={() => handleServicioClick("institucional")}
           />
         </div>
       </div>
