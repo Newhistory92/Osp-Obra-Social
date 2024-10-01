@@ -1,0 +1,1275 @@
+{
+    "Asociación Bioquímica": [
+      {
+        "id": 1,
+        "Laboratorio": "DRA. QUIROGA FRANZA",
+        "Domicilio": "Arenales 699 (O), CAPITAL",
+        "Teléfono": "4223047",
+        "Integrante": ""
+      },
+      {
+        "id": 2,
+        "Laboratorio": "CORDOBA",
+        "Domicilio": "Av. Córdoba 659 (E), CAPITAL",
+        "Teléfono": "",
+        "Integrante": ""
+      },
+      {
+        "id": 3,
+        "Laboratorio": "DRA. ALVAREZ",
+        "Domicilio": "Av. Uruguay y 25 De Mayo - Vº Media Agua, SARMIENTO",
+        "Teléfono": "",
+        "Integrante": ""
+      },
+      {
+        "id": 4,
+        "Laboratorio": "DRA. ZEGAIB",
+        "Domicilio": "Gral. Acha 657 (S), CAPITAL",
+        "Teléfono": "4225346",
+        "Integrante": ""
+      },
+      {
+        "id": 5,
+        "Laboratorio": "DRA. CORAGLIA",
+        "Domicilio": "Gral. Paz 503 (E), CAPITAL",
+        "Teléfono": "4222337",
+        "Integrante": ""
+      },
+      {
+        "id": 6,
+        "Laboratorio": "SANATORIO ALMIRANTE BROWN",
+        "Domicilio": "Gral. Paz 49 (E), CAPITAL",
+        "Teléfono": "4219300",
+        "Integrante": ""
+      },
+      {
+        "id": 7,
+        "Laboratorio": "DR. GUARDIA",
+        "Domicilio": "Hipólito Irigoyen 1995 (E), SANTA LUCIA",
+        "Teléfono": "4253322",
+        "Integrante": ""
+      },
+      {
+        "id": 8,
+        "Laboratorio": "CEMAP RIVADAVIA",
+        "Domicilio": "Hipólito Irigoyen (Ex San Miguel) 49 (S), RIVADAVIA",
+        "Teléfono": "4265152",
+        "Integrante": ""
+      },
+      {
+        "id": 9,
+        "Laboratorio": "DR. DIAZ CANO",
+        "Domicilio": "Laprida 486 (E), CAPITAL",
+        "Teléfono": "4204574",
+        "Integrante": ""
+      },
+      {
+        "id": 10,
+        "Laboratorio": "DRA. MORANDI",
+        "Domicilio": "Jujuy 352 (S), CAPITAL",
+        "Teléfono": "4217282",
+        "Integrante": ""
+      },
+      {
+        "id": 11,
+        "Laboratorio": "INSTITUTO MEDICO BENAVIDEZ",
+        "Domicilio": "Mendoza 157 (N), CHIMBAS",
+        "Teléfono": "4313152",
+        "Integrante": ""
+      },
+      {
+        "id": 12,
+        "Laboratorio": "CEIBIOQ",
+        "Domicilio": "Sarmiento 444 (S), CAPITAL",
+        "Teléfono": "4201038",
+        "Integrante": ""
+      },
+      {
+        "id": 13,
+        "Laboratorio": "DRA. MONTENEGRO",
+        "Domicilio": "Sarmiento y Salvador María del Carril - Clínica Mitre, ALBARDON",
+        "Teléfono": "4912499",
+        "Integrante": ""
+      },
+      {
+        "id": 14,
+        "Laboratorio": "CEIBIOQ",
+        "Domicilio": "Santa Rosa 555 (S) - Vº Krause, RAWSON",
+        "Teléfono": "4280585",
+        "Integrante": ""
+      },
+      {
+        "id": 15,
+        "Laboratorio": "LABORATORIO DIAZ CANO - ANEXO POCITO. INST. DE LA SALUD",
+        "Domicilio": "Uriburu 334 (S) - Vº Aberastain, POCITO",
+        "Teléfono": "4921320",
+        "Integrante": ""
+      },
+      {
+        "id": 16,
+        "Laboratorio": "CENTRO MEDICO INDEPENDENCIA",
+        "Domicilio": "San Luis 500 (N) Bº - Parque Independencia, CHIMBAS",
+        "Teléfono": "4223306",
+        "Integrante": ""
+      }
+    ],
+
+    "Colegio Bioquímico": [
+        {
+            "id": 1,
+            "laboratorio": "ALEM",
+            "integrante": "Odasso, Roxana",
+            "domicilio": "Córdoba 259 (O)",
+            "telefono": "4200053"
+          },
+          {
+            "id": 2,
+            "laboratorio": "ALESSANDRIA",
+            "integrante": "Alessandria, Alejandra",
+            "domicilio": "San Luis 272 (O)",
+            "telefono": "4222046"
+          },
+          {
+            "id": 3,
+            "laboratorio": "ANÁLISIS CLÍNICOS - ALERGIA E INMUNOLOGÍA",
+            "integrante": [
+              "Dujovne de Iturrieta, Alicia",
+              "Carignano de Ruiz, Elizabeth",
+              "Martín de Oro, Juan"
+            ],
+            "domicilio": "Gral. Paz 715 (E)",
+            "telefono": "4229219"
+          },
+          {
+            "id": 4,
+            "laboratorio": "ANÁLISIS CLÍNICOS Y ALTA COMPLEJIDAD",
+            "integrante": "Tejada, María Inés",
+            "domicilio": "Tucumán 784 (N)",
+            "telefono": "4202040"
+          },
+          {
+            "id": 5,
+            "laboratorio": "ANÁLISIS CLÍNICOS DR. JOSÉ M. D'AGATA",
+            "integrante": "D'Agata José Martín",
+            "domicilio": "Av. Córdoba 38 (E)",
+            "telefono": "4226662"
+          },
+          {
+            "id": 6,
+            "laboratorio": "ANÁLISIS CLÍNICOS Y MICROBIOLÓGICOS LOURDES",
+            "integrante": "Baabdaty, Javier",
+            "domicilio": "Av. Libertador 544 (O)",
+            "telefono": "4204175"
+          },
+          {
+            "id": 7,
+            "laboratorio": "ANÁLISIS CLÍNICOS DEL INSTITUTO DE TRAUMATOLOGÍA",
+            "integrante": "Guerrero, Carlos",
+            "domicilio": "Laprida 239 (O)",
+            "telefono": "4220323"
+          },
+          {
+            "id": 8,
+            "laboratorio": "BENELBAZ, ESTEBAN",
+            "integrante": "Benelbaz, Esteban",
+            "domicilio": "9 de Julio 12 (O)",
+            "telefono": "4220143"
+          },
+          {
+            "id": 9,
+            "laboratorio": "BERON",
+            "integrante": [
+              "Beron, Reginaldo",
+              "Beron, Eduardo"
+            ],
+            "domicilio": "Jujuy 131 (S)",
+            "telefono": "4215768"
+          },
+          {
+            "id": 10,
+            "laboratorio": "BACTERIOLOGÍA CLÍNICA",
+            "integrante": [
+              "Avendaño, Guillermo",
+              "Milelli, María Eugenia"
+            ],
+            "domicilio": "Rivadavia 574 (E)",
+            "telefono": "4214472"
+          },
+          {
+            "id": 11,
+            "laboratorio": "BIOQUÍMICO DEL NIÑO",
+            "integrante": "Marin de Herrero, María",
+            "domicilio": "Av. Rawson 427 (S)",
+            "telefono": "4223151"
+          },
+          {
+            "id": 12,
+            "laboratorio": "BONAUDI-GIMENEZ",
+            "integrante": "Bonaudi, Claudia",
+            "domicilio": "Laprida 350 (E)",
+            "telefono": "4223413"
+          },
+          {
+            "id": 13,
+            "laboratorio": "BONETTO",
+            "integrante": [
+              "Bonetto, Arnoldo Juan",
+              "Bonetto, Mariana",
+              "Bonetto, María Cecilia",
+              "Bonetto, María Elisa"
+            ],
+            "domicilio": "Alem 306 (S)",
+            "telefono": "4220876"
+          },
+          {
+            "id": 14,
+            "laboratorio": "BRASESCO",
+            "integrante": "Brasesco, María Valeria",
+            "domicilio": "Av. España 503 (N)",
+            "telefono": "4276008"
+          },
+          {
+            "id": 15,
+            "laboratorio": "CEAC",
+            "integrante": [
+              "Almirón, Nancy",
+              "Bustos, Emilia",
+              "Balderramo, Laura"
+            ],
+            "domicilio": "Mitre 174 (O)",
+            "telefono": "4274497"
+          },
+          {
+            "id": 16,
+            "laboratorio": "CENTRAL",
+            "integrante": [
+              "Bercovich, Abrahan Victor",
+              "Morrone, Miguel Jorge",
+              "Navarro, Osvaldo Roberto",
+              "Morrone, Dora Felez de",
+              "Morrone, Silvana"
+            ],
+            "domicilio": "Laprida 373 (E)",
+            "telefono": "4226360"
+          }, {
+            "id": 17,
+            "laboratorio": "CLÍNICA DE LA FAMILIA",
+            "integrante": "Amat, Guillermo",
+            "domicilio": "Av. Rioja 137 (N)",
+            "telefono": "4204409"
+          },
+          {
+            "id": 18,
+            "laboratorio": "CLÍNICA DEL RIÑON",
+            "integrante": [
+              "Castro, Hugo Nicolás",
+              "Díaz, Mirtha Esther"
+            ],
+            "domicilio": "Santa Fé 756 (E)",
+            "telefono": "4201144"
+          },
+          {
+            "id": 19,
+            "laboratorio": "CLÍNICA EL CASTAÑO",
+            "integrante": [
+              "Guerrero, Gerardo Marcelo",
+              "Guerrero, Carlos",
+              "Vallejos, Raúl Alfredo",
+              "Cívico, Sonia"
+            ],
+            "domicilio": "Av. Libertador 952 (E)",
+            "telefono": "4277880 / 4277879"
+          },
+          {
+            "id": 20,
+            "laboratorio": "CLÍNICA MAYO",
+            "integrante": [
+              "Bonetto, Arnoldo Juan",
+              "Bonetto, Mariana",
+              "Bonetto, María Cecilia",
+              "Bonetto, María Elisa"
+            ],
+            "domicilio": "Mitre 192 (O)",
+            "telefono": "4227272"
+          },
+          {
+            "id": 21,
+            "laboratorio": "CLÍNICA SUR",
+            "integrante": "Díaz, Mirtha",
+            "domicilio": "Tucumán 758 (S)",
+            "telefono": "4204724"
+          },
+          {
+            "id": 22,
+            "laboratorio": "COCINERO",
+            "integrante": "Cocinero, Daniel",
+            "domicilio": "Gral. Paz 24 (E)",
+            "telefono": "4204500"
+          },
+          {
+            "id": 23,
+            "laboratorio": "CORREA",
+            "integrante": "Correa, María Beatriz",
+            "domicilio": "9 de Julio 433 (O)",
+            "telefono": "4202469"
+          },
+          {
+            "id": 24,
+            "laboratorio": "CRUZ AZUL",
+            "integrante": "Rivas, Juan Antonio",
+            "domicilio": "Laprida 494 (O)",
+            "telefono": "4222030"
+          },
+          {
+            "id": 25,
+            "laboratorio": "CUYO",
+            "integrante": [
+              "Carignano de Ruiz, Elizabeth",
+              "Dujovne de Iturrieta, Alicia",
+              "Martín de Oro, Juan"
+            ],
+            "domicilio": "Gral. Paz 52 (E)",
+            "telefono": "4224276"
+          },
+          {
+            "id": 26,
+            "laboratorio": "CHIFEL",
+            "integrante": "Chifel, César",
+            "domicilio": "Mendoza 545 (S)",
+            "telefono": "4224477"
+          },
+          {
+            "id": 27,
+            "laboratorio": "D'AGATA",
+            "integrante": "D'Agata, Jose Faustino",
+            "domicilio": "Gral. Paz 492 (E)",
+            "telefono": "4224256"
+          },
+          {
+            "id": 28,
+            "laboratorio": "ENFERMEDADES RENALES",
+            "integrante": [
+              "Padilla Pepa, Miguel",
+              "Pelaez, Jorge Hugo"
+            ],
+            "domicilio": "Santa Fé 645 (E)",
+            "telefono": "4273023"
+          },
+          {
+            "id": 29,
+            "laboratorio": "GARROTTI",
+            "integrante": "Dra. Garroti, Claudia",
+            "domicilio": "Jujuy 45 (S)",
+            "telefono": "4212799"
+          },
+          {
+            "id": 30,
+            "laboratorio": "GUEMES",
+            "integrante": [
+              "Rusansky, León",
+              "García, Raúl Alberto"
+            ],
+            "domicilio": "Guemes 407 (S)",
+            "telefono": "4222494"
+          },
+          {
+            "id": 31,
+            "laboratorio": "TERENTI",
+            "integrante": "Jaime Terenti, Jaime Ariel",
+            "domicilio": "San Luis 713 (E)",
+            "telefono": "4216511"
+          },
+          {
+            "id": 32,
+            "laboratorio": "HOSPITAL PRIVADO S.R.L",
+            "integrante": [
+              "Carmona, Silvia B. de",
+              "Sirerol, Leticia R. de",
+              "Figueroa de Vignoli, Susana",
+              "Reinoso, Roberto Eduardo"
+            ],
+            "domicilio": "Rivadavia 542 (E)",
+            "telefono": "4218830"
+          },
+          {
+            "id": 33,
+            "laboratorio": "HOSPITAL PRIVADO S.R.L. - CIMYN",
+            "integrante": [
+              "Carmona, Silvia B. de",
+              "Sirerol, Leticia R. de",
+              "Figueroa de Vignoli, Susana",
+              "Reinoso, Roberto Eduardo"
+            ],
+            "domicilio": "Catamarca 417 (S)",
+            "telefono": "4221201"
+          },
+          {
+            "id": 34,
+            "laboratorio": "IMOC",
+            "integrante": "Storniolo, Graciela",
+            "domicilio": "Estados Unidos 175 (S)",
+            "telefono": "4277277"
+          },
+          {
+            "id": 35,
+            "laboratorio": "INMUNOLOGÍA CLÍNICA",
+            "integrante": "Berbari, Adrian Gustavo",
+            "domicilio": "Alem 346 (S)",
+            "telefono": "4227272"
+          },
+          {
+            "id": 36,
+            "laboratorio": "INSTITUTO DE DIABETES Y ENDOCRINO",
+            "integrante": "Martín, Mónica",
+            "domicilio": "Mendoza 683 (S)",
+            "telefono": "4272756"
+          },
+          {
+            "id": 37,
+            "laboratorio": "LARA",
+            "integrante": "Moreno, Diego Hernán",
+            "domicilio": "Tucumán 468 (S)",
+            "telefono": "4200962"
+          },
+          {
+            "id": 38,
+            "laboratorio": "MARTINEZ, MARÍA ROSA",
+            "integrante": "Martinez, María Rosa",
+            "domicilio": "San Luis 327 (E)",
+            "telefono": "4212269"
+          },
+          {
+            "id": 39,
+            "laboratorio": "MEDINA",
+            "integrante": "Medina, María Eugenia",
+            "domicilio": "Mitre 171 (E)",
+            "telefono": "4220366"
+          },
+          {
+            "id": 40,
+            "laboratorio": "MENDEZ",
+            "integrante": "Mendez, Gerardo Claudio",
+            "domicilio": "Av. Córdoba 364 (O)",
+            "telefono": "4214567"
+          }, {
+            "id": 41,
+            "laboratorio": "MENDOZA",
+            "integrante": "Villalba, Raúl Edgardo",
+            "domicilio": "Santa Fé y Sarmiento",
+            "telefono": "4273361"
+          },
+          {
+            "id": 42,
+            "laboratorio": "MICROBIOLOGÍA CLÍNICA",
+            "integrante": [
+              "Avendaño, Guillermo",
+              "Milelli, María Eugenia"
+            ],
+            "domicilio": "Agustín Gómez 468 (O)",
+            "telefono": "4226392"
+          },
+          {
+            "id": 43,
+            "laboratorio": "MIODOWSKY",
+            "integrante": "Miodowsky, Analía",
+            "domicilio": "Laprida 605 (E)",
+            "telefono": "4273377"
+          },
+          {
+            "id": 44,
+            "laboratorio": "NUESTRA SEÑORA DE LA P",
+            "integrante": "Vallejos, Raúl Alfredo",
+            "domicilio": "25 de Mayo 211 (O)",
+            "telefono": "4216393"
+          },
+          {
+            "id": 45,
+            "laboratorio": "OROSCO",
+            "integrante": "Orosco, Angela María",
+            "domicilio": "Entre Ríos 485 (S)",
+            "telefono": null
+          },
+          {
+            "id": 46,
+            "laboratorio": "PADILLA - PELÁEZ",
+            "integrante": [
+              "Padilla Pepa, Miguel",
+              "Pelaez, Jorge Hugo"
+            ],
+            "domicilio": "Mitre 479 (E)",
+            "telefono": "4229322"
+          },
+          {
+            "id": 47,
+            "laboratorio": "PATOLOGÍA CLÍNICA",
+            "integrante": [
+              "Cattaneo, Margarita",
+              "Matus, Beatriz Eugenia"
+            ],
+            "domicilio": "Catamarca 457 (S)",
+            "telefono": "4229290"
+          },
+          {
+            "id": 48,
+            "laboratorio": "PATOLOGÍA DIGESTIVA",
+            "integrante": [
+              "Carignano de Ruiz, Elizabeth",
+              "Dujovne de Iturrieta, Alicia",
+              "Martín de Oro, Juan"
+            ],
+            "domicilio": "Mendoza 861 (S)",
+            "telefono": "4229491"
+          },
+          {
+            "id": 49,
+            "laboratorio": "PÉREZ NAVAS",
+            "integrante": [
+              "Pérez Peterlín, Pablo",
+              "Pérez Navas, Enrique"
+            ],
+            "domicilio": "Av. Córdoba 172 (E)",
+            "telefono": "4229569"
+          },
+          {
+            "id": 50,
+            "laboratorio": "PRINGLES",
+            "integrante": "Espejo, Rogelio",
+            "domicilio": "Santa Fé 127 (O)",
+            "telefono": "4216454"
+          },
+          {
+            "id": 51,
+            "laboratorio": "RADIOINMUNOANALISIS - BIOQUÍMICA CLÍNICA ÁREA ENDOCRINOLOGÍA",
+            "integrante": "Montes de Oca, Luis E.",
+            "domicilio": "Mendoza 653 (S)",
+            "telefono": "4229270"
+          },
+          {
+            "id": 52,
+            "laboratorio": "ROSALES",
+            "integrante": "Rosales, María Alicia",
+            "domicilio": "Rioja 452 (S)",
+            "telefono": "4224936"
+          },
+          {
+            "id": 53,
+            "laboratorio": "RUIZ, JOSÉ JAVIER",
+            "integrante": "Ruiz, José Javier",
+            "domicilio": "Aberastain 137 (S) 1º B",
+            "telefono": "4277227"
+          },
+          {
+            "id": 54,
+            "laboratorio": "RUIZ DANIELA",
+            "integrante": "Ruiz, Daniela",
+            "domicilio": "Santa Fé 465 (E)",
+            "telefono": "4202014"
+          },
+          {
+            "id": 55,
+            "laboratorio": "SANATORIO ARGENTINO",
+            "integrante": [
+              "Pérez Peterlín, Pablo",
+              "Pérez Navas, Enrique"
+            ],
+            "domicilio": [
+              "San Luis 432 (O)",
+              "Santa Fé 262 (E)"
+            ],
+            "telefono": [
+              "4220100",
+              "4222422"
+            ]
+          },
+          {
+            "id": 56,
+            "laboratorio": "SAN JUAN",
+            "integrante": "Zamitto, Fabio Nelson",
+            "domicilio": "Entre Ríos 517 (S)",
+            "telefono": "4278244"
+          },
+          {
+            "id": 57,
+            "laboratorio": "SIREROL",
+            "integrante": "Sirerol, José",
+            "domicilio": "9 de Julio 35 (O)",
+            "telefono": "4229908"
+          },
+          {
+            "id": 58,
+            "laboratorio": "TORCIVIA",
+            "integrante": "Torcivia, Gustavo Adolfo",
+            "domicilio": "Gral. Paz 192 (E)",
+            "telefono": "4225556"
+          },
+          {
+            "id": 59,
+            "laboratorio": "UDAQUIOLA - VIEYRA",
+            "integrante": "Udaquiola, Carlos Edgar",
+            "domicilio": "Mitre 379 (E)",
+            "telefono": "4227839"
+          },
+          {
+            "id": 60,
+            "laboratorio": "DEL VALLE",
+            "integrante": "Royón, Haydee",
+            "domicilio": "Av. Córdoba 325 (E)",
+            "telefono": "4225961"
+          },
+          {
+            "id": 61,
+            "laboratorio": "VAREA",
+            "integrante": "Varea, Luis Sebastian",
+            "domicilio": "Sarmiento 24 (N)",
+            "telefono": "4220022"
+          },
+          {
+            "id": 62,
+            "laboratorio": "VICAR",
+            "integrante": "Ríos, Mabel E.",
+            "domicilio": "Catamarca 351 (S)",
+            "telefono": "4211926"
+          },
+          {
+            "id": 63,
+            "laboratorio": "VIDELA",
+            "integrante": "Videla de Pláate, Diana",
+            "domicilio": "Gral. Paz 32 (E)",
+            "telefono": "4220440"
+          },
+          {
+            "id": 64,
+            "laboratorio": "ZANETTI",
+            "integrante": "Zanetti, Carlos Roberto",
+            "domicilio": "Rivadavia 981 (E)",
+            "telefono": "4223939"
+          }, {
+            "id": 65,
+            "laboratorio": "ZATTA",
+            "integrante": "Zatta, Sandra del Carmen",
+            "domicilio": "Mendoza 619 (S)",
+            "telefono": "4203774"
+          },
+          {
+            "id": 66,
+            "laboratorio": "MARCHESI CRRIM",
+            "integrante": "Marchesi, María Verónica",
+            "domicilio": "Catamarca 446 (S)",
+            "telefono": "4223427"
+          },
+          {
+            "id": 67,
+            "laboratorio": "RODRIGUEZ",
+            "integrante": "Rodriguez, Brenda Lía",
+            "domicilio": "Rivadavia 697 (E)",
+            "telefono": "4227180"
+          },
+          {
+            "id": 68,
+            "laboratorio": "TERENTI, JAIME",
+            "integrante": "Terenti, Jaime Ariel",
+            "domicilio": "San Luis 713 (E)",
+            "telefono": "4216511"
+          },
+          {
+            "id": 69,
+            "laboratorio": "GINESTAR",
+            "integrante": "Ginestar, Myriam",
+            "domicilio": "Matías Zavalla 61 (N)",
+            "telefono": "4267436"
+          },
+          {
+            "id": 70,
+            "laboratorio": "SAN NICOLÁS",
+            "integrante": "Leiva, Juan Pablo",
+            "domicilio": "Mendoza 737 (N)",
+            "telefono": "4211157"
+          },
+          {
+            "id": 71,
+            "laboratorio": "CARMONA",
+            "integrante": [
+              "Carmona, Graciela V. de",
+              "Carmona, Víctor"
+            ],
+            "domicilio": "Paraguay 660 (E)",
+            "telefono": "4211153"
+          },
+          {
+            "id": 72,
+            "laboratorio": "NORTE",
+            "integrante": "Greco, Francisco Ventura",
+            "domicilio": "Maipú 198 (E)",
+            "telefono": "4212237"
+          },
+          {
+            "id": 73,
+            "laboratorio": "YESURÓN",
+            "integrante": "Yesurón, Elio Alberto",
+            "domicilio": "Pedro Echague 207 (O)",
+            "telefono": "4225363"
+          },
+          {
+            "id": 74,
+            "laboratorio": "ADARVEZ",
+            "integrante": "Adarvez, Daniel Osvaldo",
+            "domicilio": "Matías Zavalla 150 (N)",
+            "telefono": "4262090"
+          },
+          {
+            "id": 75,
+            "laboratorio": "ANÁLISIS CLÍNICOS Y REPRODUCCIÓN",
+            "integrante": "Flores Mosert, María Julieta",
+            "domicilio": "Urquiza 127 (S)",
+            "telefono": "4222197"
+          },
+          {
+            "id": 76,
+            "laboratorio": "CLÍNICA PARQUE UNIVERSITARIO",
+            "integrante": "Iranzo, Omar",
+            "domicilio": "Hermógenes Ruiz 1155 (S)",
+            "telefono": "4235919"
+          },
+          {
+            "id": 77,
+            "laboratorio": "GRAFFIGNA - TOLOZA",
+            "integrante": [
+              "Toloza, Gabriela",
+              "Graffigna Silvia"
+            ],
+            "domicilio": "Hermógenes Ruiz 1115 (S)",
+            "telefono": "4237600"
+          },
+          {
+            "id": 78,
+            "laboratorio": "SCHOENSTATT",
+            "integrante": "Sanchez, Sandra Patricia",
+            "domicilio": "Hermógenes Ruiz 994 (S) L.4 PB",
+            "telefono": "4264064"
+          },
+          {
+            "id": 79,
+            "laboratorio": "ANÁLISIS CLÍNICOS DRA. MARÍA B. SÁNCHEZ",
+            "integrante": "Sánchez, María Belén",
+            "domicilio": "Arenales 286",
+            "telefono": "2644545255"
+          },
+          {
+            "id": 80,
+            "laboratorio": "ARAGÓN DE ROY",
+            "integrante": "Aragón de Roy, Hilda",
+            "domicilio": "Arenales y Santa María de Oro",
+            "telefono": "4911429"
+          },
+          {
+            "id": 81,
+            "laboratorio": "SANTA BÁRBARA",
+            "integrante": "Vargas, Mari Elides",
+            "domicilio": "Santa María de Oro 80",
+            "telefono": "4911054"
+          },
+          {
+            "id": 82,
+            "laboratorio": "ANDINO",
+            "integrante": "Lobos, Ana del Carmen",
+            "domicilio": "Juan Jufré s/n",
+            "telefono": null
+          },
+          {
+            "id": 83,
+            "laboratorio": "ANÁLISIS CLÍNICOS MARTÍN",
+            "integrante": "Gordillo, Alicia",
+            "domicilio": "Diagonal Sarmiento 307",
+            "telefono": "4961130"
+          },
+          {
+            "id": 84,
+            "laboratorio": "CALANOCE",
+            "integrante": "Calanoce, Gustavo",
+            "domicilio": "Rawson 488",
+            "telefono": "4962196"
+          },
+          {
+            "id": 85,
+            "laboratorio": "MICHELTORENA",
+            "integrante": "Micheltorena, Luis Emilio",
+            "domicilio": "Diagonal Sarmiento 1085",
+            "telefono": "4961225"
+          },
+          {
+            "id": 86,
+            "laboratorio": "NAVAS",
+            "integrante": "Navas, María Belén",
+            "domicilio": "Godoy Cruz 581 (N)",
+            "telefono": "4963639"
+          },
+          {
+            "id": 87,
+            "laboratorio": "PARIS",
+            "integrante": "París de Gallardo, Bibiana",
+            "domicilio": "Diagonal Sarmiento 310",
+            "telefono": "4963025"
+          },
+          {
+            "id": 88,
+            "laboratorio": "MODELO",
+            "integrante": "Zatta, Mónica",
+            "domicilio": "Maradona 211 (N)",
+            "telefono": "4310686"
+          }, {
+            "id": 89,
+            "laboratorio": "ROMÁN",
+            "integrante": "Román, Jorge Luis",
+            "domicilio": "Mendoza 951 (N)",
+            "telefono": "4312366"
+          },
+          {
+            "id": 90,
+            "laboratorio": "RODEO",
+            "integrante": "Olivares, Pablo",
+            "domicilio": "Santo Domingo s/n - Rodeo",
+            "telefono": null
+          },
+          {
+            "id": 91,
+            "laboratorio": "FUENTES",
+            "integrante": "Fuentes, Dunia Marisel",
+            "domicilio": "Juan de Echegaray 129 (S) - Local 1",
+            "telefono": "2645085015"
+          },
+          {
+            "id": 92,
+            "laboratorio": "MEDINORT",
+            "integrante": "Ortiz, Luis. O",
+            "domicilio": "San Juan 531",
+            "telefono": "2647-420422"
+          },
+          {
+            "id": 93,
+            "laboratorio": "NEBRO",
+            "integrante": "Nebro, Rosa",
+            "domicilio": "Gral. Paz 339",
+            "telefono": "2647-420413"
+          },
+          {
+            "id": 94,
+            "laboratorio": "SALAS",
+            "integrante": "Salas, Ivana Gabriela",
+            "domicilio": "Sarmiento 562",
+            "telefono": "2647-420056"
+          },
+          {
+            "id": 95,
+            "laboratorio": "VILLAVICENCIO",
+            "integrante": "Villavicencio, Claudia",
+            "domicilio": "Juan de Echegaray 260",
+            "telefono": "2647-420780"
+          },
+          {
+            "id": 96,
+            "laboratorio": "MEDIA AGUA",
+            "integrante": "Rubiño, Hector Benito",
+            "domicilio": "Martiné López 74",
+            "telefono": null
+          },
+          {
+            "id": 97,
+            "laboratorio": "9 DE JULIO",
+            "integrante": "García, Bettina",
+            "domicilio": "Diagonal San Martín s/n",
+            "telefono": null
+          },
+          {
+            "id": 98,
+            "laboratorio": "BENELBAZ",
+            "integrante": "Benelbaz, Diego Sebastián",
+            "domicilio": "M. Zalazar y Aberastain",
+            "telefono": "4921352"
+          },
+          {
+            "id": 99,
+            "laboratorio": "CLÍNICA DEL RIÑÓN - Anexo Pocito",
+            "integrante": [
+              "Díaz, Mirtha Esther",
+              "Castro, Hugo Nicolás"
+            ],
+            "domicilio": "M. Zalazar y Aberastain",
+            "telefono": "4921008"
+          },
+          {
+            "id": 100,
+            "laboratorio": "VARGAS, MARCELA",
+            "integrante": "Vargas, Marcela",
+            "domicilio": "Santa María de Oro 55 (S)",
+            "telefono": "4921063"
+          },
+          {
+            "id": 101,
+            "laboratorio": "ANÁLISIS CLÍNICOS TP",
+            "integrante": "Pérez, Sergio",
+            "domicilio": "Hipólito Irigoyen 1020 (S)",
+            "telefono": "4345570"
+          },
+          {
+            "id": 102,
+            "laboratorio": "CAMENFORTE",
+            "integrante": "Camenforte, Alfredo",
+            "domicilio": "Rep. del Líbano 812 (O)",
+            "telefono": "4241347"
+          },
+          {
+            "id": 103,
+            "laboratorio": "CEMVIK",
+            "integrante": "Bergés, Mauro Oscar",
+            "domicilio": "Boulevard Sarmiento 701 - Villa Krause",
+            "telefono": "4200944"
+          },
+          {
+            "id": 104,
+            "laboratorio": "CASTILLO DE MARÚN",
+            "integrante": "Castillo de Marún, Isabel",
+            "domicilio": "República del Líbano 334 (O)",
+            "telefono": "4280488"
+          },
+          {
+            "id": 105,
+            "laboratorio": "CLIMEGEN",
+            "integrante": "Ocampo, Susana",
+            "domicilio": "Estado de Israel 397 (O)",
+            "telefono": "4286609"
+          },
+          {
+            "id": 106,
+            "laboratorio": "HUARPES",
+            "integrante": "Terentí, Gustavo",
+            "domicilio": "Boulevard Sarmiento 179 (O)",
+            "telefono": "4285593"
+          },
+          {
+            "id": 107,
+            "laboratorio": "MACÍAS",
+            "integrante": "Macías, Nancy Noemí",
+            "domicilio": "República del Líbano 2170 (O)",
+            "telefono": "2645-24538"
+          },
+          {
+            "id": 108,
+            "laboratorio": "PEÑA",
+            "integrante": "Peña, Héctor",
+            "domicilio": "República del Líbano 568 (O)",
+            "telefono": null
+          },
+          {
+            "id": 109,
+            "laboratorio": "RUIZ, GUILLERMO",
+            "integrante": "Ruíz, Guillermo",
+            "domicilio": "Guayaquil 249 (O) - Barrio Hualilán II",
+            "telefono": "4341592"
+          },
+          {
+            "id": 110,
+            "laboratorio": "SAN FRANCISCO (JD)",
+            "integrante": "Ramírez, José Alejandro",
+            "domicilio": "José Dolores 969 (E) - Barrio Obrero",
+            "telefono": "4283747"
+          },
+          {
+            "id": 111,
+            "laboratorio": "SUR",
+            "integrante": "Montión, Antonio Sabino",
+            "domicilio": "Boulevard Sarmiento 139 (O) - Villa Krause",
+            "telefono": "4283189"
+          },
+          {
+            "id": 112,
+            "laboratorio": "TERENTI, PEDRO",
+            "integrante": "Terenti, Pedro José",
+            "domicilio": "Av. España 4112 (S) - Villa Krause",
+            "telefono": "4240898"
+          },
+          {
+            "id": 113,
+            "laboratorio": "UNIMEDICOR",
+            "integrante": "Gomez, Mirta Susana",
+            "domicilio": "Mendoza 301 esq. Estado de Israel",
+            "telefono": "4284014"
+          },
+          {
+            "id": 114,
+            "laboratorio": "VILLENA",
+            "integrante": "Villena, Carlos Javier",
+            "domicilio": "Boulevard Sarmiento 346 (O) Villa Krause",
+            "telefono": "4243086"
+          },
+          {
+            "id": 115,
+            "laboratorio": "ANÁLISIS CLÍNICOS DRA. BILBAO",
+            "integrante": "Bilbao, Adriana",
+            "domicilio": "Rastreador Calivar 424 (S)",
+            "telefono": "4330693"
+          },
+          {
+            "id": 116,
+            "laboratorio": "BENAVIDEZ",
+            "integrante": "Hernández, Genaro Daniel",
+            "domicilio": "Benavidez 2038 (O)",
+            "telefono": "4235239"
+          },
+          {
+            "id": 117,
+            "laboratorio": "CORNEJO - MORRONE",
+            "integrante": "Cornejo, Julio José",
+            "domicilio": "Av. Libertador San Martín 2774 (O)",
+            "telefono": "4262951"
+          },
+          {
+            "id": 118,
+            "laboratorio": "INTEGRAL",
+            "integrante": "Rufino, Humberto José",
+            "domicilio": "Sargento Cabral 2225 (O)",
+            "telefono": "4265995"
+          },
+          {
+            "id": 119,
+            "laboratorio": "IRIGOYEN",
+            "integrante": "Retamar, Claudia",
+            "domicilio": "Ignacio de la Roza 42 (O)",
+            "telefono": "4232802"
+          },
+          {
+            "id": 120,
+            "laboratorio": "LIBERTADOR",
+            "integrante": "Herrera, María Lorena",
+            "domicilio": "Av. Libertador 5325 (O)",
+            "telefono": "4333059"
+          },
+          {
+            "id": 121,
+            "laboratorio": "RIVADAVIA",
+            "integrante": "Gonzalez, Azucena",
+            "domicilio": "Cabot 2735 (O), Barrio Jardín Policial",
+            "telefono": "4231801"
+          },
+          {
+            "id": 122,
+            "laboratorio": "ROLDÁN",
+            "integrante": "Roldán, Roberto",
+            "domicilio": "Coll 78 (O)",
+            "telefono": null
+          },
+          {
+            "id": 123,
+            "laboratorio": "SANTA GEMMA",
+            "integrante": "Andujar de Reverendo, María",
+            "domicilio": "Av. Libertador San Martín 3280 (O)",
+            "telefono": "4231265"
+          }
+    ],
+    "Clinicas": [
+        
+            {
+                "id": 1,
+                "clínicas/sanatorios": "CIMYN: Centro Integral de la Mujer y el Niño",
+                "domicilio": "Catamarca 417 (S) - Capital",
+                "teléfono": "0264-4221201"
+            },
+            {
+                "id": 2,
+                "clínicas/sanatorios": "CCI: Centro de Cuidados Intensivos",
+                "domicilio": "Catamarca 446 (S) - Capital",
+                "teléfono": "0264-4272760"
+            },
+            {
+                "id": 3,
+                "clínicas/sanatorios": "CEMVIK: Centro de Especialidades Médicas de Villa Krause",
+                "domicilio": "Bvar. Sarmiento 211 (O) - Rawson",
+                "teléfono": "0264-4238969- 0264-155671664"
+            },
+            {
+                "id": 4,
+                "clínicas/sanatorios": "CEAC",
+                "domicilio": "Mitre 174 (O) - Capital",
+                "teléfono": "0264-4274497- 0264-4215973- 0264-4215013"
+            },
+            {
+                "id": 5,
+                "clínicas/sanatorios": "CEAC",
+                "domicilio": "Mitre 174 (O) - Capital",
+                "teléfono": "0264-4215973"
+            },
+          
+            {
+                "id": 6,
+                "clínicas/sanatorios": "CENTRO DE MIOPÍA Y ASTIGMATISMO",
+                "domicilio": "Jujuy 167 (S) - Capital",
+                "teléfono": "0264-4226071"
+            },
+            {
+                "id": 7,
+                "clínicas/sanatorios": "CENTRO INTEGRAL DE ANATOMÍA PATOLÓGICA",
+                "domicilio": "Gral. Paz 523 (E) - Capital",
+                "teléfono": "0264-4201665"
+            },
+            {
+                "id": 8,
+                "clínicas/sanatorios": "CENTRO RADIOLÓGICO SANTA FE",
+                "domicilio": "Santa Fe 149 (O) - Capital",
+                "teléfono": "0264-4219556- 0264-4241267- 0264-155072477"
+            },
+           
+            {
+                "id": 9,
+                "clínicas/sanatorios": "CIMAC",
+                "domicilio": "Rivadavia 574 (E) - Capital",
+                "teléfono": "0264-4293100"
+            },
+            {
+                "id": 10,
+                "clínicas/sanatorios": "CLÍNICA ANDINA DE NARIZ GARGANTA Y OÍDOS",
+                "domicilio": "Aberastain 153 (N) - Capital",
+                "teléfono": "0264-4213475 - 0264-154149084"
+            },
+           
+            {
+                "id": 11,
+                "clínicas/sanatorios": "CLÍNICA CÁCERES",
+                "domicilio": "Mitre 694 (E) - Capital",
+                "teléfono": "0264-4220002"
+            },
+            {
+                "id": 12,
+                "clínicas/sanatorios": "CLÍNICA CASTAÑO",
+                "domicilio": "Av. Libertador 952 (E) - Capital",
+                "teléfono": "0264-4277879- 0264-4277880"
+            },
+            
+            {
+                "id": 13,
+                "clínicas/sanatorios": "CLÍNICA DE LA VISIÓN",
+                "domicilio": "Gral. Acha 752 (S) - Capital",
+                "teléfono": "0264-4228400- 0264-4272731"
+            },
+           
+            {
+                "id": 14,
+                "clínicas/sanatorios": "CLÍNICA DE PATOLOGÍA DIGESTIVA",
+                "domicilio": "Mendoza 861 (S) - Capital",
+                "teléfono": "0264-4229491- 0264-155650037"
+            },
+            
+            {
+                "id": 15,
+                "clínicas/sanatorios": "CLÍNICA EXIMER LÁSER",
+                "domicilio": "9 de Julio 54 (O) - Capital",
+                "teléfono": "0264-4200420"
+            },
+            {
+                "id": 16,
+                "clínicas/sanatorios": "CLÍNICA MERCEDARIO",
+                "domicilio": "Av. España 503 (N) - Capital",
+                "teléfono": "0264-4276003- 0264-4276005- 0264-4276008 "
+            },
+         
+            {
+                "id": 17,
+                "clínicas/sanatorios": "ECO COLOR-CIMAC",
+                "domicilio": "Rivadavia 574 (E) - Capital",
+                "teléfono": "0264-4293100"
+            },
+            {
+                "id": 18,
+                "clínicas/sanatorios": "HOSPITAL ESPAÑOL",
+                "domicilio": "Agustín Gómez 468 (O) - Capital",
+                "teléfono": "0264-4221892 - 0264-4273895- 0264-4275558 "
+            },
+         
+            {
+                "id": 19,
+                "clínicas/sanatorios": "HOSPITAL PRIVADO",
+                "domicilio": "Rivadavia 542 (E) - Capital",
+                "teléfono": "0264-4215871"
+            },
+            {
+                "id": 20,
+                "clínicas/sanatorios": "INSTITUO DE HEMATOLOGÍA Y HEMOTERAPIA",
+                "domicilio": "Güemes 170 (S) - Capital",
+                "teléfono": "0264-4212450 - 0264-4810658"
+            },
+            {
+                "id": 34,
+                "clínicas/sanatorios": "INSTITUTO DE TRAUMATOLOGÍA",
+                "domicilio": "Laprida 239 (O) - Capital",
+                "teléfono": "0264-4220323"
+            },
+            {
+                "id": 35,
+                "clínicas/sanatorios": "INSTITUTO MODELO DE OTORRINOLARINGOLOGÍA",
+                "domicilio": "9 de Julio 153 (E) - Capital",
+                "teléfono": "0264-4223392"
+            },
+            {
+                "id": 36,
+                "clínicas/sanatorios": "S.A.N.F.A.C. S.R.L.",
+                "domicilio": "Rivadavia 542 (E) - Capital",
+                "teléfono": "0264-4203871"
+            },
+            {
+                "id": 37,
+                "clínicas/sanatorios": "SAJUMED",
+                "domicilio": "Av. Córdoba 262 (E) - Capital",
+                "teléfono": "0264-4224939- 0264-4278250"
+            },
+            {
+                "id": 38,
+                "clínicas/sanatorios": "SANATORIO ALMIRANTE BROWN",
+                "domicilio": "Mendoza 612 (S) - Capital",
+                "teléfono": "0264-4219300- 0264-4219305"
+            },
+            {
+                "id": 39,
+                "clínicas/sanatorios": "SANATORIO ARGENTINO",
+                "domicilio": "San Luis 432 (O) - Capital",
+                "teléfono": "0264-4220450- 0264-4220100- 0264-4273273"
+            },
+            {
+                "id": 40,
+                "clínicas/sanatorios": "SANATORIO MAYO",
+                "domicilio": "Mitre 192 (O) - Capital",
+                "teléfono": "0264-4227272- 0264-4228300- 0264-4229378"
+            },
+            {
+                "id": 41,
+                "clínicas/sanatorios": "SIEM S.R.L.",
+                "domicilio": "Santa Fe 465 (E) - Capital",
+                "teléfono": "0264-4202014"
+            },
+            {
+                "id": 42,
+                "clínicas/sanatorios": "TERAPIA INTENSIVA POLI. SA - HOSPITAL ESPAÑOL",
+                "domicilio": "Agustín Gómez 468 (O) - Capital",
+                "teléfono": "0264-4221892"
+            },
+            {
+                "id": 43,
+                "clínicas/sanatorios": "INSTITUTO DE NARIZ, GARGANTA Y OÍDO",
+                "domicilio": "9 de Julio 586 (E) - Capital",
+                "teléfono": "0264-4225911"
+            },
+            {
+                "id": 44,
+                "clínicas/sanatorios": "INSTITUTO DE LA VISIÓN LÁSER",
+                "domicilio": "Aberastain 73 (S) - Capital",
+                "teléfono": "0264-4218489- 0264-4215018"
+            },
+            {
+                "id": 45,
+                "clínicas/sanatorios": "S.A.N.F.A.C. S.R.L.",
+                "domicilio": "Rivadavia 542 (E) - Capital",
+                "teléfono": "0264-4203871"
+            }
+        
+        
+        
+    ]
+
+  }

@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { memo, useState } from "react";
+import { memo, useRef, useState } from "react";
 import RedSocial from "../RedesSociales/RedSocial";
 import BotonServicio from "../Botones/BotonServicios/boton-servicio";
 import CardContacto from "../Cards/Contactos/CardContacto";
@@ -10,10 +10,10 @@ import { setActiveButton, setMostrarDelegacion } from '@/app/redux/Slice/navbarS
 import { useAppSelector, useAppDispatch } from '@/app/hooks/StoreHook';
 
 export type MenuType = {
-  className?: string;
+  contenidoRef: React.RefObject<HTMLDivElement>;
 };
 
-const Menu: NextPage<MenuType> = memo(({ className = "" }) => {
+const Menu: NextPage<MenuType> = memo(({contenidoRef} ) => {
   const [mostrarContenido, setMostrarContenido] = useState(false);
   const [servicioSeleccionado, setServicioSeleccionado] = useState<string>("Servicios");
   const [contenidoSeleccionado, setContenidoSeleccionado] = useState<
@@ -23,7 +23,9 @@ const activeButton = useAppSelector((state) => state.navbar.activeButton);
 const mostrarDelegacion = useAppSelector((state) => state.navbar.mostrarDelegacion);
 const dispatch = useAppDispatch();
 
-
+// para el scroll
+const cardRequisitosRef = useRef<HTMLDivElement | null>(null);
+const subcategoriaRef = useRef<HTMLDivElement>(null);
   const handlePublicacionesFiltradasChange = (publicaciones: any[]) => {
     setContenidoSeleccionado(publicaciones);
   };
@@ -41,6 +43,7 @@ const dispatch = useAppDispatch();
     if (mostrarDelegacion) {
       dispatch(setMostrarDelegacion(false));
     }
+    cardRequisitosRef.current?.scrollIntoView({ behavior: "auto", block: "start" });
   };
 
   const handleCerrarClick = () => {
@@ -55,13 +58,23 @@ const dispatch = useAppDispatch();
   };
 
 
+  const handleExpediClick = () => {
+    window.location.href =
+      "https://sj.sanjuan.gob.ar/?uid=CUMV-VIEW-ExpedientesComponent";
+  };
 
+
+  const handleTuVozImportaClick = () => {
+    window.location.href =
+      "https://docs.google.com/forms/d/e/1FAIpQLScuTsmhPDvmSUDC20tP8LSPuVni46iNP3m3SJ0dg_QT0VFMhA/viewform?embedded=true%22%20width%3D%22640%22%20height%3D%221606%22%20frameborder%3D%220%22%20marginheight%3D%220%22%20marginwidth%3D%220%22%3ECargando%E2%80%A6%3C%2Fiframe%3E&amp;gxids=7628";
+  };
 
   return (
-    <section className={[styles.ospLandingInner, className].join(" ")}>
+    <section className={styles.ospLandingInner}>
       <div className={styles.cabeceraConIconosParent}>
         <div className={styles.cabeceraConIconos}>
           <div className={styles.headerLeft}>
+      
             <img
               className={styles.headerSpacingIcon}
               loading="lazy"
@@ -91,20 +104,20 @@ const dispatch = useAppDispatch();
               showIcono
               text="Afiliaciones"
               info="/afiliaciones.svg"
-              onClick={() => handleServicioClick("Afiliaciones")}
+              onClick={() => handleServicioClick("Afiliaciones") }
             />
-              <BotonServicio
-                showIcono
-                text="Prestadores"
-                info="/empleados-publicos.svg"
-                onClick={() => handleServicioClick("Prestadores")}
-              />
-               <BotonServicio
-               showIcono
-               text="Cobertura"
-               info="/autorizaciones-farmacia.svg"
-               onClick={() => handleServicioClick("Cobertura")}
-               />
+            <BotonServicio
+              showIcono
+              text="Prestadores"
+              info="/empleados-publicos.svg"
+              onClick={() => handleServicioClick("Prestadores")}
+            />
+            <BotonServicio
+              showIcono
+              text="Cobertura"
+              info="/autorizaciones-farmacia.svg"
+              onClick={() => handleServicioClick("Cobertura")}
+            />
             <BotonServicio
               showIcono
               text="Servicios"
@@ -112,18 +125,18 @@ const dispatch = useAppDispatch();
               onClick={() => handleServicioClick("Servicios")}
             />
             <BotonServicio
-                showIcono
-                text="Programas"
-                info="/medicamentos1.svg"
-                onClick={() => handleServicioClick("Programas")}
-              />
+              showIcono
+              text="Programas"
+              info="/medicamentos1.svg"
+              onClick={() => handleServicioClick("Programas")}
+            />
             <BotonServicio
               showIcono
-              text="Medicamentos y Farmacia"
-               info="/farmacia.svg"
-              onClick={() => handleServicioClick("Medicamentos y Farmacia")}
+              text="Farmacia y Medicamento"
+              info="/farmacia.svg"
+              onClick={() => handleServicioClick("Farmacia y Medicamento")}
             />
-          
+
             <BotonServicio
               showIcono
               text="Pacientes Crónicos"
@@ -135,44 +148,56 @@ const dispatch = useAppDispatch();
               showIcono
               text="Formularios"
               info="/formularios-medicos.svg"
-              onClick={() => handleServicioClick("Formularios")}
+              onClick={() => handleServicioClick("formulario")}
             />
             <BotonServicio
               showIcono
-              text="Institucional"
-              info="/delegaciones.svg"
-              onClick={() => handleServicioClick("Institucional")}
+              text="Expediente"
+              info="/expedienteonline.svg"
+              onClick={ handleExpediClick}
             />
             <BotonServicio
-             showIcono 
-             text="Sistema Online para Prestadores" 
-             info="/info@2x.png" 
-             onClick={() => handleServicioClick("Sistema Online para Prestadores")}/>
+              showIcono
+              text="Sistema Online para Prestadores"
+              info="/web.svg"
+              onClick={() =>
+                handleServicioClick("Sistema Online para Prestadores")
+              }
+            />
           </div>
         </div>
+        
         {mostrarContenido && (
           <>
-            <div className={styles.servicesButton} onClick={handleCerrarClick}>
-              <img
-                className={styles.botonArea}
-                loading="lazy"
-                alt=""
-                src="/boton-area.svg"
-              />
-              <button className={styles.serviciosWrapper}>
-                <b className={styles.servicios}>{servicioSeleccionado}</b>
+             
+            <div className="flex h-12 gap-2" onClick={handleCerrarClick} ref={cardRequisitosRef}>
+              <div className="bg-[#413E43] px-3 py-3 rounded-l-md hover:cursor-pointer hover:bg-[#524F54] transition-colors">
+                <img
+                  className="h-full"
+                  loading="lazy"
+                  alt=""
+                  src="/boton-area.svg"
+                />
+              </div>
+              <button className="w-56 bg-[#D31D16] font-semibold text-white h-12 rounded-r-md hover:cursor-pointer hover:bg-[#E42E27] transition-colors">
+                {servicioSeleccionado}
               </button>
             </div>
+            
             <CardRequisitos
-        servicioSeleccionado={servicioSeleccionado}
-        onPublicacionesFiltradasChange={handlePublicacionesFiltradasChange}
-      />
-          <div className={styles.cabecerarequisito}>
-          <ContenidoPrincipal 
-          subSubCategorias={contenidoSeleccionado} 
-         servicioSeleccionado={servicioSeleccionado} 
-      />
-          </div>
+              servicioSeleccionado={servicioSeleccionado}
+              onPublicacionesFiltradasChange={
+                handlePublicacionesFiltradasChange
+              }
+              subcategoriaRef={subcategoriaRef}
+            />
+            <div className={styles.cabecerarequisito}>
+              <ContenidoPrincipal
+                subSubCategorias={contenidoSeleccionado}
+                servicioSeleccionado={servicioSeleccionado} 
+                cardbotonRef={subcategoriaRef}                
+                 />
+            </div>
           </>
         )}
         <div className={styles.contactParent}>
@@ -181,34 +206,39 @@ const dispatch = useAppDispatch();
             textSecundario="de Lunes a Viernes de 7hs a 19hs"
             mostrarIcono
             propOverflow="hidden"
-            fondo="/fondo.svg"
+            fondo="/horario.svg"
           />
           <CardContacto
             textPrncipal="Nuestro Telefóno"
-            textSecundario=" 0264 4304300 "
+            textSecundario="0264 4304300"
             mostrarIcono
             propOverflow="hidden"
-            fondo="/fondo.svg"
+            fondo="/contactotelefono.svg"
           />
           <CardContacto
             textPrncipal="Nuestro email"
             textSecundario="obrasocialprovincia @sanjua.gov.ar"
             mostrarIcono
             propOverflow="hidden"
-            fondo="/fondo.svg"
+            fondo="/mail.svg"
           />
-          <CardContacto
-            textPrncipal="Preguntas Frecuentes"
-            textSecundario="accedé a las consultas más frecuentes"
+           <CardContacto
+            textPrncipal="Tu voz Importa"
+            textSecundario="Queremos conocer tu experiencia en la última consulta médica"
             mostrarIcono
             propOverflow="unset"
-            fondo="/fondo.svg"
+            fondo="/tuvoz.svg"
+            onClick={handleTuVozImportaClick} 
           />
           <CardContacto
             textPrncipal="Delegaciones"
-            textSecundario="conocé nuestras distintas delegaciones"
+            textSecundario="Conocé nuestras distintas delegaciones"
             mostrarIcono
-            fondo="/fondo.svg"
+            fondo="/direcciondelegacion.svg"
+            onClick={() => {
+              handleServicioClick("Servicios");
+              dispatch(setMostrarDelegacion(true));
+            }}
           />
         </div>
       </div>

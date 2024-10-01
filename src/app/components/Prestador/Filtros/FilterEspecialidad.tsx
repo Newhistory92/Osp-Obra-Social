@@ -36,31 +36,35 @@ const FilterEspecialidad: React.FC<FilterEspecialidadProps> = ({ prestadores, se
       setFilteredData(prestadores); 
     }
   };
-
+<img src="especialidad.svg" className="w-12 h-auto" alt="especialidad" />
   return (
-    <Autocomplete
-      id="especialidades-autocomplete"
-      sx={{ width: 300 }}
-      options={especialidadesData.especialidades}
-      getOptionLabel={(option) => option.nombre}
-      onChange={(event, newValue) => handleOptionSelect(newValue)}
-      renderInput={(params) => (
-        <TextField
-          {...params}
-          label="Busca por Especialidad"
-          margin="normal"
-          value={searchQuery}
-          onChange={(event) => setSearchQuery(event.target.value)}
-          InputProps={{
-            ...params.InputProps,
-            endAdornment: (
-              <>
-                {params.InputProps.endAdornment}
-              </>
-            ),
-          }}
-        />
-      )}
+   
+      <Autocomplete
+        id="especialidades-autocomplete"
+        sx={{ width: 300 }}
+        options={especialidadesData.especialidades}
+        getOptionLabel={(option) => option.nombre}
+        onChange={(event, newValue) => handleOptionSelect(newValue)}
+        renderInput={(params) => (
+          <div className="flex items-center">
+            <img src="especialidad.svg" className="w-12 h-auto mr-2 " alt="especialidad" /> 
+            <TextField
+              {...params}
+              label="Busca por Especialidad"
+              margin="normal"
+              value={searchQuery}
+              onChange={(event) => setSearchQuery(event.target.value)}
+              InputProps={{
+                ...params.InputProps,
+                endAdornment: (
+                  <>
+                    {params.InputProps.endAdornment}
+                  </>
+                ),
+              }}
+            />
+          </div>
+        )}
       renderOption={(props, option) => {
         const { key, ...restProps } = props; 
         const matches = match(option.nombre, searchQuery, { insideWords: true });

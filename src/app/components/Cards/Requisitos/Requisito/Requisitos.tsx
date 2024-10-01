@@ -1,61 +1,112 @@
-import type { NextPage } from "next";
+import type { NextPage } from "next"; 
 import { memo } from "react";
-import React, { useState } from 'react';
-import styles from "./Requisitos.module.css";
-import { Accordion, AccordionTab } from 'primereact/accordion';
+import React from 'react';
 import Parser from 'html-react-parser';
+import { styled } from '@mui/material/styles';
+import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
+import MuiAccordion, { AccordionProps } from '@mui/material/Accordion';
+import MuiAccordionSummary, {
+  AccordionSummaryProps,
+} from '@mui/material/AccordionSummary';
+import MuiAccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';;
 
-
-export type RequisitosType = {
-  className?: string;
+export type RequisitoItem = {
   titulo: string;
   contenido: string;
+  id: number;
+};
+const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
+  padding: theme.spacing(2),
+  borderTop: '1px solid rgba(0, 0, 0, .125)',
+  color: 'black',
+  fontFamily: 'Ubuntu, sans-serif',
+  textAlign: 'left',
+  fontSize: '1rem',
+  paddingRight: '30px'
+  
+}));
+
+const Accordion = styled((props: AccordionProps) => (
+  <MuiAccordion disableGutters elevation={0} square {...props} />
+))(({ theme }) => ({
+  border: `1px solid ${theme.palette.divider}`,
+  borderRadius: '10px',
+   
+  '&:not(:last-child)': {
+    borderBottom: '1px  solid #E42E27',
+    marginBottom: theme.spacing(2),
+    
+  },
+  '&:last-child': {
+    borderBottom: '1px solid #E42E27', 
+    
+  },
+  '&::before': {
+    display: 'none',
+  },
+  width: '90%',
+  margin: '10px 20px auto',
+  boxSizing: 'border-box',
+
+}));
+
+const AccordionSummary = styled((props: AccordionSummaryProps) => (
+  <MuiAccordionSummary
+    expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem', color: '#E42E27', marginRight: '15px' }} />}
+    {...props}
+  />
+))(({ theme }) => ({
+  backgroundColor: 'white',
+  boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.2)',
+  flexDirection: 'row',
+  borderRadius: '10px',
+  
+  '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
+    transform: 'rotate(90deg)',
+  },
+  '& .MuiAccordionSummary-content': {
+    marginLeft: theme.spacing(1),
+    fontFamily: 'Ubuntu, sans-serif',
+    fontWeight: 'bold',
+    margin: 'auto 15px auto',
+    textTransform: 'capitalize',
+    
+  },
+  ...theme.applyStyles('dark', {
+    backgroundColor: 'rgba(255, 255, 255, .05)',
+  }),
+}));
+
+export type RequisitosType = {
+  requisitos: Array<RequisitoItem>;
 };
 
-const Requisitos: NextPage<RequisitosType> = memo(
-  ({ className = "", titulo, contenido }) => {
-    const [activeIndex, setActiveIndex] = useState<number | number[]>();
-    
-    return (
-      <div>
-        <Accordion className={styles.accordionContainer} activeIndex={activeIndex} onTabChange={(e) => setActiveIndex(e.index)}>
-          {/* Datos dinámicos */}
-          <AccordionTab header={titulo}>
-            <p className={styles.requisitosDeAfiliaciones}>
-            {Parser(contenido)}
-            </p>
-          </AccordionTab>
+const Requisitos: NextPage<RequisitosType> = memo(({ requisitos }) => {
+  const [expanded, setExpanded] = React.useState<string | false>(false); // Estado inicial corregido
 
-          {/* Datos estáticos */}
-          <AccordionTab className={styles.requisitosDeAfiliacionesParent} header="02 - Cambio de situación de revista">
-            <p className={styles.requisitosDeAfiliaciones}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-              commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-          </AccordionTab>
-          <AccordionTab header="05 - Hijos mayores de 21 años con discapacidad">
-            <p className={styles.requisitosDeAfiliaciones}>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa 
-              quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas 
-              sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. 
-              Consectetur, adipisci velit, sed quia non numquam eius modi.
-            </p>
-          </AccordionTab>
-          <AccordionTab header="04 - Menores de 21 años">
-            <p className={styles.requisitosDeAfiliaciones}>
-              At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti
-              quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt 
-              mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. 
-              Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
-            </p>
-          </AccordionTab>
+  const handleChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
+    setExpanded(isExpanded ? panel : false);
+  };
+
+  return (
+    <div>
+      {requisitos.map((requisito, index) => (
+        <Accordion
+          key={requisito.id}
+          expanded={expanded === `panel${index}`}
+          onChange={handleChange(`panel${index}`)}
+        >
+          <AccordionSummary aria-controls={`panel${index}-content`} id={`panel${index}-header`}>
+            <Typography>{requisito.titulo}</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            {Parser(requisito.contenido)}
+          </AccordionDetails>
         </Accordion>
-      </div>
-    );
-  }
-);
+      ))}
+    </div>
+  );
+});
 
 export default Requisitos;
-

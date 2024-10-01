@@ -58,97 +58,128 @@ const Prestadores = () => {
 
   // Filtrar por fidelización
   useEffect(() => {
-
-    if (selectedType === 'Todos') {
-      setFilteredDataUser(prestadores);
-      setFilteredDataEspecialidad(prestadores);
-    } else {
+    let filtered = prestadores;
+  
+    // Filtrar por fidelización
+    if (selectedType !== 'Todos') {
       const isFidelizado = selectedType === 'Fidelizado';
-      const filtered = prestadores.filter((prestador) =>
+      filtered = filtered.filter((prestador) =>
         isFidelizado ? prestador.Fidelizado === "1" : prestador.Fidelizado !== "1"
       );
-      setFilteredDataUser(filtered);
-      setFilteredDataEspecialidad(filtered);
     }
-
-    setPage(1);
-  }, [prestadores, selectedType]);
-
-  // Combinar filtros de usuario y especialidad
-  useEffect(() => {
-    const combined = filteredDataUser.filter((prestador) =>
-      filteredDataEspecialidad.includes(prestador)
-    );
-    setCombinedFilteredData(combined);
-  }, [filteredDataUser, filteredDataEspecialidad]);
-
+  
+    // Filtrar por especialidad si hay una seleccionada
+    if (filteredDataEspecialidad.length > 0) {
+      filtered = filtered.filter((prestador) =>
+        filteredDataEspecialidad.includes(prestador)
+      );
+    }
+  
+    // Actualizar los datos combinados
+    setCombinedFilteredData(filtered);
+    setPage(1); 
+  }, [prestadores, selectedType, filteredDataEspecialidad]);
 
   return (
     <div className="container mx-auto my-8"> 
-      
-      <div className="flex flex-col items-center w-full gap-4 md:flex-row md:gap-4 mb-6">
-        <div className="w-full md:w-1/3">
-          <FilterUser prestadores={prestadores} setFilteredData={setFilteredDataUser} />
-        </div>
-        <div className="w-full md:w-1/3 ">
-          <FilterEspecialidad prestadores={prestadores} setFilteredData={setFilteredDataEspecialidad} />
-        </div>
-        <div className="w-full md:w-1/3 flex justify-center mb-3 bg-blue-500 shadow-lg shadow-blue-500/50">
-          <Tabs
-            activeKey={selectedType}
-            onSelect={(value) => handleTabChange(value || 'Todos')}
-          >
-            {TABS.map(({ label, value }) => (
-              <Tab
-                key={value}
-                eventKey={value}
-                title={label}
-                
-              />
-            ))}
-          </Tabs>
-        </div>
+    <div className="flex flex-col w-full gap-4 md:flex-row md:items-center mb-6">
+      <div className="w-full md:w-1/3">
+        <FilterUser prestadores={prestadores} setFilteredData={setFilteredDataUser} />
       </div>
+      <div className="w-full md:w-1/3">
+        <FilterEspecialidad prestadores={prestadores} setFilteredData={setFilteredDataEspecialidad} />
+      </div>
+    </div>
   
-      {/* Tabla */}
-      <table className="table table-striped-columns mx-auto"> {/* Centramos la tabla */}
-        <thead className="table-dark">
+    <div className="w-full flex justify-center mb-4">
+      <Tabs
+        activeKey={selectedType}
+        onSelect={(value) => handleTabChange(value || 'Todos')}
+        className="w-full text-sm"
+      >
+        {TABS.map(({ label, value }) => (
+          <Tab key={value} eventKey={value} title={label} />
+        ))}
+      </Tabs>
+    </div>
+  
+    {/* Tabla */}
+    <div className="overflow-x-auto">
+      <table className="min-w-full text-sm text-left table-auto border-collapse">
+        <thead className=" bg-[#D31D16] text-white">
           <tr>
-            <th scope="col">Especialidad</th>
-            <th scope="col">Nombre y Apellido</th>
-            <th scope="col">Matricula</th>
-            <th scope="col">Telefono</th>
-            <th scope="col">Direccion</th>
-            <th scope="col">Fidelizado</th>
+            <th className="px-4 py-2">Especialidad</th>
+            <th className="px-4 py-2">Nombre y Apellido</th>
+            <th className="px-4 py-2">Matrícula</th>
+            <th className="px-4 py-2">Teléfono</th>
+            <th className="px-4 py-2">Dirección</th>
+            <th className="px-4 py-2">Fidelizado</th>
           </tr>
         </thead>
         <tbody>
           <Suspense fallback={<div>Loading...</div>}>
-            {currentPrestadores.map((prestador) => (
-              <tr key={prestador.id}>
-                <th scope="row">
-                  {prestador.especialidad}<ChevronRightOutlinedIcon /> {prestador.esp1_nom}<ChevronRightOutlinedIcon /> {prestador.esp2_nom}
-                </th>
-                <td>{prestador.Nombre}</td>
-                <td>{prestador.Matricula}</td>
-                <td>{prestador.Telefono}</td>
-                <td>{`${prestador.Domicilio} - ${prestador.Localidad}`}</td>
-                <td>
-                  {prestador.Fidelizado === "1"
-                    ? <>Fidelizado <AddTaskSharpIcon /></>
-                    : <>No Fidelizado <RemoveCircleOutlineIcon /></>}
-                </td>
-              </tr>
-            ))}
+          {currentPrestadores.map((prestador) => (
+  <tr key={prestador.id} className="border-t">
+    <td className="px-4 py-2 text-black">
+      <div className="flex items-center"> {/* Contenedor para imagen y texto alineados */}
+        <img src="especialidad.svg" className="w-8 h-auto mr-2" alt="especialidad" />
+        {prestador.especialidad}
+        <ChevronRightOutlinedIcon />
+        {prestador.esp1_nom}
+        <ChevronRightOutlinedIcon />
+        {prestador.esp2_nom}
+      </div>
+    </td>
+
+    <td className="px-4 py-2 text-black">
+      <div className="flex items-center">
+        <img src="prestadortable.svg" className="w-8 h-auto mr-2" alt="prestador" />
+        {prestador.Nombre}
+      </div>
+    </td>
+
+    <td className="px-4 py-2 text-black">{prestador.Matricula}</td>
+
+    <td className="px-4 py-2 text-black">
+      <div className="flex items-center">
+        <img src="telefono.svg" className="w-8 h-auto mr-2" alt="telefono" />
+        {prestador.Telefono}
+      </div>
+    </td>
+
+    <td className="px-4 py-2 text-black">
+      <div className="flex items-center">
+        <img src="direccion.svg" className="w-8 h-auto mr-2" alt="direccion" />
+        {`${prestador.Domicilio} - ${prestador.Localidad}`}
+      </div>
+    </td>
+
+    <td className="px-4 py-2 text-black">
+      {prestador.Fidelizado === "1" ? (
+        <div className="flex items-center">
+          Fidelizado
+          <AddTaskSharpIcon />
+        </div>
+      ) : (
+        <span className="text-red-500 flex items-center">
+          No Fidelizado
+          <RemoveCircleOutlineIcon className="text-red-500" />
+        </span>
+      )}
+    </td>
+  </tr>
+))}
           </Suspense>
         </tbody>
       </table>
-  
-      {/* Paginación */}
-      <div className="mt-4">
-        <PaginationButtons page={page} setPage={setPage} maxPage={maxPage} data={[]} />
-      </div>
     </div>
+  
+    <div className="mt-4">
+      <PaginationButtons page={page} setPage={setPage} maxPage={maxPage} data={[]} />
+    </div>
+  </div>
+  
+
   );
   
 };

@@ -1,15 +1,13 @@
 import type { NextPage } from "next";
-import { memo, useMemo, useState, type CSSProperties } from "react";
-import styles from "./BotonSubsubCategoria.css";
+import { memo} from "react";
 import  {setActiveButton}  from '@/app/redux/Slice/navbarSlice';
 import {useAppSelector,useAppDispatch} from "@/app/hooks/StoreHook"
 
+
 export type BotonPrincipalType = {
-  className?: string;
-  showIcono?: boolean;
+
   text?: string;
   registroBlanco?: string;
-  propMinWidth?: CSSProperties["minWidth"];
   onClick: (titulo: string, contenido: string, id: number) => void;
   titulo: string; 
   contenido: string; 
@@ -18,22 +16,17 @@ export type BotonPrincipalType = {
 }
 const BotonPrincipal: NextPage<BotonPrincipalType> = memo(
   ({
-    className = "",
-    showIcono = false,
+    
     text = "",
     registroBlanco,
-    propMinWidth = "87px",
+  
     onClick,
     titulo,
     contenido,
     id,
    
   }) => {
-    const textoStyle: CSSProperties = useMemo(() => {
-      return {
-        minWidth: propMinWidth,
-      };
-    }, [propMinWidth]);
+    
     
     const  activeButton  = useAppSelector(state =>  state.navbar.activeButton);
 
@@ -48,23 +41,13 @@ const BotonPrincipal: NextPage<BotonPrincipalType> = memo(
     };
     return (
       <button
-        className={[styles.botonPrincipal, className].join(" ")}
-        onClick={handleClick} 
-      >
+   className="w-56 bg-[#D31D16]  font-semibold h-12 rounded-md flex items-center justify-center px-2 py-1 space-x-2 m-4 hover:cursor-pointer hover:bg-[#E42E27] transition-colors"
+  onClick={handleClick}>
+  <div className="text-white ml-3 text-base ">
+    {text}
+  </div>
+</button>
 
-        
-        {showIcono && (
-          <img
-            className={styles.registroBlancoIcon}
-            alt=""
-            src={registroBlanco}
-          />
-        )}
-        
-        <div className={styles.texto} style={textoStyle}>
-          {text}
-        </div>
-      </button>
     );
   }
 );
