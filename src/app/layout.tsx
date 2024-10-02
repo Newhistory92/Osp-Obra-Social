@@ -12,7 +12,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-        <GoogleAnalytics gaId="G-1VNEXD4WCF" />
+        <GoogleAnalytics gaId="G-MHDY389QFB" />
       <body>{children}</body>
     </html>
   )
