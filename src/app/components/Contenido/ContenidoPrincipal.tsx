@@ -8,7 +8,8 @@ import {useAppSelector,useAppDispatch} from "@/app/hooks/StoreHook"
 import Prestadores from "../Prestador/Tabla";
 import CardDelegacion from "../Cards/CardDelegacion/CardDelegacion";
 import InformaciondeServicios from "../../../../InformaciondeServicios.json"
-
+import { ProgressBar } from 'primereact/progressbar';
+import "primereact/resources/themes/saga-blue/theme.css";         
 export type ContenidoPrincipalType = {
   className?: string;
   servicioSeleccionado: string; 
@@ -20,7 +21,8 @@ const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
     const [contenidoSeleccionado, setContenidoSeleccionado] = useState<Array<{ titulo: string; contenido: string; id: number }> | null>(null);
     const [subCategoriasAgrupadas, setSubCategoriasAgrupadas] = useState<{ [key: string]: { titulo: string; contenido: string; id: number }[] }>({});
     const [sinSubSubCategoria, setSinSubSubCategoria] = useState<{ titulo: string; contenido: string; id: number }[]>([]);
-  
+    const [progress, setProgress] = useState(0);
+    const [loading, setLoading] = useState(true);
     const activeButton = useAppSelector((state) => state.navbar.activeButton);
     const mostrarDelegacion = useAppSelector((state) => state.navbar.mostrarDelegacion);
     const dispatch = useAppDispatch();
@@ -72,7 +74,17 @@ const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
         setContenidoSeleccionado(null);
       }
     }, [activeButton]);
+  
+    useEffect(() => {
+      if (loading) {
+        const intervalId = setInterval(() => {
+          setProgress((prevProgress) => (prevProgress < 90 ? prevProgress + 10 : prevProgress)); // Incrementa el progreso hasta el 90%
+        }, 500);
 
+        return () => clearInterval(intervalId);
+      }
+    }, [loading]);
+    
     return (
       <section className={[styles.ospAfiliacionesInner, className].join(" ")}>
       <div className={styles.areaNavigationParent}>
@@ -138,10 +150,15 @@ const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
             {servicioSeleccionado.toLowerCase() === "prestadores" && <Prestadores />}
             {servicioSeleccionado.toLowerCase() === "pacientes crónicos" && 
             <div className=" max-w-[1000px] mx-auto  md:aspect-[16/9] h-[350px]  ms-5 mt-3 overflow-hidden justify-items-center">
+               {loading && <ProgressBar value={progress} className="mb-3" />}
             <iframe
               src="https://sdf.tandemdigital.net/generador-formulario-cronicos"
               title="Formulario Pacientes Crónicos"
                className="w-full h-full border-0 overflow-hidden"
+               onLoad={() => {
+                setLoading(false); 
+                setProgress(100);
+              }}
             />
           </div>
           }
