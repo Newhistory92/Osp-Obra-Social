@@ -1,0 +1,73 @@
+[
+    {
+      "id": 1,
+      "servicio": "Alta",
+      "descripcion": ".",
+      "informacionPrimaria": "Para presentación de documentación o retiro de carnet y renovación del plástico por extravío, hurto o deterioro de carnet,dirigirse al Box 10 atención presencial..",
+      "informacionSecundaria": "En el caso de vencimientos parciales (renovaciones de estudiantes,pensionados, docentes interinos y suplentes), bajas de afiliaciones y reintegros de aportes, usted puede comunicarse con la Oficina de Control de Aportes vía e-mail a aportes.afiliaciones@gmail.com o vía telefónica al4304300 opción 7 luego opción 2."
+    },
+    {
+      "id": 2,
+      "servicio": "Cobertura",
+      "descripcion": "En esta sección, encontrarás toda la información relacionada con la cobertura que te brinda Obra Social Provincia.",
+      "informacionPrimaria": "Conoce en detalle los servicios médicos, prestaciones y beneficios a los que tienes acceso como afiliado, y asegúrate de estar informado sobre cómo utilizarlos de manera eficiente.",
+      "informacionSecundaria": ""
+    },
+    {
+      "id": 3,
+      "servicio": "Farmacia y Medicamento",
+      "descripcion": "Atención presencial de Lunes a Viernes de 07:30 a 11:00 ha en Sede central, Auditoria de Planes y Patologías especiales.",
+      "informacionPrimaria": "",
+      "informacionSecundaria": ""
+    },
+    {
+      "id": 4,
+      "servicio": "Institucional",
+      "descripcion": "La Dirección de Obra Social Provincia fue creada en el año 1955 mediante la ley 1948 para trabajar mancomunadamente en beneficio de sus afiliados, brindando un programa que permite la mayor cobertura en prestaciones y servicios a partir de la ley 4680 (año 1979) que permitió la reestructuración del régimen de prestaciones de salud.",
+      "informacionPrimaria": "NUESTRA VISIÓN: La Dirección de Obra Social pretende acompañar a los afiliados en las distintas etapas de la vida, en todo momento, en toda la provincia, y con una marcada orientación de la prevención, posibilitando la máxima accesibilidad a los servicios y garantizando el respeto por la dignidad humana.",
+      "informacionSecundaria": "NUESTRA MISIÓN: Atender las necesidades de los afiliados, brindando las prestaciones de salud y los beneficios sociales establecidos en el marco de la ley, mediante procesos que aseguren transparencia, calidad y eficiencia, promoviendo un ambiente de trabajo en equipo, comprometido y con un profundo sentido de respeto, humildad y servicio."
+    },
+    {
+      "id": 5,
+      "servicio": "Prestadores",
+      "descripcion": "En esta sección, podrás acceder al listado completo de prestadores de Obra Social Provincia, organizados por especialidad.",
+      "informacionPrimaria": "Estimados Afiliados, al momento de realizar la búsqueda del prestador que usted desee, es posible que el número de teléfono del mismo no se encuentre registrado en nuestra base de datos por cuestiones ajenas a la Dirección Obra Social Provincia; ante dicho inconveniente los invitamos a ponerse en contacto con las entidades intermedias correspondientes al prestador. ¡Muchas gracias!",
+      "informacionSecundaria": ""
+    },
+    {
+      "id": 6,
+      "servicio": "Servicios",
+      "descripcion": "Obra Social Provincia pone a tu disposición una amplia serie de servicios que van más allá de la atención médica tradicional.",
+      "informacionPrimaria": "Además de consultas y tratamientos especializados, ofrecemos cobertura de sepelio y traslados para personas con discapacidad, asegurando un acompañamiento integral en cada etapa de la vida. Conoce cómo acceder a estos servicios.",
+      "informacionSecundaria": ""
+    },
+    {
+      "id": 7,
+      "servicio": "Programas",
+      "descripcion": "En Obra Social Provincia, nos comprometemos con la salud de nuestros afiliados a través de diversos programas de atención y prevención.",
+      "informacionPrimaria": "Estas iniciativas están diseñadas para promover un estilo de vida saludable, prevenir enfermedades y ofrecer cuidados especializados en áreas clave de la salud y el bienestar integral de la población. ",
+      "informacionSecundaria": "Explora nuestros programas y descubre cómo participar en actividades que te ayudarán a cuidar tu salud de manera proactiva."
+    },
+    {
+      "id": 8,
+      "servicio": "Noticias",
+      "descripcion": "Actualización de noticias y novedades del sistema.",
+      "informacionPrimaria": "Noticias actualizadas semanalmente.",
+      "informacionSecundaria": "Boletines de noticias vía mail."
+    },
+    {
+      "id": 9,
+      "servicio": "formulario",
+      "descripcion": "En esta sección, encontrarás todos los formularios necesarios para gestionar tus trámites con Obra Social Provincia de manera rápida y sencilla.",
+      "informacionPrimaria": "Aquí podrás descargar y completar los documentos requeridos para agilizar tus gestiones.",
+      "informacionSecundaria": "Nuestro objetivo es facilitar el acceso a la información y brindarte las herramientas que necesitas para un mejor servicio."
+    },
+    {
+      "id": 10,
+      "servicio": "Pacientes Crónicos",
+      "descripcion": "En Obra Social Provincia, entendemos la importancia de un tratamiento adecuado y continuo para quienes padecen enfermedades crónicas. ",
+      "informacionPrimaria": "Por eso, ofrecemos cobertura en medicación para garantizar que nuestros afiliados reciban los medicamentos necesarios para el manejo de sus condiciones.",
+      "informacionSecundaria": "Nuestro objetivo es facilitar el acceso al tratamiento, mejorar la calidad de vida y asegurar el bienestar de nuestros pacientes crónicos a lo largo del tiempo."
+    }
+  ]
+  

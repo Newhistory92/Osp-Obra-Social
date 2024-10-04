@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { memo, useEffect, useRef, useState  } from "react";
+import { memo, Suspense, useEffect, useRef, useState  } from "react";
 import styles from "./ContenidoPrincipal.module.css";
 import Requisitos from "@/app/components/Cards/Requisitos/Requisito/Requisitos";
 import BotonSubSubCategoria from "@/app/components/Botones/BotonSubsubCategoria/BotonSubsubCategoria"
@@ -9,24 +9,27 @@ import Prestadores from "../Prestador/Tabla";
 import CardDelegacion from "../Cards/CardDelegacion/CardDelegacion";
 import InformaciondeServicios from "../../../../InformaciondeServicios.json"
 import { ProgressBar } from 'primereact/progressbar';
-import "primereact/resources/themes/saga-blue/theme.css";         
+import "primereact/resources/themes/saga-blue/theme.css";
+import { Skeleton } from 'primereact/skeleton';
+import { DataTable } from 'primereact/datatable';
+import { Column } from 'primereact/column'; 
+import ErrorBoundary from '@/app/utils/ErrorBoundary';     
 export type ContenidoPrincipalType = {
-  className?: string;
   servicioSeleccionado: string; 
   cardbotonRef: React.RefObject<HTMLDivElement>;
   subSubCategorias: Array<{ titulo: string, contenido: string, subsubcategoria_nombre: string | null, id:number }>; 
 };
 const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
-  ({ className = "", servicioSeleccionado, subSubCategorias,cardbotonRef }) => {
+  ({ servicioSeleccionado, subSubCategorias,cardbotonRef }) => {
     const [contenidoSeleccionado, setContenidoSeleccionado] = useState<Array<{ titulo: string; contenido: string; id: number }> | null>(null);
     const [subCategoriasAgrupadas, setSubCategoriasAgrupadas] = useState<{ [key: string]: { titulo: string; contenido: string; id: number }[] }>({});
     const [sinSubSubCategoria, setSinSubSubCategoria] = useState<{ titulo: string; contenido: string; id: number }[]>([]);
     const [progress, setProgress] = useState(0);
-    const [loading, setLoading] = useState(true);
+    const [loadingLocal, setLoadingLocal] = useState(true);
     const activeButton = useAppSelector((state) => state.navbar.activeButton);
     const mostrarDelegacion = useAppSelector((state) => state.navbar.mostrarDelegacion);
     const dispatch = useAppDispatch();
-
+    const items = Array(10).fill({});
     const seviciobotonRef = useRef<HTMLDivElement | null>(null);
 
     const servicioInfo = InformaciondeServicios.find(
@@ -76,17 +79,17 @@ const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
     }, [activeButton]);
   
     useEffect(() => {
-      if (loading) {
+      if (loadingLocal) {
         const intervalId = setInterval(() => {
-          setProgress((prevProgress) => (prevProgress < 90 ? prevProgress + 10 : prevProgress)); // Incrementa el progreso hasta el 90%
+          setProgress((prevProgress) => (prevProgress < 50 ? prevProgress + 50 : prevProgress)); 
         }, 500);
-
+        
         return () => clearInterval(intervalId);
       }
-    }, [loading]);
+    }, [loadingLocal]);
     
     return (
-      <section className={[styles.ospAfiliacionesInner, className].join(" ")}>
+      <section className={styles.ospAfiliacionesInner}>
       <div className={styles.areaNavigationParent}>
         <div className={styles.frameWrapper}>
           <div className={styles.areaDescriptionParent}>
@@ -138,7 +141,6 @@ const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
                 )}
             </div>
           </div>
-
           <div className={styles.requisitosContainer}>
           {mostrarDelegacion ? (
                 <CardDelegacion />
@@ -147,17 +149,31 @@ const ContenidoPrincipal: NextPage<ContenidoPrincipalType> = memo(
               ) : sinSubSubCategoria.length > 0 ? (
                 <Requisitos requisitos={sinSubSubCategoria} />
               ) : null}
-            {servicioSeleccionado.toLowerCase() === "prestadores" && <Prestadores />}
+            {servicioSeleccionado.toLowerCase() === "prestadores" &&
+              <ErrorBoundary fallback={<div className="ms-5 text-base">Error loading prestadores.</div>}>    
+      <Suspense fallback={<DataTable value={items} className="p-datatable-striped ms-5 w-full" >
+    <Column field="Especialidad" header="Especialidad" style={{ width: '25%'  }} body={<Skeleton  /> }></Column>
+    <Column field="Nombre y Apellido" header="Nombre y Apellido" style={{ width: '25%' }} body={<Skeleton />}></Column>
+    <Column field="Matrícula" header="Matrícula" style={{ width: '10%' }} body={<Skeleton />}></Column>
+    <Column field="Teléfono" header="Teléfono" style={{ width: '15%' }} body={<Skeleton />}></Column>
+    <Column field="Dirección" header="Dirección" style={{ width: '15%' }} body={<Skeleton />}></Column>
+    <Column field="Fidelizado" header="Fidelizado" style={{ width: '10%' }} body={<Skeleton />}></Column>
+       </DataTable>}>
+        <Prestadores />
+      </Suspense>
+        </ErrorBoundary>  }
+
             {servicioSeleccionado.toLowerCase() === "pacientes crónicos" && 
             <div className=" max-w-[1000px] mx-auto  md:aspect-[16/9] h-[350px]  ms-5 mt-3 overflow-hidden justify-items-center">
-               {loading && <ProgressBar value={progress} className="mb-3" />}
+               {loadingLocal && <ProgressBar value={progress} className="mb-3" />}
             <iframe
               src="https://sdf.tandemdigital.net/generador-formulario-cronicos"
               title="Formulario Pacientes Crónicos"
                className="w-full h-full border-0 overflow-hidden"
                onLoad={() => {
-                setLoading(false); 
+                setLoadingLocal(false); 
                 setProgress(100);
+                
               }}
             />
           </div>

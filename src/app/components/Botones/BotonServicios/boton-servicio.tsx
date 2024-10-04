@@ -4,7 +4,6 @@ import styles from "./boton-servicio.module.css";
 import { sendGAEvent } from '@next/third-parties/google'
 
 export type BotonServicioType = {
-  className?: string;
   showIcono?: boolean;
   text?: string;
   info?: string;
@@ -12,13 +11,11 @@ export type BotonServicioType = {
 };
 
 const BotonServicio: NextPage<BotonServicioType> = memo(
-  ({ className = "", showIcono = true, text = "Consultas", info, onClick }) => {
+  ({  showIcono = true, text = "Consultas", info, onClick }) => {
 
     const handleClick = () => {
       // Enviar evento a Google Analytics
       sendGAEvent('event', 'buttonClicked', { value: text });
-
-      // Ejecutar la función onClick principal
       if (onClick) {
         onClick();
       }
@@ -26,7 +23,7 @@ const BotonServicio: NextPage<BotonServicioType> = memo(
 
     return (
       <div
-      className={[styles.botonServicio, className].join(" ")}
+      className={styles.botonServicio}
       onClick={handleClick} 
     >
       <div className={styles.infoWrapper}>
