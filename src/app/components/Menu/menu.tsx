@@ -1,4 +1,4 @@
-import type { NextPage } from "next";
+
 import { memo, useRef, useState } from "react";
 import RedSocial from "../RedesSociales/RedSocial";
 import BotonServicio from "../Botones/BotonServicios/boton-servicio";
@@ -9,11 +9,9 @@ import styles from "./menu.module.css";
 import { setActiveButton, setMostrarDelegacion } from '@/app/redux/Slice/navbarSlice';
 import { useAppSelector, useAppDispatch } from '@/app/hooks/StoreHook';
 
-export type MenuType = {
- 
-};
 
-const Menu: NextPage<MenuType> = memo(( ) => {
+
+const Menu= memo(( ) => {
   const [mostrarContenido, setMostrarContenido] = useState(false);
   const [servicioSeleccionado, setServicioSeleccionado] = useState<string>("Servicios");
   const [contenidoSeleccionado, setContenidoSeleccionado] = useState<

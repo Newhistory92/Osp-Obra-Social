@@ -5,7 +5,6 @@ import {useAppSelector,useAppDispatch} from "@/app/hooks/StoreHook"
 
 
 export type BotonPrincipalType = {
-
   text?: string;
   registroBlanco?: string;
   onClick: (titulo: string, contenido: string, id: number) => void;
@@ -15,16 +14,12 @@ export type BotonPrincipalType = {
   
 }
 const BotonPrincipal: NextPage<BotonPrincipalType> = memo(
-  ({
-    
+  ({  
     text = "",
-    registroBlanco,
-  
     onClick,
     titulo,
     contenido,
-    id,
-   
+    id, 
   }) => {
     
     

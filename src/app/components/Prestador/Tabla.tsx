@@ -1,14 +1,17 @@
 "use client"
-import React, { useState, useEffect, useCallback, useMemo,Suspense} from "react";
+import React, { useState, useEffect, useCallback, useMemo} from "react";
 import { Prestador } from "@/app/interfaces/interfaces";
 import dynamic from 'next/dynamic';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import fetchData  from "@/app/utils/fetchData";
+import {useFetchData}  from "@/app/utils/useFetchData";
 import PaginationButtons from "@/app/components/Pagination/Pagination"; 
 import AddTaskSharpIcon from '@mui/icons-material/AddTaskSharp';
 import ChevronRightOutlinedIcon from '@mui/icons-material/ChevronRightOutlined';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import { Tab, Tabs } from "react-bootstrap";
+import { setLoading } from '@/app/redux/Slice/loading';
+import { v4 as uuidv4 } from 'uuid';
+import {useAppDispatch } from '@/app/hooks/StoreHook';
 const FilterUser = dynamic(() => import('@/app/components/Prestador/Filtros/UseAutocomplete'), {
   ssr: false
 });
@@ -22,9 +25,9 @@ const TABS = [
   { label: 'No Fidelizado', value: 'No Fidelizado' }
 ];
 
-
-const apiData = fetchData('/api/Datos/prestadores');
-
+type DataResponse = {
+  data: Prestador[]; 
+};
 const Prestadores = () => {
   const [prestadores, setPrestadores] = useState<Prestador[]>([]);
   const [filteredDataUser, setFilteredDataUser] = useState<Prestador[]>([]);
@@ -33,17 +36,20 @@ const Prestadores = () => {
   const [combinedFilteredData, setCombinedFilteredData] = useState<Prestador[]>([]);
   const [page, setPage] = useState(1);
   const itemsPerPage = 10;
+  const dispatch = useAppDispatch(); 
 
-  // Fetch data
-  const data = apiData.read(); 
-  useEffect(() => {
+    const resource = useFetchData<DataResponse>('/api/Datos/prestadores');
+    const data: DataResponse = resource ? resource.read() : { data: [] };
+    
+    useEffect(() => {
     setPrestadores(data.data);
+    dispatch(setLoading(false));
   }, [data]);
 
-  // Calcular total de páginas
+ 
+
   const maxPage = Math.ceil(combinedFilteredData.length / itemsPerPage);
 
-  // Obtener los prestadores de la página actual
   const currentPrestadores = useMemo(() => {
     const start = (page - 1) * itemsPerPage;
     const end = start + itemsPerPage;
@@ -59,7 +65,6 @@ const Prestadores = () => {
   // Filtrar por fidelización
   useEffect(() => {
     let filtered = prestadores;
-  
     // Filtrar por fidelización
     if (selectedType !== 'Todos') {
       const isFidelizado = selectedType === 'Fidelizado';
@@ -90,20 +95,16 @@ const Prestadores = () => {
         <FilterEspecialidad prestadores={prestadores} setFilteredData={setFilteredDataEspecialidad} />
       </div>
     </div>
-  
     <div className="w-full flex justify-center mb-4">
       <Tabs
         activeKey={selectedType}
         onSelect={(value) => handleTabChange(value || 'Todos')}
-        className="w-full text-sm"
-      >
+        className="w-full text-sm">
         {TABS.map(({ label, value }) => (
           <Tab key={value} eventKey={value} title={label} />
         ))}
       </Tabs>
     </div>
-  
-    {/* Tabla */}
     <div className="overflow-x-auto">
       <table className="min-w-full text-sm text-left table-auto border-collapse">
         <thead className=" bg-[#D31D16] text-white">
@@ -117,71 +118,57 @@ const Prestadores = () => {
           </tr>
         </thead>
         <tbody>
-          <Suspense fallback={<div>Loading...</div>}>
           {currentPrestadores.map((prestador) => (
-  <tr key={prestador.id} className="border-t">
-    <td className="px-4 py-2 text-black">
-      <div className="flex items-center"> {/* Contenedor para imagen y texto alineados */}
-        <img src="especialidad.svg" className="w-8 h-auto mr-2" alt="especialidad" />
-        {prestador.especialidad}
-        <ChevronRightOutlinedIcon />
-        {prestador.esp1_nom}
-        <ChevronRightOutlinedIcon />
-        {prestador.esp2_nom}
-      </div>
-    </td>
-
-    <td className="px-4 py-2 text-black">
-      <div className="flex items-center">
-        <img src="prestadortable.svg" className="w-8 h-auto mr-2" alt="prestador" />
-        {prestador.Nombre}
-      </div>
-    </td>
-
-    <td className="px-4 py-2 text-black">{prestador.Matricula}</td>
-
-    <td className="px-4 py-2 text-black">
-      <div className="flex items-center">
-        <img src="telefono.svg" className="w-8 h-auto mr-2" alt="telefono" />
-        {prestador.Telefono}
-      </div>
-    </td>
-
-    <td className="px-4 py-2 text-black">
-      <div className="flex items-center">
-        <img src="direccion.svg" className="w-8 h-auto mr-2" alt="direccion" />
-        {`${prestador.Domicilio} - ${prestador.Localidad}`}
-      </div>
-    </td>
-
-    <td className="px-4 py-2 text-black">
-      {prestador.Fidelizado === "1" ? (
-        <div className="flex items-center">
-          Fidelizado
-          <AddTaskSharpIcon />
-        </div>
-      ) : (
-        <span className="text-red-500 flex items-center">
-          No Fidelizado
-          <RemoveCircleOutlineIcon className="text-red-500" />
-        </span>
-      )}
-    </td>
-  </tr>
-))}
-          </Suspense>
+              <tr key={prestador.id || uuidv4()} className="border-t">
+              <td className="px-4 py-2 text-black">
+                <div className="flex items-center">
+                  <img src="especialidad.svg" className="w-8 h-auto mr-2" alt="especialidad" />
+                  {prestador.especialidad} <ChevronRightOutlinedIcon /> {prestador.esp1_nom} <ChevronRightOutlinedIcon /> {prestador.esp2_nom}
+                </div>
+              </td>
+              <td className="px-4 py-2 text-black">
+                <div className="flex items-center">
+                  <img src="prestadortable.svg" className="w-8 h-auto mr-2" alt="prestador" />
+                  {prestador.Nombre}
+                </div>
+              </td>
+              <td className="px-4 py-2 text-black">
+                {prestador.Matricula}
+              </td>
+              <td className="px-4 py-2 text-black">
+                <div className="flex items-center">
+                  <img src="telefono.svg" className="w-8 h-auto mr-2" alt="telefono" />
+                  {prestador.Telefono}
+                </div>
+              </td>
+              <td className="px-4 py-2 text-black">
+                <div className="flex items-center">
+                  <img src="direccion.svg" className="w-8 h-auto mr-2" alt="direccion" />
+                  {`${prestador.Domicilio} - ${prestador.Localidad}`}
+                </div>
+              </td>
+              <td className="px-4 py-2 text-black">
+                {prestador.Fidelizado === "1" ? (
+                  <div className="flex items-center">
+                    <span>Fidelizado</span> 
+                    <AddTaskSharpIcon className="ml-1" />
+                  </div>
+                ) : (
+                  <span className="text-red-500 flex items-center">
+                    No Fidelizado <RemoveCircleOutlineIcon className="text-red-500 ml-1" />
+                  </span>
+                )}
+              </td>
+            </tr>
+            ))}
         </tbody>
       </table>
     </div>
-  
     <div className="mt-4">
       <PaginationButtons page={page} setPage={setPage} maxPage={maxPage} data={[]} />
     </div>
   </div>
-  
-
-  );
-  
+  ); 
 };
 
 export default Prestadores;

@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import React, { useState, useEffect, useRef} from "react";
+import React, { useState, useEffect} from "react";
 import { memo} from "react";
 import BotonCard from "@/app/components/Botones/BotonCard/BotonCard";
 import fetchData  from "@/app/utils/fetchData";
@@ -126,7 +126,6 @@ const CardRequisitos: NextPage<CardRequisitosType> = memo(({servicioSeleccionado
             mostrarIcono
             fondo="/fondo2.svg"
             consultaDeExpediente={subcategoria}
-            consultaDeExpedienteTextDecoration="unset"
             value={subcategoria}
             onClick={() => handleBotonCardClick(subcategoria, subcategoria)} 
           />
@@ -136,7 +135,6 @@ const CardRequisitos: NextPage<CardRequisitosType> = memo(({servicioSeleccionado
             mostrarIcono
             fondo="/fondo2.svg"
             consultaDeExpediente="Delegación de Partamental"
-            consultaDeExpedienteTextDecoration="unset"
             value="Delegación"
             onClick={() => handleBotonCardClick("Delegación de Partamental", "Delegación")} 
           />
@@ -148,7 +146,6 @@ const CardRequisitos: NextPage<CardRequisitosType> = memo(({servicioSeleccionado
                 mostrarIcono
                 fondo="/fondo2.svg"
                 consultaDeExpediente={link.nombre}
-                consultaDeExpedienteTextDecoration="unset"
                 value={link.nombre}
                 onClick={() => handleRedireccionClick(link.url)}
               />
