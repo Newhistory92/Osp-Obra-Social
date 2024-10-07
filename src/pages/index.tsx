@@ -19,7 +19,6 @@ const OSPLanding: NextPage = () => {
         src="/texturas-osp-5_2x.webp"
         />
       <Menu/>
-
       <section className={styles.rectangleParent}>
         <div className={styles.frameChild} />
         <div className={styles.frameParent}>

@@ -13,7 +13,6 @@ export type CardRequisitosType = {
   onPublicacionesFiltradasChange: (publicaciones: any[]) => void;
   subcategoriaRef: React.RefObject<HTMLDivElement>; 
 };
-
 type DataType = {
   publicaciones: { [key: string]: any }[];
 };
