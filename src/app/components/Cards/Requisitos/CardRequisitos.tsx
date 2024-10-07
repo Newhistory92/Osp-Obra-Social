@@ -14,7 +14,10 @@ export type CardRequisitosType = {
   subcategoriaRef: React.RefObject<HTMLDivElement>; 
 };
 
-const apiData = fetchData('/api/Datos/Publicaciones');
+type DataType = {
+  publicaciones: { [key: string]: any }[];
+};
+const apiData = fetchData<DataType>('/api/Datos/Publicaciones');
 
 
 const CardRequisitos: NextPage<CardRequisitosType> = memo(({servicioSeleccionado,onPublicacionesFiltradasChange,subcategoriaRef}) => {

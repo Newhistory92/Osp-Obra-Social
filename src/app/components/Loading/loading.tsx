@@ -1,6 +1,6 @@
 import React from 'react';
 import './loading.css'; 
-import Logo from "../../../../public/Logo.png"
+import Logo from "../../../../public/Logo.webp"
 import Image from 'next/image';
 
 const Loading = () => {

@@ -38,7 +38,7 @@ export const AccesosRapidos = () => {
             href="https://sj.sanjuan.gob.ar/?uid=CUMV-VIEW-ExpedientesComponent"
             className="w-full no-underline hover:cursor-pointer hover:bg-[#524F54] transition-colors h-36 bg-[#413E43] rounded-md flex flex-col justify-center items-center gap-3"
           >
-            <img src="expedientes.png" className="w-12" alt="expedientes" />
+            <img src="expedientes.webp" className="w-12" alt="expedientes" />
             <span className="text-lg font-medium text-white">Expedientes</span>
           </a>
         </div>
