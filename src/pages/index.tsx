@@ -1,7 +1,6 @@
 import type { NextPage } from "next";
 import Header from "../app/components/Navbar/header";
 import Menu from "../app/components/Menu/menu";
-import EstructuraOrganizacional from "../app/components/Contenido/Organizacion/estructura-organizacional";
 import Footer from "../app/components/Footer/footer";
 import styles from "./index.module.css";
 import Carrusel from "@/app/components/Carrusel/Carrusel";
@@ -20,7 +19,6 @@ const OSPLanding: NextPage = () => {
         src="/texturas-osp-5@2x.png"
         />
       <Menu/>
-
       <section className={styles.rectangleParent}>
         <div className={styles.frameChild} />
         <div className={styles.frameParent}>
