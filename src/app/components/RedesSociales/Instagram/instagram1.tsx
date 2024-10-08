@@ -3,13 +3,11 @@ import { memo } from "react";
 import styles from "./instagram1.module.css";
 import Link from "next/link";
 
-export type Instagram1Type = {
-  className?: string;
-};
 
-const Instagram1: NextPage<Instagram1Type> = memo(({ className = "" }) => {
+
+const Instagram1: NextPage = memo(() => {
   return (
-    <div className={[styles.instagram, className].join(" ")}>
+    <div className={styles.instagram}>
       <div className={styles.instagramChild} />
       <Link href="https://www.instagram.com/obrasocialprovincia?igsh=MWRoNHllcG5wdzA4dA==">
       

@@ -3,7 +3,7 @@ import { memo } from "react";
 import Facebook from "../RedesSociales/Facebook/facebook";
 import Instagram from "../RedesSociales/Instagram/instagram";
 import styles from "./footer.module.css";
-
+import Image from "next/image";
 
 const Footer: NextPage = memo(() => {
   return (
@@ -12,24 +12,30 @@ const Footer: NextPage = memo(() => {
         <div className={styles.isologoGobSjNegativo0446ce}>
           <div className={styles.capa1}>
             <div className={styles.group}>
-              <img
+              <Image
                 className={styles.groupIcon}
                 loading="lazy"
                 alt="Group"
                 src="/group.svg"
+                width={100}  
+                 height={100} 
               />
-              <img className={styles.groupIcon1} alt="Group" src="/group-1.svg" />
+              <Image className={styles.groupIcon1} alt="Group" src="/group-1.svg" width={100}  
+          height={100}  />
             </div>
           </div>
         </div>
       </div>
       
       <div className={styles.footerInfo}>
-        <img
+        <Image
           className={styles.institucionalBlancoIcon}
           loading="lazy"
           alt="Institucional Blanco"
           src="/institucional-blanco.svg"
+          width={100}  
+          height={100} 
+            
         />
       </div>
       

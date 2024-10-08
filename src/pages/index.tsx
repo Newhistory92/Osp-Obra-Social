@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import Image from "next/image";
 import Header from "../app/components/Navbar/header";
 import Menu from "../app/components/Menu/menu";
 import Footer from "../app/components/Footer/footer";
@@ -12,12 +13,16 @@ const OSPLanding: NextPage = () => {
   return (
     <div className={styles.ospLanding}>
       <Header />
-      <div style={{ height: "188px" }}></div>
-      <img
+      <div style={{ height: "100px" }}></div>
+      <Image
         className={styles.texturasOsp5Icon}
-        alt=""
-        src="/texturas-osp-5@2x.png"
-        />
+        alt="Texturas OSP"
+        src="/texturas-osp-5_2x.webp"
+        width={1920}  
+        height={250} 
+        sizes="(max-width: 768px) 480px, (max-width: 1200px) 768px, 1920px"
+        priority  
+      />
       <Menu/>
       <section className={styles.rectangleParent}>
         <div className={styles.frameChild} />

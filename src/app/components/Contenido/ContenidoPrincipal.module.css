@@ -5,7 +5,6 @@
   position: relative;
   font-size: inherit;
   font-weight: 700;
-  font-family: inherit;
   text-transform: capitalize;
 }
 .reaAfiliacionesWrapper {
@@ -25,7 +24,7 @@
   font-weight: 700;
   color: var(--gris-principal);
   text-align: left;
-  font-family: inherit;
+  padding-left: 50px;
  
 }
 
@@ -75,10 +74,11 @@
 }
 
 .losTrmitesQueContainer {
-  width: 550px;
+  width: 500px;
   position: relative;
   display: inline-block;
   max-height: 238px;
+  padding-right: 20px;
   word-break: break-word;
   
 }

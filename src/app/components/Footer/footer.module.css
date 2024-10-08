@@ -68,22 +68,11 @@
 .casaDeGobiernoDeLaProvinc {
   margin: 0;
 }
-.blankLine2 {
-  margin: 0;
-  font-size: var(--h2-size);
-}
+
 .horariosDeAtencin {
   font-weight: 500;
 }
-.obraSocialProvinciaContainer {
-  height: 308px;
-  flex: 1;
-  position: relative;
-  display: flex;
-  align-items: center;
-  min-width: 506px;
-  max-width: 100%;
-}
+
 .footer01,
 .footerSocial,
 .footerSocialContainer {

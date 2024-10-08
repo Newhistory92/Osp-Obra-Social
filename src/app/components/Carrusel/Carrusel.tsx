@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { ProgressBar } from 'primereact/progressbar';
 import { CarruselItem } from '@/app/interfaces/interfaces';
 import "primereact/resources/themes/saga-blue/theme.css"; 
-import banner from "../../../../public/banner.png"
+import banner from "../../../../public/banner.webp"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from "./Carrusel.module.css";
 

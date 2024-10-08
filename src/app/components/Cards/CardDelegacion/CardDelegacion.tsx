@@ -2,14 +2,14 @@ import type { NextPage } from "next";
 import { memo } from "react";
 import styles from "./CardDelegacion.module.css";
 import delegaciones from "../../../../../delegaciones.json"
+import Image from "next/image";
 export type CardDelegacionType = {
-  className?: string;
   showIcon?: boolean;
   showBotN?: boolean;
 };
 
 const CardDelegacion: NextPage<CardDelegacionType> = memo(
-  ({ className = "", showIcon = true, showBotN = true }) => {
+  ({ showIcon = true, showBotN = true }) => {
     return (
       
         <div className={styles.cardAtpWrapper}> 
@@ -21,10 +21,13 @@ const CardDelegacion: NextPage<CardDelegacionType> = memo(
               </div>
               <div className={styles.delegacionesWrapper}>
                 {showIcon && (
-                  <img
+                  <Image
                     className={styles.delegacionesIcon}
-                    alt=""
+                    alt="Delegaciones"
                     src="/delegaciones-1.svg"
+                    width={100}  
+                    height={100} 
+                    priority  
                   />
                 )}
               </div>
