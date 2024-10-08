@@ -8,7 +8,7 @@ import CardRequisitos from "../Cards/Requisitos/CardRequisitos";
 import styles from "./menu.module.css";
 import { setActiveButton, setMostrarDelegacion } from '@/app/redux/Slice/navbarSlice';
 import { useAppSelector, useAppDispatch } from '@/app/hooks/StoreHook';
-
+import Image from "next/image";
 
 
 const Menu= memo(( ) => {
@@ -70,17 +70,14 @@ const subcategoriaRef = useRef<HTMLDivElement>(null);
   return (
     <section className={styles.ospLandingInner}>
       <div className={styles.cabeceraConIconosParent}>
-        <div className={styles.cabeceraConIconos}>
-          <div className={styles.headerLeft}>
-      
-            <img
-              className={styles.headerSpacingIcon}
-              loading="lazy"
-              alt=""
-              src="/frame.svg"
-            />
-          </div>
-          <div className={styles.headerLeft}>
+        <div className={styles.cabeceraConIconos}>   
+          <Image 
+          className={styles.headerSpacingIcon}
+          alt="Obra Social Provincia"
+          src="/frame.svg"
+          width={150}  
+          height={150} 
+          priority  /> 
             <div className={styles.socialButtonsContainer}>
               <div className={styles.socialesWrapper}>
                 <RedSocial />
@@ -93,9 +90,14 @@ const subcategoriaRef = useRef<HTMLDivElement>(null);
                     type="text"
                   />
                 </div>
-                <img className={styles.lupa2Icon} alt="" src="/lupa-2.svg" />
+                <Image 
+                className={styles.lupa2Icon}
+                alt="Lupa"
+                src="/lupa-2.svg"
+                width={36}  
+                height={36} 
+                priority /> 
               </div>
-            </div>
           </div>
           <div className={styles.botones}>
             <BotonServicio
@@ -168,16 +170,18 @@ const subcategoriaRef = useRef<HTMLDivElement>(null);
         {mostrarContenido && (
           <>
              
-            <div className="flex h-12 gap-2" onClick={handleCerrarClick} ref={cardRequisitosRef}>
-              <div className="bg-[#413E43] px-3 py-3 rounded-l-md hover:cursor-pointer hover:bg-[#524F54] transition-colors">
-                <img
-                  className="h-full"
-                  loading="lazy"
-                  alt=""
-                  src="/boton-area.svg"
-                />
+            <div className="flex w-56 gap-2" onClick={handleCerrarClick} ref={cardRequisitosRef}>
+              <div className="bg-[#413E43] px-2  rounded-l-md hover:cursor-pointer hover:bg-[#524F54] transition-colors">
+                <Image 
+                className="h-full"
+                alt=""
+                src="/boton-area.svg"
+                width={25}  
+                height={25} 
+                style={{ width: "auto", height: "auto" }}
+                priority /> 
               </div>
-              <button className="w-56 bg-[#D31D16] font-semibold text-white h-12 rounded-r-md hover:cursor-pointer hover:bg-[#E42E27] transition-colors">
+              <button className="w-48 bg-[#D31D16] font-semibold text-white h-10 rounded-r-md hover:cursor-pointer hover:bg-[#E42E27] transition-colors">
                 {servicioSeleccionado}
               </button>
             </div>
